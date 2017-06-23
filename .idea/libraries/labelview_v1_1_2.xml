@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="labelview-v1.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/4be1adc893cac7ee01bc09c7c5367025b26a760b/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/4be1adc893cac7ee01bc09c7c5367025b26a760b/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.linger1216/labelview/v1.1.2/ccdbdfa28c0fd7c4686f7b1ceee1ea2c3e2bd758/labelview-v1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

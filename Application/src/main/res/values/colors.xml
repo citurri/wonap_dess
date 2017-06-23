@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources>
+
+    <color name="text_background">#90000000</color>
+    <color name="transparent_actionbar_background">#22000000</color>
+    <color name="lighter_gray">#ddd</color>
+    <color name="colorPrimary">#4e6cef</color>
+    <color name="colorPrimaryDark">#2a36b1</color>
+    <color name="colorAccent">#ff7043</color>
+    <color name="colorFabRipple">#D84315</color>
+
+    <color name="validez_background">#FF03A9F4</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="color_primary">#FF0288D1</color>
+    <color name="color_primary_dark">#FF0288D1</color>
+    <color name="color_accent">#FF5252</color>
+    <color name="accent_color">#FF22A4D4</color>
+    <color name="transparent_cupon_background">#90FF5252</color>
+    <color name="transparent_cupon_background_verified">#9047ca4d</color>
+    <color name="fastScrollHandleColor">#FFF</color>
+    <color name="fastScrollBarColor">#ffcecece</color>
+    <color name="my_spinner_text_color">#808080</color>
+    <color name="grey_light">#FFCCCCCC</color>
+    <color name="dark">#4b4b4b</color>
+
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+
+    <color name="primary_darker">#303F9F</color>
+
+</resources>

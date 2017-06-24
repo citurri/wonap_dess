@@ -18,5 +18,5 @@
   <string name="zxing_app_name">Barcode Scanner</string>
   <string name="zxing_button_ok">OK</string>
   <string name="zxing_msg_camera_framework_bug">Lo sentimos, la cámara de Android ha encontrado un problema. Es posible que necesite reiniciar el dispositivo.</string>
-  <string name="zxing_msg_default_status">Coloque el código QR del cupón WONAP en el interior del rectángulo del visor para validarlo.</string>
+  <string name="zxing_msg_default_status">Coloque el código QR WONAP en el interior del rectángulo del visor para escanearlo y obtener información de la empresa o redimir un cupón.</string>
 </resources>

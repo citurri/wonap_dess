@@ -324,6 +324,7 @@ public class UtilityService extends IntentService {
             // Store in a local preference as well
             Utils.storeLocation(this, latLngLocation);
 
+            if (Utils.isConn(getApplicationContext()))
             new GetCiudadCercana(latLngLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
             // Send a local broadcast so if an Activity is open it can respond
@@ -401,9 +402,11 @@ public class UtilityService extends IntentService {
             super.onPostExecute(result);
 
             String id_ciudad = loadIdCiudadCercana(mLatestLocation);
-            Log.v("CiudadCercana_Location",id_ciudad);
-            new GetClosestOffers(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
+            if(id_ciudad != null) {
+                Log.v("CiudadCercana_Location", id_ciudad);
+                if (Utils.isConn(getApplicationContext()))
+                new GetClosestOffers(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            }
         }
 
     }
@@ -472,7 +475,7 @@ public class UtilityService extends IntentService {
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             attractions_list.add(new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user")));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido")));
                         }
 
 
@@ -603,7 +606,7 @@ public class UtilityService extends IntentService {
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                            oferta = new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"));
                         }
 
 
@@ -696,6 +699,7 @@ public class UtilityService extends IntentService {
      * @param microApp If the micro app should be triggered or just enhanced notifications
      */
     private void showNotification(String id_oferta, boolean microApp) {
+        if (Utils.isConn(getApplicationContext()))
         new GetOferta(id_oferta).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 

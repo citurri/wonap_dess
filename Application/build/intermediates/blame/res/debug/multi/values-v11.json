@@ -512,6 +512,27 @@
                         "endOffset": 711
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 193,
+                    "startColumn": 4,
+                    "startOffset": 14142,
+                    "endLine": 194,
+                    "endColumn": 10,
+                    "endOffset": 14237
+                },
+                "from": {
+                    "file": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\zxing-android-embedded\\build\\intermediates\\bundles\\default\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 3,
+                        "endColumn": 10,
+                        "endOffset": 150
+                    }
+                }
             }
         ]
     }

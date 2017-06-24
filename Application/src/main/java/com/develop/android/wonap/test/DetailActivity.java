@@ -35,11 +35,11 @@ import com.develop.android.wonap.R;
  */
 public class DetailActivity extends AppCompatActivity {
 
-    private static final String EXTRA_ATTRACTION = "attraction";
+    private static final String EXTRA_ATTRACTION = "id_oferta";
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void launch(Activity activity, String attraction, View heroView) {
-        Intent intent = getLaunchIntent(activity, attraction);
+    public static void launch(Activity activity, String id_oferta, View heroView) {
+        Intent intent = getLaunchIntent(activity, id_oferta);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     activity, heroView, heroView.getTransitionName());
@@ -49,9 +49,9 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
-    public static Intent getLaunchIntent(Context context, String attraction) {
+    public static Intent getLaunchIntent(Context context, String id_oferta) {
         Intent intent = new Intent(context, DetailActivity.class);
-        intent.putExtra(EXTRA_ATTRACTION, attraction);
+        intent.putExtra(EXTRA_ATTRACTION, id_oferta);
         return intent;
     }
 

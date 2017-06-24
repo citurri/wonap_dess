@@ -104,12 +104,31 @@ public class OfertaModel implements Serializable
 
     public void setDistanciaUser(String distancia_user) { this.distancia_user = distancia_user; }
 
+    private String cupones_habilitados;
+
+    public String getCupones_habilitados() { return this.cupones_habilitados; }
+
+    public void setCupones_habilitados(String cupones_habilitados) { this.cupones_habilitados = cupones_habilitados; }
+
+    private String cupones_redimidos;
+
+    public String getCupones_redimidos() { return this.cupones_redimidos; }
+
+    public void setCupones_redimidos(String cupones_redimidos) { this.cupones_redimidos = cupones_redimidos; }
+
+    private boolean cupon_permitido;
+
+    public boolean getCupon_permitido() { return this.cupon_permitido; }
+
+    public void setCupon_permitido(boolean cupon_permitido) { this.cupon_permitido = cupon_permitido; }
+
+
     public OfertaModel() {}
 
     public OfertaModel(String id, String id_empresa, String nombre_empresa, String titulo,
                       String descripcion, String imagen_oferta,boolean es_cupon,String fecha_inicio, String fecha_fin,
                       String denominacion, String pos_latitud,String pos_longitud,String pos_map_address, String pos_map_city,
-                      String pos_map_country, String distancia_user) {
+                      String pos_map_country, String distancia_user, String cupones_habilitados,String cupones_redimidos,boolean cupon_permitido) {
 
         this.id = id;
         this.id_empresa = id_empresa;
@@ -127,6 +146,9 @@ public class OfertaModel implements Serializable
         this.pos_map_city = pos_map_city;
         this.pos_map_country = pos_map_country;
         this.distancia_user = distancia_user;
+        this.cupones_habilitados = cupones_habilitados;
+        this.cupones_redimidos = cupones_redimidos;
+        this.cupon_permitido = cupon_permitido;
     }
 
 }

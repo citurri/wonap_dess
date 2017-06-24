@@ -38,7 +38,6 @@
             android:id="@+id/labelImageView5"
             android:layout_width="@dimen/image_size"
             android:layout_height="@dimen/image_size"
-            android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/empty_photo"
             android:transitionName="image"
@@ -76,8 +75,6 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/overlaytext"
-            android:layout_toEndOf="@+id/textView12"
             android:elevation="1dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -86,16 +83,16 @@
             android:paddingLeft="5dp"
             android:paddingRight="2dp"
             android:paddingStart="5dp"
-            android:paddingTop="2dp" />
+            android:paddingTop="2dp"
+            android:layout_below="@+id/text_empresa"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/textView11" />
 
         <TextView
             android:id="@+id/text_empresa"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/overlaytext"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/textView11"
             android:elevation="1dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -103,28 +100,33 @@
             android:paddingLeft="5dp"
             android:paddingRight="2dp"
             android:paddingStart="5dp"
-            android:paddingTop="2dp" />
+            android:paddingTop="2dp"
+            android:layout_alignBaseline="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/textView12" />
 
         <TextView
             android:id="@+id/textView3"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/textView6"
+            android:layout_toEndOf="@+id/labelImageView5"
             android:elevation="1dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:padding="5dp"
-            tools:text="Description goes here"
-            android:layout_below="@+id/textView6"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/labelImageView5"
-            android:layout_above="@+id/text_empresa" />
+            android:paddingBottom="2dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingTop="2dp"
+            tools:text="Description goes here" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/text_ciudad"
             android:layout_below="@+id/textView3"
             android:layout_toEndOf="@+id/labelImageView5"
             android:paddingBottom="2dp"
@@ -132,7 +134,6 @@
             android:paddingLeft="5dp"
             android:paddingRight="2dp"
             android:paddingStart="5dp"
-            android:paddingTop="2dp"
             android:text="Empresa:"
             android:textStyle="bold" />
 
@@ -140,7 +141,6 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/text_ciudad"
             android:layout_below="@+id/textView11"
             android:layout_toEndOf="@+id/labelImageView5"
             android:paddingBottom="2dp"

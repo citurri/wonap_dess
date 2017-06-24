@@ -3,8 +3,12 @@ package com.develop.android.wonap.ui;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +19,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +34,7 @@ import com.develop.android.wonap.common.Utils;
 import com.develop.android.wonap.database.ParseJSON;
 import com.develop.android.wonap.database.WonapDatabaseLocal;
 import com.develop.android.wonap.service.UtilityService;
+import com.google.zxing.integration.android.IntentIntegrator;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -49,6 +55,7 @@ public class PrincipalActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     ActionButton actionButton;
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -253,6 +260,34 @@ public class PrincipalActivity extends AppCompatActivity {
         });*/
         actionButton = (ActionButton) findViewById(R.id.action_button);
 
+        actionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkPermission()) {
+                        IntentIntegrator integrator =  new IntentIntegrator(PrincipalActivity.this);
+                        integrator.setCaptureActivity(ToolbarCaptureActivity.class);
+                        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                        integrator.setOrientationLocked(false);
+                        integrator.setBeepEnabled(true);
+                        integrator.initiateScan();
+                    } else {
+                        requestPermission();
+                    }
+                } else
+                {
+                    IntentIntegrator integrator =  new IntentIntegrator(PrincipalActivity.this);
+                    integrator.setCaptureActivity(ToolbarCaptureActivity.class);
+                    integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                    integrator.setOrientationLocked(false);
+                    integrator.setBeepEnabled(true);
+                    integrator.initiateScan();
+
+                }
+
+           }
+        });
+
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -282,6 +317,58 @@ public class PrincipalActivity extends AppCompatActivity {
 
 
     }
+    protected boolean checkPermission() {
+        int result2 = ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA);
+        if (result2 == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    protected void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{android.Manifest.permission.CAMERA}, 100);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 100:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    IntentIntegrator integrator =  new IntentIntegrator(PrincipalActivity.this);
+                    integrator.setCaptureActivity(ToolbarCaptureActivity.class);
+                    integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                    integrator.setOrientationLocked(false);
+                    integrator.setBeepEnabled(true);
+                    integrator.initiateScan();
+                } else {
+                    Log.e("value", "Permiso negado. No puede acceder a la cámara.");
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Presiona dos veces atrás para salir", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+    }
+
     private void BaseInit() {
         if (Utils.isConn(this)) {
             try {

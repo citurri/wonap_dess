@@ -19,29 +19,29 @@ public final class R {
         public static final int ptr_rotate_ani_time = 0x7f01018d;
     }
     public static final class drawable {
-        public static final int ptr_rotate_arrow = 0x7f020096;
+        public static final int ptr_rotate_arrow = 0x7f020097;
     }
     public static final class id {
-        public static final int ptr_classic_header_rotate_view = 0x7f0f014a;
-        public static final int ptr_classic_header_rotate_view_header_last_update = 0x7f0f0149;
-        public static final int ptr_classic_header_rotate_view_header_text = 0x7f0f0147;
-        public static final int ptr_classic_header_rotate_view_header_title = 0x7f0f0148;
-        public static final int ptr_classic_header_rotate_view_progressbar = 0x7f0f014b;
+        public static final int ptr_classic_header_rotate_view = 0x7f100157;
+        public static final int ptr_classic_header_rotate_view_header_last_update = 0x7f100156;
+        public static final int ptr_classic_header_rotate_view_header_text = 0x7f100154;
+        public static final int ptr_classic_header_rotate_view_header_title = 0x7f100155;
+        public static final int ptr_classic_header_rotate_view_progressbar = 0x7f100158;
     }
     public static final class layout {
-        public static final int cube_ptr_classic_default_header = 0x7f040025;
-        public static final int cube_ptr_simple_loading = 0x7f040026;
+        public static final int cube_ptr_classic_default_header = 0x7f040027;
+        public static final int cube_ptr_simple_loading = 0x7f040028;
     }
     public static final class string {
-        public static final int cube_ptr_hours_ago = 0x7f080026;
-        public static final int cube_ptr_last_update = 0x7f080027;
-        public static final int cube_ptr_minutes_ago = 0x7f080028;
-        public static final int cube_ptr_pull_down = 0x7f080029;
-        public static final int cube_ptr_pull_down_to_refresh = 0x7f08002a;
-        public static final int cube_ptr_refresh_complete = 0x7f08002b;
-        public static final int cube_ptr_refreshing = 0x7f08002c;
-        public static final int cube_ptr_release_to_refresh = 0x7f08002d;
-        public static final int cube_ptr_seconds_ago = 0x7f08002e;
+        public static final int cube_ptr_hours_ago = 0x7f09002a;
+        public static final int cube_ptr_last_update = 0x7f09002b;
+        public static final int cube_ptr_minutes_ago = 0x7f09002c;
+        public static final int cube_ptr_pull_down = 0x7f09002d;
+        public static final int cube_ptr_pull_down_to_refresh = 0x7f09002e;
+        public static final int cube_ptr_refresh_complete = 0x7f09002f;
+        public static final int cube_ptr_refreshing = 0x7f090030;
+        public static final int cube_ptr_release_to_refresh = 0x7f090031;
+        public static final int cube_ptr_seconds_ago = 0x7f090032;
     }
     public static final class styleable {
         public static final int[] PtrClassicHeader = { 0x7f01018d };

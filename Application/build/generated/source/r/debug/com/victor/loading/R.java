@@ -15,28 +15,28 @@ public final class R {
         public static final int shadow_position = 0x7f01019e;
     }
     public static final class color {
-        public static final int book_loading_background = 0x7f0d000f;
-        public static final int book_loading_book = 0x7f0d0010;
-        public static final int book_loading_page = 0x7f0d0011;
+        public static final int book_loading_background = 0x7f0e000f;
+        public static final int book_loading_book = 0x7f0e0010;
+        public static final int book_loading_page = 0x7f0e0011;
     }
     public static final class dimen {
-        public static final int book_border = 0x7f090061;
-        public static final int book_padding = 0x7f090062;
-        public static final int page_border = 0x7f0900c4;
+        public static final int book_border = 0x7f0a0061;
+        public static final int book_padding = 0x7f0a0062;
+        public static final int page_border = 0x7f0a00c4;
     }
     public static final class id {
-        public static final int ball_five = 0x7f0f0180;
-        public static final int ball_four = 0x7f0f017f;
-        public static final int ball_one = 0x7f0f017c;
-        public static final int ball_three = 0x7f0f017e;
-        public static final int ball_two = 0x7f0f017d;
+        public static final int ball_five = 0x7f100191;
+        public static final int ball_four = 0x7f100190;
+        public static final int ball_one = 0x7f10018d;
+        public static final int ball_three = 0x7f10018f;
+        public static final int ball_two = 0x7f10018e;
     }
     public static final class layout {
-        public static final int book_loading = 0x7f040024;
-        public static final int newton_cradle_loading = 0x7f04003c;
+        public static final int book_loading = 0x7f040026;
+        public static final int newton_cradle_loading = 0x7f04003e;
     }
     public static final class string {
-        public static final int app_name = 0x7f080042;
+        public static final int app_name = 0x7f090046;
     }
     public static final class styleable {
         public static final int[] CradleBall = { 0x7f010120 };

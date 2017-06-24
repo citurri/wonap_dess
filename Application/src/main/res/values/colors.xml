@@ -32,8 +32,8 @@
     <color name="color_primary_dark">#FF0288D1</color>
     <color name="color_accent">#FF5252</color>
     <color name="accent_color">#FF22A4D4</color>
-    <color name="transparent_cupon_background">#90FF5252</color>
-    <color name="transparent_cupon_background_verified">#9047ca4d</color>
+    <color name="transparent_cupon_background">#9047ca4d</color>
+    <color name="transparent_cupon_background_verified">#90FF5252</color>
     <color name="fastScrollHandleColor">#FFF</color>
     <color name="fastScrollBarColor">#ffcecece</color>
     <color name="my_spinner_text_color">#808080</color>

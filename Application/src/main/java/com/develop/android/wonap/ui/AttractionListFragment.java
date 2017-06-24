@@ -20,6 +20,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -209,9 +210,11 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
 
             id_ciudad = loadIdCiudadCercana();
-            Log.v("GetCiudadCercana",id_ciudad);
-            new GetClosestOffers(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
+            //Log.v("GetCiudadCercana",id_ciudad);
+            if(id_ciudad != null) {
+                if (Utils.isConn(getActivity()))
+                    new GetClosestOffers(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            }
      }
 
     }
@@ -268,7 +271,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             attractions.add(new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user")));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido")));
                         }
 
 
@@ -327,6 +330,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
+        if (Utils.isConn(getActivity()))
         new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
 
@@ -336,6 +340,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     public void onResume() {
         super.onResume();
         mItemClicked = false;
+        if (Utils.isConn(getActivity()))
         new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
     }
@@ -407,7 +412,11 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
     @Override
     public boolean onQueryTextChange(String newText) {
+
+
         final List<OfertaModel> filteredModelList = filter(result_original, newText);
+
+        if(mAdapter.mAttractionList != null)
         animateTo(filteredModelList);
         recyclerView.scrollToPosition(0);
         return true;
@@ -468,6 +477,8 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         query = query.toLowerCase();
 
         final List<OfertaModel> filteredModelList = new ArrayList<>();
+
+        if(models != null)
         for (OfertaModel model : models) {
             final String text = model.getTitulo().toLowerCase();
             final String text2 = model.getDescripcion().toLowerCase();
@@ -502,9 +513,13 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         public void onBindViewHolder(ViewHolder holder, int position) {
             OfertaModel attraction = mAttractionList.get(position);
 
+            Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/LoveYaLikeASister.ttf");
             holder.mTitleTextView.setText(attraction.getTitulo());
+            holder.mDescriptionTextView.setTypeface(typeface);
             holder.mDescriptionTextView.setText(attraction.getDescripcion());
+            holder.t_empresa.setTypeface(typeface);
             holder.t_empresa.setText(attraction.getNombreEmpresa());
+            holder.t_ciudad.setTypeface(typeface);
             holder.t_ciudad.setText(attraction.getDenominacion());
             Glide.with(mContext)
                     .load(WEBSERVER+"upload/"+attraction.getImagenOferta())
@@ -519,6 +534,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                 holder.mOverlayTextView.setVisibility(View.GONE);
             } else {
                 holder.mOverlayTextView.setVisibility(View.VISIBLE);
+                holder.mOverlayTextView.setTypeface(typeface);
                 holder.mOverlayTextView.setText(distance);
             }
 
@@ -543,9 +559,9 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         public void onItemClick(View view, int position) {
             if (!mItemClicked) {
                 mItemClicked = true;
-                View heroView = view.findViewById(android.R.id.icon);
+                View heroView = view.findViewById(R.id.labelImageView5);
                 DetailActivity.launch(
-                        getActivity(), mAdapter.mAttractionList.get(position).getTitulo(), heroView);
+                        getActivity(), mAdapter.mAttractionList.get(position).getId(), heroView);
             }
         }
 
@@ -571,6 +587,8 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
         public ViewHolder(View view, ItemClickListener itemClickListener) {
             super(view);
+
+
             mTitleTextView = (TextView) view.findViewById(R.id.textView6);
             mDescriptionTextView = (TextView) view.findViewById(R.id.textView3);
             mOverlayTextView = (TextView) view.findViewById(R.id.overlaytext);

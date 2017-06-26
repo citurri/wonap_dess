@@ -20,6 +20,7 @@ repositories {
 dependencies {
     compile files('libs/GenAsync.1.2.jar')
     compile files('libs/PhotoUtil.jar')
+    compile project(path: ':zxing-android-embedded')
     compile 'com.google.android.gms:play-services-location:11.0.1'
     compile 'com.google.android.gms:play-services-maps:11.0.1'
     compile 'com.google.android.gms:play-services-analytics:11.0.1'
@@ -45,7 +46,6 @@ dependencies {
     compile 'com.victor:lib:1.0.4'
     compile 'com.github.linger1216:labelview:v1.1.2'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
-    compile project(path: ':zxing-android-embedded')
 }
 
 // The sample build uses multiple directories to

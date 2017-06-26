@@ -36,6 +36,10 @@
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chat_singlemessage.xml",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\layout\\activity_chat_singlemessage.xml"
+    },
+    {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main.xml",
         "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\layout\\fragment_main.xml"
     },
@@ -46,6 +50,14 @@
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chat_bubble.xml",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\layout\\activity_chat_bubble.xml"
+    },
+    {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_maps_oferta.xml",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\layout\\activity_maps_oferta.xml"
     },
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
@@ -68,16 +80,16 @@
         "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\layout\\custom_actionbar.xml"
     },
     {
-        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
-        "source": "C:\\Users\\Goloso\\.android\\build-cache\\ce02e471747c4b118cff66ade988cfeb62e57d9d\\output\\res\\layout\\design_layout_tab_text.xml"
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\layout\\select_dialog_multichoice_material.xml"
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "C:\\Users\\Goloso\\.android\\build-cache\\ce02e471747c4b118cff66ade988cfeb62e57d9d\\output\\res\\layout\\design_layout_tab_text.xml"
     },
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",

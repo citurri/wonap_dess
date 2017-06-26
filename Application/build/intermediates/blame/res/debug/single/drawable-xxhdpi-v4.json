@@ -32,12 +32,12 @@
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\25d2c67684bdbfc12edbfae375697e0738edb3ff\\output\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
-        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png",
-        "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable-xxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png",
+        "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",

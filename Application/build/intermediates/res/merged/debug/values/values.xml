@@ -1214,7 +1214,8 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="action_map">Show on Map</string>
+    <string name="action_chat">Mensaje</string>
+    <string name="action_map">Perfil de Empresa</string>
     <string name="action_settings">Settings</string>
     <string name="action_test_microapp">Test Micro App</string>
     <string name="action_test_microapp_dialog">
@@ -1272,6 +1273,9 @@ transferred).
     <string name="cube_ptr_release_to_refresh">Release To Refresh</string>
     <string name="cube_ptr_seconds_ago"> seconds ago</string>
     <string name="empty_list">No attractions found nearby!</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyCVEGbMxWWQrl4A8THVlqrnJ0nqN3M95eM
+    </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="intro_message">
         
@@ -1306,7 +1310,10 @@ attractions in a GridViewPager UI component.
     <string name="show_detail_capability_name">show_details</string>
     <string name="show_pwd">Mostrar contraseña</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="title_activity_chat_bubble">Consultas / Comentarios</string>
     <string name="title_activity_gallery">Visor de Imagenes</string>
+    <string name="title_activity_map_oferta">Ubicación de la Oferta</string>
+    <string name="title_activity_maps_oferta">Ubicación de la oferta</string>
     <string name="title_activity_principal">WONAP</string>
     <string name="title_activity_toolbar_capture">Escanear un QR de WONAP</string>
     <string name="turn_off_flashlight">Apagar linterna</string>

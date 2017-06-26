@@ -264,6 +264,10 @@
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\99a548e20b57f65aebe99aac4be40408d9a2159e\\output\\res\\drawable\\piece_dot.xml"
     },
     {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_chat.png",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\drawable\\ic_chat.png"
+    },
+    {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     }

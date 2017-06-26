@@ -12,7 +12,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.develop.android.wonap.R;
-import com.develop.android.wonap.test.DetailActivity;
+import com.develop.android.wonap.ui.DetailActivity;
 import com.google.android.gms.gcm.GcmListenerService;
 
 import java.util.Random;

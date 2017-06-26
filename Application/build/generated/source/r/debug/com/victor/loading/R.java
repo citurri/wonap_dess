@@ -25,18 +25,18 @@ public final class R {
         public static final int page_border = 0x7f0a00c4;
     }
     public static final class id {
-        public static final int ball_five = 0x7f100191;
-        public static final int ball_four = 0x7f100190;
-        public static final int ball_one = 0x7f10018d;
-        public static final int ball_three = 0x7f10018f;
-        public static final int ball_two = 0x7f10018e;
+        public static final int ball_five = 0x7f10019c;
+        public static final int ball_four = 0x7f10019b;
+        public static final int ball_one = 0x7f100198;
+        public static final int ball_three = 0x7f10019a;
+        public static final int ball_two = 0x7f100199;
     }
     public static final class layout {
-        public static final int book_loading = 0x7f040026;
-        public static final int newton_cradle_loading = 0x7f04003e;
+        public static final int book_loading = 0x7f040029;
+        public static final int newton_cradle_loading = 0x7f040041;
     }
     public static final class string {
-        public static final int app_name = 0x7f090046;
+        public static final int app_name = 0x7f090047;
     }
     public static final class styleable {
         public static final int[] CradleBall = { 0x7f010120 };

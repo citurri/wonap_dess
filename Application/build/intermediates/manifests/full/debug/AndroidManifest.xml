@@ -36,16 +36,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" /> <!-- Permissions required for GCM -->
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-    <meta-data
-        android:name="android.support.VERSION"
-        android:value="25.3.1" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -65,6 +56,16 @@
     <uses-feature
         android:name="android.hardware.wifi"
         android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -102,7 +103,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.develop.android.wonap.test.DetailActivity"
+            android:name="com.develop.android.wonap.ui.DetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/XYZAppTheme.Detail" />
@@ -112,22 +113,17 @@
         <service android:name="com.develop.android.wonap.service.UtilityService" />
 
         <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
             android:name="com.develop.android.wonap.config.GlideConfiguration"
             android:value="GlideModule" />
 
         <activity
             android:name="com.develop.android.wonap.ui.PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.develop.android.wonap.provider.GalleryActivity"
             android:label="@string/title_activity_gallery"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.develop.android.wonap.ui.ToolbarCaptureActivity"
             android:clearTaskOnLaunch="true"
@@ -135,12 +131,27 @@
             android:screenOrientation="portrait"
             android:stateNotNeeded="true"
             android:theme="@style/AppCompatCaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:name="com.develop.android.wonap.ui.MapsOfertaActivity"
+            android:label="@string/title_activity_maps_oferta" />
+        <activity
+            android:name="com.develop.android.wonap.ui.ChatBubbleActivity"
+            android:label="@string/title_activity_chat_bubble"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
@@ -148,6 +159,14 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

@@ -31,7 +31,7 @@ public final class R {
         public static final int RIGHT_TOP = 0x7f1000dc;
     }
     public static final class string {
-        public static final int app_name = 0x7f090046;
+        public static final int app_name = 0x7f090047;
     }
     public static final class styleable {
         public static final int[] LabelView = { 0x7f010141, 0x7f010142, 0x7f010143, 0x7f010144, 0x7f010145, 0x7f010146, 0x7f010147, 0x7f010148, 0x7f010149, 0x7f01014a, 0x7f01014b };

@@ -134,10 +134,10 @@ public final class R {
         public static final int default_bmb_text_outside_circle_width = 0x7f0a0086;
     }
     public static final class drawable {
-        public static final int piece = 0x7f020095;
-        public static final int piece_dot = 0x7f020096;
-        public static final int shape_oval_normal = 0x7f020098;
-        public static final int shape_rectangle_normal = 0x7f020099;
+        public static final int piece = 0x7f020096;
+        public static final int piece_dot = 0x7f020097;
+        public static final int shape_oval_normal = 0x7f020099;
+        public static final int shape_rectangle_normal = 0x7f02009a;
     }
     public static final class id {
         public static final int boomHorizontalThrow_1 = 0x7f100063;
@@ -148,7 +148,7 @@ public final class R {
         public static final int boomParabola_3 = 0x7f100068;
         public static final int boomParabola_4 = 0x7f100069;
         public static final int boomRandom = 0x7f10006a;
-        public static final int button = 0x7f100152;
+        public static final int button = 0x7f10015d;
         public static final int buttonPlaceAlignment_bl = 0x7f1000b6;
         public static final int buttonPlaceAlignment_bottom = 0x7f1000b7;
         public static final int buttonPlaceAlignment_br = 0x7f1000b8;
@@ -223,7 +223,7 @@ public final class R {
         public static final int inQuart = 0x7f10007c;
         public static final int inQuint = 0x7f10007d;
         public static final int inSine = 0x7f10007e;
-        public static final int layout = 0x7f100153;
+        public static final int layout = 0x7f10015e;
         public static final int linear = 0x7f10007f;
         public static final int orderDefault = 0x7f100060;
         public static final int orderRandom = 0x7f100061;
@@ -281,7 +281,7 @@ public final class R {
         public static final int piecePlace_ham_5 = 0x7f10005d;
         public static final int piecePlace_ham_6 = 0x7f10005e;
         public static final int piecePlace_share = 0x7f10005f;
-        public static final int shadow = 0x7f100151;
+        public static final int shadow = 0x7f10015c;
         public static final int simpleCircle = 0x7f100032;
         public static final int textInsideCircle = 0x7f100033;
         public static final int textOutsideCircle = 0x7f100034;
@@ -307,14 +307,14 @@ public final class R {
         public static final int default_bmb_showScaleEaseEnum = 0x7f0d0018;
     }
     public static final class layout {
-        public static final int bmb = 0x7f040021;
-        public static final int bmb_ham_button = 0x7f040022;
-        public static final int bmb_simple_circle_button = 0x7f040023;
-        public static final int bmb_text_inside_circle_button = 0x7f040024;
-        public static final int bmb_text_outside_circle_button = 0x7f040025;
+        public static final int bmb = 0x7f040024;
+        public static final int bmb_ham_button = 0x7f040025;
+        public static final int bmb_simple_circle_button = 0x7f040026;
+        public static final int bmb_text_inside_circle_button = 0x7f040027;
+        public static final int bmb_text_outside_circle_button = 0x7f040028;
     }
     public static final class string {
-        public static final int app_name = 0x7f090046;
+        public static final int app_name = 0x7f090047;
     }
     public static final class styleable {
         public static final int[] BoomMenuButton = { 0x7f0100b5, 0x7f0100b6, 0x7f0100b7, 0x7f0100b8, 0x7f0100b9, 0x7f0100ba, 0x7f0100bb, 0x7f0100bc, 0x7f0100bd, 0x7f0100be, 0x7f0100bf, 0x7f0100c0, 0x7f0100c1, 0x7f0100c2, 0x7f0100c3, 0x7f0100c4, 0x7f0100c5, 0x7f0100c6, 0x7f0100c7, 0x7f0100c8, 0x7f0100c9, 0x7f0100ca, 0x7f0100cb, 0x7f0100cc, 0x7f0100cd, 0x7f0100ce, 0x7f0100cf, 0x7f0100d0, 0x7f0100d1, 0x7f0100d2, 0x7f0100d3, 0x7f0100d4, 0x7f0100d5, 0x7f0100d6, 0x7f0100d7, 0x7f0100d8, 0x7f0100d9, 0x7f0100da, 0x7f0100db, 0x7f0100dc, 0x7f0100dd, 0x7f0100de, 0x7f0100df, 0x7f0100e0, 0x7f0100e1, 0x7f0100e2, 0x7f0100e3, 0x7f0100e4, 0x7f0100e5, 0x7f0100e6, 0x7f0100e7, 0x7f0100e8, 0x7f0100e9, 0x7f0100ea, 0x7f0100eb, 0x7f0100ec, 0x7f0100ed, 0x7f0100ee, 0x7f0100ef, 0x7f0100f0, 0x7f0100f1, 0x7f0100f2, 0x7f0100f3, 0x7f0100f4 };

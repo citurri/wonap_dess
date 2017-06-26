@@ -43,7 +43,7 @@ appear further down your stream
 ]]>
     </string>
     <string name="action_test_toggle_geofence">Toggle Geofence Trigger</string>
-    <string name="action_map">Show on Map</string>
+    <string name="action_map">Perfil de Empresa</string>
     <string name="permission_explanation">Allow this app to use your location to show distance to attractions?</string>
     <string name="permission_explanation_action">Let\'s do it!</string>
     <string name="show_detail_capability_name">show_details</string>
@@ -74,4 +74,8 @@ appear further down your stream
     <string name="title_activity_toolbar_capture">Escanear un QR de WONAP</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_map_oferta">Ubicación de la Oferta</string>
+    <string name="title_activity_maps_oferta">Ubicación de la oferta</string>
+    <string name="action_chat">Mensaje</string>
+    <string name="title_activity_chat_bubble">Consultas / Comentarios</string>
 </resources>

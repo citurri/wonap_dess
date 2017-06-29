@@ -12,12 +12,12 @@ public class LoginActivity$$ViewInjector<T extends com.develop.android.wonap.ui.
     target._emailText = finder.castView(view, 2131755347, "field '_emailText'");
     view = finder.findRequiredView(source, 2131755348, "field '_passwordText'");
     target._passwordText = finder.castView(view, 2131755348, "field '_passwordText'");
-    view = finder.findRequiredView(source, 2131755455, "field '_mCbShowPwd'");
-    target._mCbShowPwd = finder.castView(view, 2131755455, "field '_mCbShowPwd'");
-    view = finder.findRequiredView(source, 2131755457, "field '_loginButton'");
-    target._loginButton = finder.castView(view, 2131755457, "field '_loginButton'");
-    view = finder.findRequiredView(source, 2131755458, "field '_signupLink'");
-    target._signupLink = finder.castView(view, 2131755458, "field '_signupLink'");
+    view = finder.findRequiredView(source, 2131755464, "field '_mCbShowPwd'");
+    target._mCbShowPwd = finder.castView(view, 2131755464, "field '_mCbShowPwd'");
+    view = finder.findRequiredView(source, 2131755466, "field '_loginButton'");
+    target._loginButton = finder.castView(view, 2131755466, "field '_loginButton'");
+    view = finder.findRequiredView(source, 2131755467, "field '_signupLink'");
+    target._signupLink = finder.castView(view, 2131755467, "field '_signupLink'");
   }
 
   @Override public void reset(T target) {

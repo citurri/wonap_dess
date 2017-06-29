@@ -78,4 +78,5 @@ appear further down your stream
     <string name="title_activity_maps_oferta">Ubicación de la oferta</string>
     <string name="action_chat">Mensaje</string>
     <string name="title_activity_chat_bubble">Consultas / Comentarios</string>
+    <string name="send_to">Compartir</string>
 </resources>

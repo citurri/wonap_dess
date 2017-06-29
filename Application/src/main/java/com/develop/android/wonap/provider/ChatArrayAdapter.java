@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.develop.android.wonap.R;
-import com.develop.android.wonap.w_moferta_comentarios;
+import com.develop.android.wonap.database.w_moferta_comentarios;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.BufferedReader;
@@ -30,8 +30,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.password;
 
 public class ChatArrayAdapter extends ArrayAdapter<w_moferta_comentarios> {
 

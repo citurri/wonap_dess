@@ -19,7 +19,7 @@ public final class R {
         public static final int ptr_rotate_ani_time = 0x7f01018d;
     }
     public static final class drawable {
-        public static final int ptr_rotate_arrow = 0x7f020098;
+        public static final int ptr_rotate_arrow = 0x7f02009b;
     }
     public static final class id {
         public static final int ptr_classic_header_rotate_view = 0x7f100162;

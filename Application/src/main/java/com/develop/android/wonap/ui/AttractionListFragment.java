@@ -90,7 +90,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     private static String id_ciudad = "";
     private static  Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>();
     private RotateLoading rotateLoading;
-
+    private static  AttractionListFragment fragmento; ;
 
     public AttractionListFragment() {}
 
@@ -199,18 +199,22 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
             return CITY_LOCATIONS;
         }
 
+
         @Override
         protected void onPostExecute(Map<String, LatLng> result) {
             super.onPostExecute(result);
 
-
-            id_ciudad = loadIdCiudadCercana();
-            //Log.v("GetCiudadCercana",id_ciudad);
-            if(id_ciudad != null) {
-                if (Utils.isConn(getActivity()))
-                    new GetClosestOffers(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            if (!fragmento.isDetached()) {
+                if (!result.isEmpty()) {
+                    id_ciudad = loadIdCiudadCercana();
+                    //Log.v("GetCiudadCercana",id_ciudad);
+                    if (id_ciudad != null) {
+                        if (Utils.isConn(getActivity()))
+                            new GetClosestOffers(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                    }
+                }
             }
-     }
+        }
 
     }
 
@@ -325,9 +329,10 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
-        if (Utils.isConn(getActivity()))
-        new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
+        if (Utils.isConn(getActivity())) {
+            fragmento = this;
+            new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
 
     }
 
@@ -335,9 +340,11 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     public void onResume() {
         super.onResume();
         mItemClicked = false;
-        if (Utils.isConn(getActivity()))
-        new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
+        if (Utils.isConn(getActivity())) {
+            fragmento = this;
+            new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
     }
 
     @Override

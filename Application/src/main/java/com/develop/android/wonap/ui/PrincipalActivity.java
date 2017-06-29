@@ -12,6 +12,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -56,6 +57,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     ActionButton actionButton;
     private boolean doubleBackToExitPressedOnce = false;
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -471,7 +473,7 @@ public class PrincipalActivity extends AppCompatActivity {
                     f= new Dashboard();
                     break;
                 case 1:
-                    f= new AttractionListFragment();
+                    f= new NoticiasListFragment();
                     break;
                 case 2:
                     f= new AttractionListFragment();

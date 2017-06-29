@@ -4,53 +4,35 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.DataSetObserver;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnKeyListener;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.develop.android.wonap.R;
-import com.develop.android.wonap.common.Constants;
 import com.develop.android.wonap.common.Utils;
-import com.develop.android.wonap.database.OfertaModel;
 import com.develop.android.wonap.provider.ChatArrayAdapter;
-import com.develop.android.wonap.provider.GalleryActivity;
-import com.develop.android.wonap.w_moferta_comentarios;
+import com.develop.android.wonap.database.w_moferta_comentarios;
 import com.google.android.gms.maps.model.LatLng;
-import com.kosalgeek.genasync12.AsyncResponse;
-import com.kosalgeek.genasync12.EachExceptionsHandler;
-import com.kosalgeek.genasync12.PostResponseAsyncTask;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ChatBubbleActivity extends AppCompatActivity {

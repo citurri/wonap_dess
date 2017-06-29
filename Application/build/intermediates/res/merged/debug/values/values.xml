@@ -1006,11 +1006,13 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_left_margin">10dp</dimen>
+    <dimen name="activity_right_margin">10dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="book_border">10dp</dimen>
     <dimen name="book_padding">15dp</dimen>
+    <dimen name="card_height">250dip</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
@@ -1097,6 +1099,9 @@
     <item format="float" name="hint_pressed_alpha_material_dark" type="dimen">0.70</item>
     <item format="float" name="hint_pressed_alpha_material_light" type="dimen">0.54</item>
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
+    <dimen name="icon_height">60dip</dimen>
+    <dimen name="icon_padding">8dp</dimen>
+    <dimen name="icon_width">60dip</dimen>
     <dimen name="image_size">120dp</dimen>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
@@ -1127,6 +1132,7 @@
     <dimen name="page_border">5dp</dimen>
     <dimen name="small_margin">8dp</dimen>
     <dimen name="standard_margin">16dp</dimen>
+    <dimen name="text_size">18sp</dimen>
     <dimen name="tiny_margin">4dp</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
@@ -1307,6 +1313,7 @@ attractions in a GridViewPager UI component.
     <string name="permission_explanation_action">Let\'s do it!</string>
     <string name="search_menu_title">Search</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="send_to">Compartir</string>
     <string name="show_detail_capability_name">show_details</string>
     <string name="show_pwd">Mostrar contraseña</string>
     <string name="status_bar_notification_info_overflow">999+</string>

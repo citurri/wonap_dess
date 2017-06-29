@@ -1,4 +1,4 @@
-package com.develop.android.wonap;
+package com.develop.android.wonap.database;
 
 public class w_moferta_comentarios {
 

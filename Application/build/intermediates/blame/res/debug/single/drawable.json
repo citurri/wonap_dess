@@ -40,6 +40,10 @@
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_like.png",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\drawable\\ic_like.png"
+    },
+    {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_oval_normal.xml",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\99a548e20b57f65aebe99aac4be40408d9a2159e\\output\\res\\drawable\\shape_oval_normal.xml"
     },
@@ -62,6 +66,10 @@
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\25d2c67684bdbfc12edbfae375697e0738edb3ff\\output\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_share.png",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\drawable\\ic_share.png"
     },
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
@@ -246,6 +254,10 @@
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_liked.png",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\drawable\\ic_liked.png"
     },
     {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",

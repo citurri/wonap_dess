@@ -122,13 +122,31 @@ public class OfertaModel implements Serializable
 
     public void setCupon_permitido(boolean cupon_permitido) { this.cupon_permitido = cupon_permitido; }
 
+    private String dias_restantes;
+
+    public String getDiasRestantes() { return this.dias_restantes; }
+
+    public void setDiasRestantes(String dias_restantes) { this.dias_restantes = dias_restantes; }
+
+    private boolean es_favorito;
+
+    public boolean getEsFavorito() { return this.es_favorito; }
+
+    public void setEsFavorito(boolean es_favorito) { this.es_favorito = es_favorito; }
+
+    private String secundarias_oferta;
+
+    public String getSecundariasOferta() { return this.secundarias_oferta; }
+
+    public void setSecundariasOferta(String secundarias_oferta) { this.secundarias_oferta = secundarias_oferta; }
 
     public OfertaModel() {}
 
     public OfertaModel(String id, String id_empresa, String nombre_empresa, String titulo,
                       String descripcion, String imagen_oferta,boolean es_cupon,String fecha_inicio, String fecha_fin,
                       String denominacion, String pos_latitud,String pos_longitud,String pos_map_address, String pos_map_city,
-                      String pos_map_country, String distancia_user, String cupones_habilitados,String cupones_redimidos,boolean cupon_permitido) {
+                      String pos_map_country, String distancia_user, String cupones_habilitados,String cupones_redimidos,boolean cupon_permitido,
+                       String dias_restantes, boolean es_favorito, String secundarias_oferta) {
 
         this.id = id;
         this.id_empresa = id_empresa;
@@ -149,6 +167,9 @@ public class OfertaModel implements Serializable
         this.cupones_habilitados = cupones_habilitados;
         this.cupones_redimidos = cupones_redimidos;
         this.cupon_permitido = cupon_permitido;
+        this.dias_restantes = dias_restantes;
+        this.es_favorito = es_favorito;
+        this.secundarias_oferta = secundarias_oferta;
     }
 
 }

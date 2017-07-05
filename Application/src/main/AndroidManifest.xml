@@ -116,6 +116,13 @@
             android:screenOrientation="portrait">
 
         </activity>
+
+        <activity
+            android:name=".ui.NoticiaDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.Detail" />
+
     </application>
 
 </manifest>

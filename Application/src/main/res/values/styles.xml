@@ -35,6 +35,7 @@
     <style name="ActionBar.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@color/transparent_actionbar_background</item>
         <item name="displayOptions">showHome|homeAsUp</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
     </style>
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
@@ -76,4 +77,10 @@
     <style name="XYZAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="XYZAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ActionButtonStyle" parent="@android:style/Widget.Holo.Light.ActionButton">
+        <item name="android:minWidth">0dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+    </style>
 </resources>

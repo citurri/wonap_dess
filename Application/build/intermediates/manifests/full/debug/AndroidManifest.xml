@@ -153,6 +153,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="com.develop.android.wonap.ui.NoticiaDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.Detail" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="portrait"

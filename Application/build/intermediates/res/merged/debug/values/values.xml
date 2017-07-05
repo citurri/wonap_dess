@@ -199,7 +199,7 @@
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="text_background">#90000000</color>
-    <color name="transparent_actionbar_background">#22000000</color>
+    <color name="transparent_actionbar_background">#50000000</color>
     <color name="transparent_cupon_background">#9047ca4d</color>
     <color name="transparent_cupon_background_verified">#90FF5252</color>
     <color name="validez_background">#FF03A9F4</color>
@@ -1099,9 +1099,9 @@
     <item format="float" name="hint_pressed_alpha_material_dark" type="dimen">0.70</item>
     <item format="float" name="hint_pressed_alpha_material_light" type="dimen">0.54</item>
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
-    <dimen name="icon_height">60dip</dimen>
+    <dimen name="icon_height">50dip</dimen>
     <dimen name="icon_padding">8dp</dimen>
-    <dimen name="icon_width">60dip</dimen>
+    <dimen name="icon_width">50dip</dimen>
     <dimen name="image_size">120dp</dimen>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
@@ -1333,6 +1333,12 @@ attractions in a GridViewPager UI component.
     <style name="ActionBar.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@color/transparent_actionbar_background</item>
         <item name="displayOptions">showHome|homeAsUp</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
+    <style name="ActionButtonStyle" parent="@android:style/Widget.Holo.Light.ActionButton">
+        <item name="android:minWidth">0dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
     </style>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>

@@ -8,16 +8,16 @@ import butterknife.ButterKnife.Injector;
 public class LoginActivity$$ViewInjector<T extends com.develop.android.wonap.ui.LoginActivity> implements Injector<T> {
   @Override public void inject(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131755347, "field '_emailText'");
-    target._emailText = finder.castView(view, 2131755347, "field '_emailText'");
-    view = finder.findRequiredView(source, 2131755348, "field '_passwordText'");
-    target._passwordText = finder.castView(view, 2131755348, "field '_passwordText'");
-    view = finder.findRequiredView(source, 2131755464, "field '_mCbShowPwd'");
-    target._mCbShowPwd = finder.castView(view, 2131755464, "field '_mCbShowPwd'");
-    view = finder.findRequiredView(source, 2131755466, "field '_loginButton'");
-    target._loginButton = finder.castView(view, 2131755466, "field '_loginButton'");
-    view = finder.findRequiredView(source, 2131755467, "field '_signupLink'");
-    target._signupLink = finder.castView(view, 2131755467, "field '_signupLink'");
+    view = finder.findRequiredView(source, 2131755348, "field '_emailText'");
+    target._emailText = finder.castView(view, 2131755348, "field '_emailText'");
+    view = finder.findRequiredView(source, 2131755349, "field '_passwordText'");
+    target._passwordText = finder.castView(view, 2131755349, "field '_passwordText'");
+    view = finder.findRequiredView(source, 2131755469, "field '_mCbShowPwd'");
+    target._mCbShowPwd = finder.castView(view, 2131755469, "field '_mCbShowPwd'");
+    view = finder.findRequiredView(source, 2131755471, "field '_loginButton'");
+    target._loginButton = finder.castView(view, 2131755471, "field '_loginButton'");
+    view = finder.findRequiredView(source, 2131755472, "field '_signupLink'");
+    target._signupLink = finder.castView(view, 2131755472, "field '_signupLink'");
   }
 
   @Override public void reset(T target) {

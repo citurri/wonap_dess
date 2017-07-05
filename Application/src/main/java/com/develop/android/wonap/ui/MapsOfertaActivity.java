@@ -26,6 +26,7 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
     String titulo;
     String titulo_mapa;
     String empresa;
+    String direccion;
     private UiSettings mUiSettings;
 
     @Override
@@ -39,6 +40,7 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
         titulo = getIntent().getStringExtra("titulo");
         titulo_mapa = getIntent().getStringExtra("titulo_mapa");
         empresa = getIntent().getStringExtra("empresa");
+        direccion = getIntent().getStringExtra("direccion");
 
         getSupportActionBar().setTitle(titulo_mapa);
 
@@ -87,7 +89,7 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
         mUiSettings.setIndoorLevelPickerEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        Marker marker = mMap.addMarker(new MarkerOptions().position(ubicacion).title(empresa).snippet(titulo));
+        Marker marker = mMap.addMarker(new MarkerOptions().position(ubicacion).title(empresa).snippet(direccion));
         //marker.showInfoWindow();
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,17));

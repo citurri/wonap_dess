@@ -148,7 +148,7 @@ public final class R {
         public static final int boomParabola_3 = 0x7f100068;
         public static final int boomParabola_4 = 0x7f100069;
         public static final int boomRandom = 0x7f10006a;
-        public static final int button = 0x7f10015d;
+        public static final int button = 0x7f10015e;
         public static final int buttonPlaceAlignment_bl = 0x7f1000b6;
         public static final int buttonPlaceAlignment_bottom = 0x7f1000b7;
         public static final int buttonPlaceAlignment_br = 0x7f1000b8;
@@ -223,7 +223,7 @@ public final class R {
         public static final int inQuart = 0x7f10007c;
         public static final int inQuint = 0x7f10007d;
         public static final int inSine = 0x7f10007e;
-        public static final int layout = 0x7f10015e;
+        public static final int layout = 0x7f10015f;
         public static final int linear = 0x7f10007f;
         public static final int orderDefault = 0x7f100060;
         public static final int orderRandom = 0x7f100061;
@@ -281,7 +281,7 @@ public final class R {
         public static final int piecePlace_ham_5 = 0x7f10005d;
         public static final int piecePlace_ham_6 = 0x7f10005e;
         public static final int piecePlace_share = 0x7f10005f;
-        public static final int shadow = 0x7f10015c;
+        public static final int shadow = 0x7f10015d;
         public static final int simpleCircle = 0x7f100032;
         public static final int textInsideCircle = 0x7f100033;
         public static final int textOutsideCircle = 0x7f100034;
@@ -307,11 +307,11 @@ public final class R {
         public static final int default_bmb_showScaleEaseEnum = 0x7f0d0018;
     }
     public static final class layout {
-        public static final int bmb = 0x7f040024;
-        public static final int bmb_ham_button = 0x7f040025;
-        public static final int bmb_simple_circle_button = 0x7f040026;
-        public static final int bmb_text_inside_circle_button = 0x7f040027;
-        public static final int bmb_text_outside_circle_button = 0x7f040028;
+        public static final int bmb = 0x7f040025;
+        public static final int bmb_ham_button = 0x7f040026;
+        public static final int bmb_simple_circle_button = 0x7f040027;
+        public static final int bmb_text_inside_circle_button = 0x7f040028;
+        public static final int bmb_text_outside_circle_button = 0x7f040029;
     }
     public static final class string {
         public static final int app_name = 0x7f090047;

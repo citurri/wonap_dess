@@ -94,6 +94,7 @@ public class DetailFragment extends Fragment implements
     TextView descTextView;
     TextView distanceTextView;
     TextView validezTextView;
+    TextView direccionTextView;
     TextView cuponTextView;
     LabelImageView imageView;
     FloatingActionButton mapFab;
@@ -125,6 +126,7 @@ public class DetailFragment extends Fragment implements
         descTextView = (TextView) view.findViewById(R.id.descriptionTextView);
         distanceTextView = (TextView) view.findViewById(R.id.distanceTextView);
         validezTextView = (TextView) view.findViewById(R.id.validezTextView);
+        direccionTextView = (TextView) view.findViewById(R.id.direccionTextView);
         cuponTextView = (TextView) view.findViewById(R.id.cuponTextView);
         imageView = (LabelImageView) view.findViewById(R.id.imageView);
         mapFab = (FloatingActionButton) view.findViewById(R.id.mapFab);
@@ -150,11 +152,12 @@ public class DetailFragment extends Fragment implements
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.detail, menu);
         MenuItem item = menu.findItem(R.id.share);
+        //chat_1.setPadding(10,0,10,0);
+
         MenuItem map = menu.findItem(R.id.map);
         ImageButton mapa = ((ImageButton) map.getActionView());
         mapa.setImageResource(R.drawable.ic_building);
-        mapa.setBackgroundColor(Color.TRANSPARENT);
-        mapa.setPadding(10,0,10,0);
+        //mapa.setPadding(1,0,1,0);
         mapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,8 +169,7 @@ public class DetailFragment extends Fragment implements
         ImageButton chat_1 = ((ImageButton) chat.getActionView());
         //chat_1.setBackground(drawableFromTheme);
         chat_1.setImageResource(R.drawable.ic_chat);
-        chat_1.setBackgroundColor(Color.TRANSPARENT);
-        chat_1.setPadding(10,0,10,0);
+        //chat_1.setBackgroundColor(Color.TRANSPARENT);
         chat_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -276,7 +278,7 @@ public class DetailFragment extends Fragment implements
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             oferta_detalle = new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_oferta"), obj.getBoolean("es_cupon"), obj.getString("fecha_inicio"), obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"), obj.getString("pos_map_address"), obj.getString("pos_map_city"), obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_oferta"), obj.getBoolean("es_cupon"), obj.getString("fecha_inicio"), obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"), obj.getString("pos_map_address"), obj.getString("pos_map_city"), obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"),obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta"));
                         }
 
 
@@ -319,7 +321,18 @@ public class DetailFragment extends Fragment implements
             distanceTextView.setTypeface(typeface);
             distanceTextView.setText("Se encuentra a "+ distance + " de esta oferta.");
             validezTextView.setTypeface(typeface);
-            validezTextView.setText("Válido del "+ oferta_detalle.getFechaInicio().substring(0,10) + " al " + oferta_detalle.getFechaFin().substring(0,10));
+            direccionTextView.setTypeface(typeface);
+            direccionTextView.setText(oferta_detalle.getPosMapAddress());
+
+            if(Integer.parseInt(oferta_detalle.getDiasRestantes()) > 1 )
+                validezTextView.setText("Vigente por "+oferta_detalle.getDiasRestantes()+" días más");
+            else
+            if(Integer.parseInt(oferta_detalle.getDiasRestantes()) > 0)
+                validezTextView.setText("Vigente por "+oferta_detalle.getDiasRestantes()+" día más");
+            else
+                validezTextView.setText("Ya no se encuentra vigente");
+
+            ///validezTextView.setText("Válido del "+ oferta_detalle.getFechaInicio().substring(0,10) + " al " + oferta_detalle.getFechaFin().substring(0,10));
             descTextView.setTypeface(typeface);
             descTextView.setTextSize(18f);
             descTextView.setText(oferta_detalle.getDescripcion());
@@ -342,7 +355,17 @@ public class DetailFragment extends Fragment implements
                     ArrayList<String> images = new ArrayList<String>();
                     //Principal
                     images.add(WEBSERVER+"upload/"+oferta_detalle.getImagenOferta());
-                    //Adicionales
+                    //Si existen adicionales se las añade
+                    String[] secundarias = oferta_detalle.getSecundariasOferta().split(",");
+                    if(secundarias.length > 0)
+                    {
+                        for(String imagen_secundaria : secundarias) {
+
+                            if(!imagen_secundaria.equals(""))
+                            images.add(WEBSERVER+"upload/"+imagen_secundaria);
+                        }
+
+                    }
                     //images.add("http://sourcey.com/images/stock/salvador-dali-the-dream.jpg");
                     // images.add("http://sourcey.com/images/stock/salvador-dali-persistence-of-memory.jpg");
                     //images.add("http://sourcey.com/images/stock/simpsons-persistence-of-memory.jpg");
@@ -391,6 +414,7 @@ public class DetailFragment extends Fragment implements
                     i.putExtra("empresa", "Empresa: " + oferta_detalle.getNombreEmpresa());
                     i.putExtra("titulo", oferta_detalle.getTitulo());
                     i.putExtra("titulo_mapa", "Ubicación de la oferta");
+                    i.putExtra("direccion", oferta_detalle.getPosMapAddress());
                     startActivity(i);
                 }
             });

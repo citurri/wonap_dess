@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-121:12
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-128:12
 	package
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:18:5-40
 	android:versionName
@@ -61,7 +61,7 @@ MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\Goloso\.android\build-c
 	android:name
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:31:22-78
 application
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:33:5-119:19
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:33:5-126:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:47:5-55:19
 MERGED from [com.google.android.gms:play-services-location:11.0.1] C:\Users\Goloso\.android\build-cache\7145b6b182373b9d933b670281b24805d594937c\output\AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-maps:11.0.1] C:\Users\Goloso\.android\build-cache\d764666993a0c45e4bf9c76ab5e5ebb3afa68d2d\output\AndroidManifest.xml:24:5-19
@@ -229,6 +229,16 @@ ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\Androi
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:115:13-63
 	android:name
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:114:13-50
+activity#com.develop.android.wonap.ui.NoticiaDetailActivity
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:120:9-124:57
+	android:screenOrientation
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:123:13-49
+	android:label
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:122:13-45
+	android:theme
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:124:13-54
+	android:name
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:121:13-53
 uses-sdk
 INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:19:5-21:41
@@ -374,4 +384,4 @@ ADDED from [com.google.android.gms:play-services-basement:11.0.1] C:\Users\Golos
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:11.0.1] C:\Users\Goloso\.android\build-cache\55757109db2652019fcb6f1b7e7e57c5004ea487\output\AndroidManifest.xml:20:20-65
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-121:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-128:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE

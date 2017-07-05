@@ -5,9 +5,13 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +28,26 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.develop.android.wonap.R;
 import com.develop.android.wonap.common.CircleTransform;
+import com.develop.android.wonap.common.Utils;
+import com.develop.android.wonap.database.NoticiasModel;
+import com.develop.android.wonap.database.w_banner;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.SphericalUtil;
 import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
 import com.sdsmdg.harjot.rotatingtext.models.Rotatable;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
 
@@ -45,6 +65,12 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
     private SliderLayout mDemoSlider;
     String nombre_completo;
     String image_user;
+    private LatLng mLatestLocation;
+    private static String WEBSERVER = "";
+    private static  Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>();
+    private static String id_ciudad = "";
+    private static  Dashboard fragmento;
+    List<w_banner> banner = new ArrayList<>();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -87,7 +113,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         mDemoSlider = (SliderLayout)view.findViewById(R.id.slider);
-        final String WEB_SERVER = getString(R.string.web_server);
+        WEBSERVER = getString(R.string.web_server);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         nombre_completo = preferences.getString("nombre_completo", "");
@@ -145,7 +171,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
         ImageView imagen_usuario = (ImageView)view.findViewById(R.id.image_user);
 
         Glide.with(getActivity())
-                .load(WEB_SERVER+"upload/"+image_user)
+                .load(WEBSERVER+"upload/"+image_user)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.drawable.empty_user)
                 .transform(new CircleTransform(getActivity()))
@@ -158,38 +184,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
         rotatingTextWrapper2 = (RotatingTextWrapper) view.findViewById(R.id.custom_switcher_noticias);
 */
 
-        //CONFIGURAMOS EL BANNER CENTRAL
-        HashMap<String,String> url_maps = new HashMap<String, String>();
-        url_maps.put("1", WEB_SERVER+"img_main/1.jpg");
-        url_maps.put("2", WEB_SERVER+"img_main/2.jpg");
-        url_maps.put("3", WEB_SERVER+"img_main/3.jpg");
-        url_maps.put("4", WEB_SERVER+"img_main/4.jpg");
-        url_maps.put("5", WEB_SERVER+"img_main/5.jpg");
-        url_maps.put("6", WEB_SERVER+"img_main/6.jpg");
 
-        for(String name : url_maps.keySet()){
-            TextSliderView textSliderView = new TextSliderView(getActivity());
-            // initialize a SliderLayout
-            textSliderView
-                    //.description(name)
-                    .image(url_maps.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this)           ;
-
-
-            //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra",name);
-
-
-            mDemoSlider.addSlider(textSliderView);
-        }
-        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
-        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        //mDemoSlider.getRootView().findViewById(com.daimajia.slider.library.R.id.description_layout).setVisibility(View.INVISIBLE);
-        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
-        mDemoSlider.setDuration(4000);
 
 
 
@@ -197,7 +192,224 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
         return view;
     }
 
+    private class GetCiudadCercana extends AsyncTask<Void, Void, Map<String, LatLng>> {
 
+        String mStrings;
+        LatLng mLatestLocation;
+
+        public GetCiudadCercana(LatLng mLatestLocation){
+            this.mLatestLocation = mLatestLocation;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.v("GetCiudadNoticia","onPreExecute");
+        }
+
+        @SafeVarargs
+        @Override
+        protected final Map<String, LatLng> doInBackground(Void... arg0) {
+
+            mStrings = "[]";
+
+            BufferedReader bufferedReader = null;
+            try {
+                URL url = new URL(WEBSERVER+"api/getCiudades.php");
+                Log.v("GetCiudadNoticia",url.toString());
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                //con.setConnectTimeout(15000);
+                //con.setReadTimeout(15000);
+                StringBuilder sb = new StringBuilder();
+                bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
+                String json;
+                while ((json = bufferedReader.readLine()) != null) {
+                    sb.append(json).append("\n");
+                }
+                mStrings = sb.toString().trim();
+                Log.v("GetCiudadNoticia","doInBackground");
+                try {
+                    CITY_LOCATIONS.clear();
+                    JSONArray arr = new JSONArray(mStrings);
+                    if (arr.length() != 0) {
+                        for (int i = 0; i < arr.length(); i++) {
+                            JSONObject obj = (JSONObject) arr.get(i);
+                            //getClosestPOS( , mLatestLocation, "", "", true);
+
+                            //if(getPOS.size() > 0) {
+                            //  LatLng lugar = new LatLng(Double.parseDouble(getPOS.get(0).pos_latitud), Double.parseDouble(getPOS.get(0).pos_longitud));
+                            // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
+                            // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
+                            CITY_LOCATIONS.put(obj.getString("id"),new LatLng( Double.parseDouble(obj.getString("latitud")), Double.parseDouble(obj.getString("longitud"))));
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //Log.v("JSON", "Loop:" + uri);
+            } catch (Exception e) {
+                Log.v("JSON",e.toString());
+
+            }
+
+            return CITY_LOCATIONS;
+        }
+
+
+        @Override
+        protected void onPostExecute(Map<String, LatLng> result) {
+            super.onPostExecute(result);
+            Log.v("GetCiudadNoticia","onPostExecute");
+            if (!fragmento.isDetached()) {
+                if (!result.isEmpty()) {
+                    id_ciudad = loadIdCiudadCercana();
+                    //Log.v("GetCiudadCercana",id_ciudad);
+                    if (id_ciudad != null) {
+                        if (Utils.isConn(getActivity()))
+                            new GetClosestBanners(id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    private class GetClosestBanners extends AsyncTask<Void, Void, List<w_banner>> {
+
+        String mStrings;
+        String id_ciudad;
+
+        public GetClosestBanners(String id_ciudad){
+            this.id_ciudad = id_ciudad;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Log.v("getBannerMain","onPreExecute");
+        }
+
+        @SafeVarargs
+        @Override
+        protected final List<w_banner> doInBackground(Void... arg0) {
+
+            mStrings = "[]";
+
+            BufferedReader bufferedReader = null;
+            try {
+                URL url = new URL(WEBSERVER+"api/getBannerMain.php?id_ciudad="+id_ciudad);
+                Log.v("getBannerMain",url.toString());
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                //con.setConnectTimeout(15000);
+                //con.setReadTimeout(15000);
+                StringBuilder sb = new StringBuilder();
+                bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
+                String json;
+                while ((json = bufferedReader.readLine()) != null) {
+                    sb.append(json).append("\n");
+                }
+                mStrings = sb.toString().trim();
+                Log.v("getBannerMain","doInBackground");
+                try {
+                    banner.clear();
+                    JSONArray arr = new JSONArray(mStrings);
+                    if (arr.length() != 0) {
+                        for (int i = 0; i < arr.length(); i++) {
+                            JSONObject obj = (JSONObject) arr.get(i);
+                            //getClosestPOS( , mLatestLocation, "", "", true);
+
+                            //if(getPOS.size() > 0) {
+                            //  LatLng lugar = new LatLng(Double.parseDouble(getPOS.get(0).pos_latitud), Double.parseDouble(getPOS.get(0).pos_longitud));
+                            // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
+                            // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
+                            banner.add(new
+                                    w_banner(obj.getString("id"), obj.getString("imagen_banner")));
+                         }
+
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //Log.v("JSON", "Loop:" + uri);
+            } catch (Exception e) {
+                Log.v("JSON",e.toString());
+
+            }
+
+            return banner;
+        }
+
+        @Override
+        protected void onPostExecute(List<w_banner> result) {
+            super.onPostExecute(result);
+            Log.v("getBannerMain","onPostExecute");
+
+            //CONFIGURAMOS EL BANNER CENTRAL
+            HashMap<String,String> url_maps = new HashMap<String, String>();
+
+            for(w_banner imagen : result) {
+                url_maps.put(imagen.getId(), WEBSERVER + "img_main/"+ imagen.getImagen());
+
+            }
+
+            //TEMPORAL
+            url_maps.put("a", WEBSERVER + "img_main/2.jpg");
+            url_maps.put("b", WEBSERVER + "img_main/3.jpg");
+            url_maps.put("c", WEBSERVER + "img_main/4.jpg");
+            url_maps.put("d", WEBSERVER + "img_main/5.jpg");
+            url_maps.put("e", WEBSERVER + "img_main/6.jpg");
+            url_maps.put("f", WEBSERVER + "img_main/4.jpg");
+            url_maps.put("g", WEBSERVER + "img_main/5.jpg");
+            url_maps.put("h", WEBSERVER + "img_main/6.jpg");
+            url_maps.put("i", WEBSERVER + "img_main/2.jpg");
+
+            for(String name : url_maps.keySet()){
+                TextSliderView textSliderView = new TextSliderView(getActivity());
+                // initialize a SliderLayout
+                textSliderView
+                        //.description(name)
+                        .image(url_maps.get(name))
+                        .setScaleType(BaseSliderView.ScaleType.Fit)
+                        .setOnSliderClickListener(Dashboard.this)           ;
+
+
+                //add your extra information
+                textSliderView.bundle(new Bundle());
+                textSliderView.getBundle()
+                        .putString("extra",name);
+
+
+                mDemoSlider.addSlider(textSliderView);
+            }
+            mDemoSlider.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
+            mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+            //mDemoSlider.getRootView().findViewById(com.daimajia.slider.library.R.id.description_layout).setVisibility(View.INVISIBLE);
+            mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+            mDemoSlider.setDuration(4000);
+
+
+            }
+
+    }
+
+    private String loadIdCiudadCercana() {
+        mLatestLocation = Utils.getLocation(getActivity());
+
+        double minDistance = 0;
+        String closestCity = null;
+        for (Map.Entry<String, LatLng> entry: CITY_LOCATIONS.entrySet()) {
+            double distance = SphericalUtil.computeDistanceBetween(mLatestLocation, entry.getValue());
+            if (minDistance == 0 || distance < minDistance) {
+                minDistance = distance;
+                closestCity = entry.getKey();
+            }
+        }
+        return closestCity;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -207,23 +419,10 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
     @Override
     public void onResume() {
         super.onResume();
-        /*Toast.makeText(getActivity(),"on resume",Toast.LENGTH_SHORT).show();
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Reckoner_Bold.ttf");
-       //rotatingTextWrapper.setSize(35);
-        Rotatable rotatable = new Rotatable(Color.parseColor("#FFA036"), 1000, "Busca tus", "Ofertas", "Cercanas");
-        rotatable.setSize(30);
-        rotatable.setAnimationDuration(500);
-        rotatable.setTypeface(typeface);
-        rotatable.setCenter(true);
-        rotatingTextWrapper.setContent("", rotatable);
-
-        //rotatingTextWrapper.setSize(35);
-        Rotatable rotatable2 = new Rotatable(Color.parseColor("#FFA036"), 1000, "Revisa las", "Noticias", "Recientes");
-        rotatable2.setSize(30);
-        rotatable2.setAnimationDuration(500);
-        rotatable2.setTypeface(typeface);
-        rotatable2.setCenter(true);
-        rotatingTextWrapper2.setContent("", rotatable2);*/
+        if (Utils.isConn(getActivity())) {
+            fragmento = this;
+            new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
     }
 
     @Override

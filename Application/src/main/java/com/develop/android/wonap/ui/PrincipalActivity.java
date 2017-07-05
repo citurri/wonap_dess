@@ -303,7 +303,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 if(position == 0) {
                     // Initialize the moving distance
                     actionButton.moveUp(distance);
-                }else if(position == 1) {
+                }else{
                     actionButton.moveDown(distance);
                 }
 

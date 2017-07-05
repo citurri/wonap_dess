@@ -19,11 +19,13 @@ package com.develop.android.wonap.ui;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -35,7 +37,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -47,6 +51,9 @@ import com.develop.android.wonap.service.UtilityService;
 import com.google.android.gms.location.FusedLocationProviderApi;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.SphericalUtil;
+import com.kosalgeek.genasync12.AsyncResponse;
+import com.kosalgeek.genasync12.EachExceptionsHandler;
+import com.kosalgeek.genasync12.PostResponseAsyncTask;
 import com.lid.lib.LabelImageView;
 import com.victor.loading.rotate.RotateLoading;
 
@@ -55,8 +62,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,13 +95,14 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     SwipeRefreshLayout swipeContainer;
     SearchView searchView;
     AttractionsRecyclerView recyclerView;
-    private static List<OfertaModel> result_original;
+    private List<OfertaModel> result_original = new LinkedList<OfertaModel>();
     List<OfertaModel> attractions = new LinkedList<OfertaModel>();
     private static String WEBSERVER = "";
     private static String id_ciudad = "";
     private static  Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>();
     private RotateLoading rotateLoading;
-    private static  AttractionListFragment fragmento; ;
+    private static  AttractionListFragment fragmento;
+    int id_user = 0;
 
     public AttractionListFragment() {}
 
@@ -130,7 +142,8 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         searchView.setQueryHint("Empresa o Palabra Clave.");
         searchView.setOnQueryTextListener(this);
 
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        id_user = preferences.getInt("id_usuario", 0);
 
         return view;
     }
@@ -244,7 +257,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad);
+                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user="+id_user);
                 Log.v("GetClosestOffers",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -259,6 +272,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                 Log.v("GetClosestOffers","doInBackground");
                 try {
                     attractions.clear();
+                    result_original.clear();
                     JSONArray arr = new JSONArray(mStrings);
                     if (arr.length() != 0) {
                         for (int i = 0; i < arr.length(); i++) {
@@ -270,7 +284,9 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             attractions.add(new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido")));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"),obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
+                            result_original.add(new
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"),obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
                         }
 
 
@@ -306,7 +322,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
             });
 
             mAdapter = new AttractionAdapter(getActivity(), loadAttractionsFromLocation(mLatestLocation));
-            result_original = attractions;
+
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(
                     getActivity(), getResources().getInteger(R.integer.list_columns)));
@@ -382,6 +398,18 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                                   }
                               }
                       );
+                      Collections.sort(result_original,
+                              new Comparator<OfertaModel>() {
+                                  @Override
+                                  public int compare(OfertaModel lhs, OfertaModel rhs) {
+                                      double lhsDistance = SphericalUtil.computeDistanceBetween(
+                                              new LatLng(Double.parseDouble(lhs.getPosLatitud()), Double.parseDouble(lhs.getPosLongitud())), curLatLng);
+                                      double rhsDistance = SphericalUtil.computeDistanceBetween(
+                                              new LatLng(Double.parseDouble(rhs.getPosLatitud()), Double.parseDouble(rhs.getPosLongitud())), curLatLng);
+                                      return (int) (lhsDistance - rhsDistance);
+                                  }
+                              }
+                      );
                   }
               }
             return attractions;
@@ -418,7 +446,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
         final List<OfertaModel> filteredModelList = filter(result_original, newText);
 
-        if(mAdapter.mAttractionList != null)
+        if(result_original != null & result_original.size() > 0)
         animateTo(filteredModelList);
         recyclerView.scrollToPosition(0);
         return true;
@@ -512,8 +540,8 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            OfertaModel attraction = mAttractionList.get(position);
+        public void onBindViewHolder(final ViewHolder holder, final int position) {
+            final OfertaModel attraction = mAttractionList.get(position);
 
             Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/LoveYaLikeASister.ttf");
             holder.mTitleTextView.setText(attraction.getTitulo());
@@ -545,6 +573,96 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
             }
             else
                holder.mImageView.setLabelVisual(false);
+
+
+            if(attraction.getEsFavorito()){
+                holder.likeImageView.setTag(R.drawable.ic_liked);
+                holder.likeImageView.setImageResource(R.drawable.ic_liked);
+            }
+            else{
+                holder.likeImageView.setTag(R.drawable.ic_like);
+                holder.likeImageView.setImageResource(R.drawable.ic_like);
+            }
+
+
+            if(Integer.parseInt(attraction.getDiasRestantes()) > 1 )
+                holder.days.setText("Vigente por "+attraction.getDiasRestantes()+" días más");
+            else
+                if(Integer.parseInt(attraction.getDiasRestantes()) > 0)
+                    holder.days.setText("Vigente por "+attraction.getDiasRestantes()+" día más");
+                else
+                    holder.days.setText("Ya no se encuentra vigente");
+
+
+            holder.likeImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Boolean favorito;
+                    int id = (int)holder.likeImageView.getTag();
+                    if( id == R.drawable.ic_like){
+
+                        holder.likeImageView.setTag(R.drawable.ic_liked);
+                        holder.likeImageView.setImageResource(R.drawable.ic_liked);
+                        favorito = true;
+                        //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" añadido a favoritos", Toast.LENGTH_LONG).show();
+
+                    }else{
+
+                        holder.likeImageView.setTag(R.drawable.ic_like);
+                        holder.likeImageView.setImageResource(R.drawable.ic_like);
+                        favorito= false;
+                        //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" eliminado de sus favoritos", Toast.LENGTH_LONG).show();
+                    }
+
+
+                    HashMap<String, String> postdata = new HashMap<String, String>();
+                    postdata.put("id_user", String.valueOf(id_user));
+                    postdata.put("id_empresa", String.valueOf(attraction.getIdEmpresa()));
+                    postdata.put("favorito", String.valueOf(favorito));
+
+                    PostResponseAsyncTask task = new PostResponseAsyncTask(getActivity(), postdata, new AsyncResponse() {
+                        @Override
+                        public void processFinish(String s) {
+                            switch (s) {
+                                case "1":
+                                    Toast.makeText(getActivity(), attraction.getNombreEmpresa()+" añadido a favoritos", Toast.LENGTH_LONG).show();
+                                    break;
+                                default:
+                                    Toast.makeText(getActivity(), attraction.getNombreEmpresa()+" eliminado de sus favoritos", Toast.LENGTH_LONG).show();
+                                    break;
+
+                            }
+                        }
+                    });
+
+
+                    task.setLoadingMessage("Actualizando su lista de favoritos, espere por favor.");
+                    task.execute(WEBSERVER + "api/updateFavorito.php");
+                    task.setEachExceptionsHandler(new EachExceptionsHandler() {
+                        @Override
+                        public void handleIOException(IOException e) {
+                            Log.v("Favorito Task: ", "No se puede conectar al servidor.");
+                        }
+
+                        @Override
+                        public void handleMalformedURLException(MalformedURLException e) {
+                            Log.v("Favorito Task: ", "Error de URL.");
+                        }
+
+                        @Override
+                        public void handleProtocolException(ProtocolException e) {
+                            Log.v("Favorito Task: ", "Error de Protocolo.");
+                        }
+
+                        @Override
+                        public void handleUnsupportedEncodingException(UnsupportedEncodingException e) {
+                            Log.v("Favorito Task: ", "Error de codificación.");
+                        }
+                    });
+
+                }
+            });
         }
 
         @Override
@@ -575,7 +693,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
     }
 
-    private static class ViewHolder extends RecyclerView.ViewHolder
+    private class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
         TextView mTitleTextView;
@@ -583,7 +701,10 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         TextView mOverlayTextView;
         TextView t_empresa;
         TextView t_ciudad;
+        TextView days;
         LabelImageView mImageView;
+        public ImageView likeImageView;
+        public ImageView shareImageView;
         ItemClickListener mItemClickListener;
 
 
@@ -596,9 +717,36 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
             mOverlayTextView = (TextView) view.findViewById(R.id.overlaytext);
             t_empresa = (TextView) view.findViewById(R.id.text_empresa);
             t_ciudad = (TextView) view.findViewById(R.id.text_ciudad);
+            days = (TextView) view.findViewById(R.id.daysTextView);
             mImageView = (LabelImageView) view.findViewById(R.id.labelImageView5);
+            likeImageView = (ImageView) view.findViewById(R.id.favImageView);
+            shareImageView = (ImageView) view.findViewById(R.id.shareImageViewOf);
             mItemClickListener = itemClickListener;
             view.setOnClickListener(this);
+
+
+            shareImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    String mensaje = "Empresa: " + t_empresa.getText() + "\n\n" +
+                            "Título: " + mTitleTextView.getText() +
+                            "Descripción: " + mDescriptionTextView.getText() +
+                            "\n\nDescargue WONAP!! ";
+
+
+
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, mensaje);
+                    shareIntent.setType("text/plain");
+                    startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
+
+
+
+                }
+            });
         }
 
         @Override

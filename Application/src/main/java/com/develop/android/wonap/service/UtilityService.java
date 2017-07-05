@@ -172,43 +172,46 @@ public class UtilityService extends IntentService {
      */
     private void addGeofencesInternal() {
         Log.v(TAG, ACTION_ADD_GEOFENCES);
-        Float TRIGGER_RADIUS = Float.parseFloat(new WonapDatabaseLocal(this).getValueApp("TRIGGER_RADIUS"));
+        if(Utils.doesDatabaseExist(this, "WonapDatabaseLocal")) {
 
-        if (!Utils.checkFineLocationPermission(this)) {
-            return;
-        }
+            Float TRIGGER_RADIUS = Float.parseFloat(new WonapDatabaseLocal(this).getValueApp("TRIGGER_RADIUS"));
 
-        GoogleApiClient googleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API)
-                .build();
+            if (!Utils.checkFineLocationPermission(this)) {
+                return;
+            }
 
-        List<Geofence> geofenceList = new ArrayList<Geofence>();
-        int i=0;
-        for (OfertaModel oferta : attractions_list) {
-            geofenceList.add(new Geofence.Builder()
-                    .setCircularRegion(Double.parseDouble(oferta.getPosLatitud()),Double.parseDouble(oferta.getPosLongitud()), TRIGGER_RADIUS)
-                    .setRequestId(String.valueOf(i)+","+oferta.getId())
-                    .setTransitionTypes(TRIGGER_TRANSITION)
-                    .setExpirationDuration(EXPIRATION_DURATION)
-                    .build());
-            i++;
-            if(i > 90) break; //SE LLENAN 90 GEOFENCES COMO MAXIMO DEBIDO A LA LIMITANTE DE 100
-        }
+            GoogleApiClient googleApiClient = new GoogleApiClient.Builder(this)
+                    .addApi(LocationServices.API)
+                    .build();
 
-        // It's OK to use blockingConnect() here as we are running in an
-        // IntentService that executes work on a separate (background) thread.
-        ConnectionResult connectionResult = googleApiClient.blockingConnect(
-                Constants.GOOGLE_API_CLIENT_TIMEOUT_S, TimeUnit.SECONDS);
+            List<Geofence> geofenceList = new ArrayList<Geofence>();
+            int i = 0;
+            for (OfertaModel oferta : attractions_list) {
+                geofenceList.add(new Geofence.Builder()
+                        .setCircularRegion(Double.parseDouble(oferta.getPosLatitud()), Double.parseDouble(oferta.getPosLongitud()), TRIGGER_RADIUS)
+                        .setRequestId(String.valueOf(i) + "," + oferta.getId())
+                        .setTransitionTypes(TRIGGER_TRANSITION)
+                        .setExpirationDuration(EXPIRATION_DURATION)
+                        .build());
+                i++;
+                if (i > 90) break; //SE LLENAN 90 GEOFENCES COMO MAXIMO DEBIDO A LA LIMITANTE DE 100
+            }
 
-        if (connectionResult.isSuccess() && googleApiClient.isConnected()) {
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                    this, 0, new Intent(this, UtilityReceiver.class), 0);
-            GeofencingApi.addGeofences(googleApiClient,
-                    geofenceList, pendingIntent);
-            googleApiClient.disconnect();
-        } else {
-            Log.e(TAG, String.format(Constants.GOOGLE_API_CLIENT_ERROR_MSG,
-                    connectionResult.getErrorCode()));
+            // It's OK to use blockingConnect() here as we are running in an
+            // IntentService that executes work on a separate (background) thread.
+            ConnectionResult connectionResult = googleApiClient.blockingConnect(
+                    Constants.GOOGLE_API_CLIENT_TIMEOUT_S, TimeUnit.SECONDS);
+
+            if (connectionResult.isSuccess() && googleApiClient.isConnected()) {
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        this, 0, new Intent(this, UtilityReceiver.class), 0);
+                GeofencingApi.addGeofences(googleApiClient,
+                        geofenceList, pendingIntent);
+                googleApiClient.disconnect();
+            } else {
+                Log.e(TAG, String.format(Constants.GOOGLE_API_CLIENT_ERROR_MSG,
+                        connectionResult.getErrorCode()));
+            }
         }
     }
 
@@ -438,7 +441,7 @@ public class UtilityService extends IntentService {
             String WEBSERVER = getApplicationContext().getString(R.string.web_server);
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad);
+                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user=0");
                 Log.v("ClosestOffers_location",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -464,7 +467,7 @@ public class UtilityService extends IntentService {
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             attractions_list.add(new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido")));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"), obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
                         }
 
 
@@ -501,10 +504,12 @@ public class UtilityService extends IntentService {
                                 }
                             }
                     );
+
+                    addGeofences(getApplicationContext(), attractions_list);
                 }
             }
 
-            addGeofences(getApplicationContext(), attractions_list);
+
         }
 
     }
@@ -570,7 +575,7 @@ public class UtilityService extends IntentService {
             WEBSERVER = getApplicationContext().getString(R.string.web_server);
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getOferta.php?id_oferta="+id_oferta);
+                URL url = new URL(WEBSERVER+"api/getOferta.php?id_oferta="+id_oferta+"&id_user=0");
                 Log.v("GetOferta",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -595,7 +600,7 @@ public class UtilityService extends IntentService {
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                            oferta = new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"));
+                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"),obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta"));
                         }
 
 

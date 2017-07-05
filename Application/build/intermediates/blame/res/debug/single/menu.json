@@ -4,6 +4,10 @@
         "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\menu\\main.xml"
     },
     {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\menu\\detail_noticia.xml",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\menu\\detail_noticia.xml"
+    },
+    {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\menu\\menu_principal.xml",
         "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\menu\\menu_principal.xml"
     },

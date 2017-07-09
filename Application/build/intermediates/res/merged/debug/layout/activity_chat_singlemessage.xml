@@ -5,18 +5,20 @@
     android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    card_view:cardCornerRadius="15dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="15dp">
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="3dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    card_view:contentPaddingLeft="5dp"
+>
 
     <RelativeLayout
         android:id="@+id/singleMessageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        >
 
         <TextView
             android:id="@+id/redactor"
@@ -27,7 +29,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginStart="75dp"
+            android:layout_marginStart="60dp"
             android:paddingBottom="5dp"
             android:paddingLeft="5dp"
             android:paddingTop="5dp"

@@ -146,17 +146,32 @@
 
         <activity
             android:name="com.develop.android.wonap.ui.MapsOfertaActivity"
-            android:label="@string/title_activity_maps_oferta" />
+            android:label="@string/title_activity_maps_oferta"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.develop.android.wonap.ui.ChatBubbleActivity"
             android:label="@string/title_activity_chat_bubble"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.TransparentActivity" >
         </activity>
         <activity
             android:name="com.develop.android.wonap.ui.NoticiaDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/XYZAppTheme.Detail" />
+        <activity
+            android:name="com.develop.android.wonap.ui.CountryFilterActivity"
+            android:label="@string/title_activity_country"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.develop.android.wonap.ui.EmpresasActivity"
+            android:label="@string/title_activity_empresa"
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.NoActionBar" />
+        <activity
+            android:name="com.develop.android.wonap.ui.EmpresaProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:clearTaskOnLaunch="true"

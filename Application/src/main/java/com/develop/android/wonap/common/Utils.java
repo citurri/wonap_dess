@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -33,6 +34,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Display;
+import android.view.WindowManager;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.model.LatLng;
@@ -65,6 +67,8 @@ public class Utils {
     private static final String DISTANCE_KM_POSTFIX = "km";
     private static final String DISTANCE_M_POSTFIX = "m";
     static LatLng mLatestLocation;
+    private static int screenWidth = 0;
+    private static int screenHeight = 0;
     /**
      * Check if the app has access to fine location permission. On pre-M
      * devices this will always return true.
@@ -111,17 +115,20 @@ public class Utils {
      * Fetch the location from app preferences.
      */
     public static LatLng getLocation(Context context) {
-        if (!checkFineLocationPermission(context)) {
-            return null;
-        }
+        if (context != null)
+        {
+            if (!checkFineLocationPermission(context)) {
+                return null;
+            }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Long lat = prefs.getLong(PREFERENCES_LAT, Long.MAX_VALUE);
-        Long lng = prefs.getLong(PREFERENCES_LNG, Long.MAX_VALUE);
-        if (lat != Long.MAX_VALUE && lng != Long.MAX_VALUE) {
-            Double latDbl = Double.longBitsToDouble(lat);
-            Double lngDbl = Double.longBitsToDouble(lng);
-            return new LatLng(latDbl, lngDbl);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            Long lat = prefs.getLong(PREFERENCES_LAT, Long.MAX_VALUE);
+            Long lng = prefs.getLong(PREFERENCES_LNG, Long.MAX_VALUE);
+            if (lat != Long.MAX_VALUE && lng != Long.MAX_VALUE) {
+                Double latDbl = Double.longBitsToDouble(lat);
+                Double lngDbl = Double.longBitsToDouble(lng);
+                return new LatLng(latDbl, lngDbl);
+            }
         }
         return null;
     }
@@ -273,5 +280,33 @@ public class Utils {
             return null;
         }
         return (double) Math.round(SphericalUtil.computeDistanceBetween(point1, point2));
+    }
+
+    public static int getScreenHeight(Context c) {
+        if (screenHeight == 0) {
+            WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            screenHeight = size.y;
+        }
+
+        return screenHeight;
+    }
+
+    public static int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+    public static int getScreenWidth(Context c) {
+        if (screenWidth == 0) {
+            WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+            Display display = wm.getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            screenWidth = size.x;
+        }
+
+        return screenWidth;
     }
 }

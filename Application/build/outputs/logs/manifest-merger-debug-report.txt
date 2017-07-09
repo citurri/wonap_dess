@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-128:12
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-147:12
 	package
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:18:5-40
 	android:versionName
@@ -61,7 +61,7 @@ MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\Goloso\.android\build-c
 	android:name
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:31:22-78
 application
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:33:5-126:19
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:33:5-145:19
 MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:47:5-55:19
 MERGED from [com.google.android.gms:play-services-location:11.0.1] C:\Users\Goloso\.android\build-cache\7145b6b182373b9d933b670281b24805d594937c\output\AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-maps:11.0.1] C:\Users\Goloso\.android\build-cache\d764666993a0c45e4bf9c76ab5e5ebb3afa68d2d\output\AndroidManifest.xml:24:5-19
@@ -86,13 +86,14 @@ MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Goloso\.android\b
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Goloso\.android\build-cache\3420b603de2e907448629c80f60495beae4c1d62\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Goloso\.android\build-cache\0e9fe7f2132a797022bc3317cc81bda501cade41\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Goloso\.android\build-cache\6dd16e0fc7075afd1457d625d253ab5e8925014c\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Goloso\.android\build-cache\eb8796e60d423a8520438b259097fdf05cdd0570\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\be9242946c16a55974dea9c449295ef8eb480aeb\output\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\47eecdf2805d9dc63edabe0f495f0cd2174c682c\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:29:5-20
 MERGED from [in.srain.cube:ultra-ptr:1.0.11] C:\Users\Goloso\.android\build-cache\a09b0d4e30072709837a11487ab14b58bc1762b2\output\AndroidManifest.xml:11:5-20
 MERGED from [com.victor:lib:1.0.4] C:\Users\Goloso\.android\build-cache\21c1c3ade4635b6d8b8c2173f76e62d0d6189be4\output\AndroidManifest.xml:11:5-14:19
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] C:\Users\Goloso\.android\build-cache\fd4f8ca2a3d69c32f230a747f13b85966a2462a9\output\AndroidManifest.xml:11:5-14:19
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:37:9-41
 	android:supportsRtl
@@ -216,29 +217,59 @@ ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\Androi
 	android:name
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:106:13-58
 activity#com.develop.android.wonap.ui.MapsOfertaActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:109:9-111:65
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:109:9-112:51
+	android:screenOrientation
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:112:13-49
 	android:label
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:111:13-63
 	android:name
 		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:110:13-50
 activity#com.develop.android.wonap.ui.ChatBubbleActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:113:9-118:20
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:114:9-120:20
 	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:116:13-49
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:117:13-49
 	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:115:13-63
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:114:13-50
-activity#com.develop.android.wonap.ui.NoticiaDetailActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:120:9-124:57
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:123:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:122:13-45
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:116:13-63
 	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:124:13-54
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:118:13-67
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:121:13-53
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:115:13-50
+activity#com.develop.android.wonap.ui.NoticiaDetailActivity
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:122:9-126:57
+	android:screenOrientation
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:125:13-49
+	android:label
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:124:13-45
+	android:theme
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:126:13-54
+	android:name
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:123:13-53
+activity#com.develop.android.wonap.ui.CountryFilterActivity
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:128:9-131:51
+	android:screenOrientation
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:131:13-49
+	android:label
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:130:13-59
+	android:name
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:129:13-53
+activity#com.develop.android.wonap.ui.EmpresasActivity
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:133:9-138:15
+	android:screenOrientation
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:136:13-49
+	android:label
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:135:13-59
+	android:theme
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:137:13-59
+	android:name
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:134:13-48
+activity#com.develop.android.wonap.ui.EmpresaProfileActivity
+ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:140:9-143:67
+	android:screenOrientation
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:142:13-49
+	android:theme
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:143:13-64
+	android:name
+		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:141:13-54
 uses-sdk
 INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:19:5-21:41
@@ -252,7 +283,6 @@ MERGED from [com.google.android.gms:play-services-iid:11.0.1] C:\Users\Goloso\.a
 MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a89e989bffbd4a2d678aa8f24386c1c14d34ba3d\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a94729ed1713feadb074d97a7a0d44da9df8c34c\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:transition:25.3.1] C:\Users\Goloso\.android\build-cache\d98520b3b33383f4e50147fa6634ce5cacf74223\output\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-wearable:11.0.1] C:\Users\Goloso\.android\build-cache\75d3864392e8fff68de96488728e20a3a0250db6\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-base:11.0.1] C:\Users\Goloso\.android\build-cache\25d2c67684bdbfc12edbfae375697e0738edb3ff\output\AndroidManifest.xml:17:5-43
@@ -260,6 +290,7 @@ MERGED from [com.google.android.gms:play-services-tasks:11.0.1] C:\Users\Goloso\
 MERGED from [com.google.android.gms:play-services-basement:11.0.1] C:\Users\Goloso\.android\build-cache\55757109db2652019fcb6f1b7e7e57c5004ea487\output\AndroidManifest.xml:17:5-43
 MERGED from [com.android.support:support-v13:25.3.1] C:\Users\Goloso\.android\build-cache\023ac202328a7c9fac5165723b5ee0269607307f\output\AndroidManifest.xml:21:5-23:55
 MERGED from [com.google.maps.android:android-maps-utils:0.3.4] C:\Users\Goloso\.android\build-cache\3599c3df960f6ba7887a024778d98f67227ce5a1\output\AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.4.0] C:\Users\Goloso\.android\build-cache\956ac196a07a9224e0b3500b9c4c2aef173dfe13\output\AndroidManifest.xml:5:5-43
 MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\Goloso\.android\build-cache\5fc5449bf2744bf1641310d3e0d764a518985065\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.nightonke:boommenu:2.1.0] C:\Users\Goloso\.android\build-cache\99a548e20b57f65aebe99aac4be40408d9a2159e\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.ogaclejapan.smarttablayout:library:1.6.1] C:\Users\Goloso\.android\build-cache\5e91e425f36feb4bc43c75a33a470a1afe5ccb09\output\AndroidManifest.xml:8:5-10:41
@@ -268,11 +299,9 @@ MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Goloso\.android\b
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Goloso\.android\build-cache\3420b603de2e907448629c80f60495beae4c1d62\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Goloso\.android\build-cache\0e9fe7f2132a797022bc3317cc81bda501cade41\output\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Goloso\.android\build-cache\6dd16e0fc7075afd1457d625d253ab5e8925014c\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Goloso\.android\build-cache\eb8796e60d423a8520438b259097fdf05cdd0570\output\AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\be9242946c16a55974dea9c449295ef8eb480aeb\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\47eecdf2805d9dc63edabe0f495f0cd2174c682c\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:21:5-23:58
 MERGED from [in.srain.cube:ultra-ptr:1.0.11] C:\Users\Goloso\.android\build-cache\a09b0d4e30072709837a11487ab14b58bc1762b2\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.scalified:fab:1.1.3] C:\Users\Goloso\.android\build-cache\87c06be86002384e477f1da3ffa7198c31f119ef\output\AndroidManifest.xml:23:5-25:41
 MERGED from [com.scalified:viewmover:1.1.1] C:\Users\Goloso\.android\build-cache\440f86b08faa26d263b777bfbf542c2c0846f0ef\output\AndroidManifest.xml:23:5-25:41
@@ -280,6 +309,10 @@ MERGED from [com.scalified:uitools:1.1.2] C:\Users\Goloso\.android\build-cache\d
 MERGED from [com.victor:lib:1.0.4] C:\Users\Goloso\.android\build-cache\21c1c3ade4635b6d8b8c2173f76e62d0d6189be4\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.linger1216:labelview:v1.1.2] C:\Users\Goloso\.android\build-cache\4be1adc893cac7ee01bc09c7c5367025b26a760b\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.davemorrissey.labs:subsampling-scale-image-view:3.6.0] C:\Users\Goloso\.android\build-cache\0a4a9c079bfcda4205f96f75e1012fda2b3de719\output\AndroidManifest.xml:7:5-9:41
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] C:\Users\Goloso\.android\build-cache\fd4f8ca2a3d69c32f230a747f13b85966a2462a9\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a94729ed1713feadb074d97a7a0d44da9df8c34c\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -353,17 +386,17 @@ meta-data#android.support.VERSION
 ADDED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a89e989bffbd4a2d678aa8f24386c1c14d34ba3d\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a94729ed1713feadb074d97a7a0d44da9df8c34c\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:transition:25.3.1] C:\Users\Goloso\.android\build-cache\d98520b3b33383f4e50147fa6634ce5cacf74223\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-v13:25.3.1] C:\Users\Goloso\.android\build-cache\023ac202328a7c9fac5165723b5ee0269607307f\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Goloso\.android\build-cache\376802157b10088f3ed4f9fa58b87f4c0fa9b914\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Goloso\.android\build-cache\3420b603de2e907448629c80f60495beae4c1d62\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Goloso\.android\build-cache\0e9fe7f2132a797022bc3317cc81bda501cade41\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Goloso\.android\build-cache\6dd16e0fc7075afd1457d625d253ab5e8925014c\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Goloso\.android\build-cache\eb8796e60d423a8520438b259097fdf05cdd0570\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\be9242946c16a55974dea9c449295ef8eb480aeb\output\AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\47eecdf2805d9dc63edabe0f495f0cd2174c682c\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a94729ed1713feadb074d97a7a0d44da9df8c34c\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:25:5-27:34
 	android:value
 		ADDED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:24:9-31
@@ -384,4 +417,4 @@ ADDED from [com.google.android.gms:play-services-basement:11.0.1] C:\Users\Golos
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:11.0.1] C:\Users\Goloso\.android\build-cache\55757109db2652019fcb6f1b7e7e57c5004ea487\output\AndroidManifest.xml:20:20-65
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-128:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-147:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE

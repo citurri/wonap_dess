@@ -174,10 +174,21 @@ public class DetailFragment extends Fragment implements
             @Override
             public void onClick(View v) {
                 //MENSAJES
-                Intent intent = new Intent(getActivity(), ChatBubbleActivity.class);
+                //Intent intent = new Intent(getActivity(), ChatBubbleActivity.class);
+
+                //startActivity(intent);
+
+                final Intent intent = new Intent(getActivity(), ChatBubbleActivity.class);
                 intent.putExtra("id", oferta_detalle.getId());
                 intent.putExtra("titulo", oferta_detalle.getTitulo());
+                int[] startingLocation = new int[2];
+                v.getLocationOnScreen(startingLocation);
+                intent.putExtra(ChatBubbleActivity.ARG_DRAWING_START_LOCATION, startingLocation[1]);
                 startActivity(intent);
+                getActivity().overridePendingTransition(0, 0);
+
+
+
 
             }
         });

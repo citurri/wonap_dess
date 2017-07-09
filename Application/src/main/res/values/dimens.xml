@@ -36,5 +36,6 @@
     <dimen name="icon_padding">8dp</dimen>
     <dimen name="card_height">250dip</dimen>
     <dimen name="text_size">18sp</dimen>
-
+    <dimen name="default_elevation">8dp</dimen>
+    <dimen name="user_profile_avatar_size">88dp</dimen>
 </resources>

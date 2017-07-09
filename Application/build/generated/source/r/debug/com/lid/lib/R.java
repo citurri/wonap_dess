@@ -21,14 +21,14 @@ public final class R {
         public static final int label_visual = 0x7f01014a;
     }
     public static final class id {
-        public static final int BOLD = 0x7f1000d5;
-        public static final int BOLD_ITALIC = 0x7f1000d6;
-        public static final int ITALIC = 0x7f1000d7;
-        public static final int LEFT_BOTTOM = 0x7f1000d9;
-        public static final int LEFT_TOP = 0x7f1000da;
-        public static final int NORMAL = 0x7f1000d8;
-        public static final int RIGHT_BOTTOM = 0x7f1000db;
-        public static final int RIGHT_TOP = 0x7f1000dc;
+        public static final int BOLD = 0x7f1000d6;
+        public static final int BOLD_ITALIC = 0x7f1000d7;
+        public static final int ITALIC = 0x7f1000d8;
+        public static final int LEFT_BOTTOM = 0x7f1000da;
+        public static final int LEFT_TOP = 0x7f1000db;
+        public static final int NORMAL = 0x7f1000d9;
+        public static final int RIGHT_BOTTOM = 0x7f1000dc;
+        public static final int RIGHT_TOP = 0x7f1000dd;
     }
     public static final class string {
         public static final int app_name = 0x7f090047;

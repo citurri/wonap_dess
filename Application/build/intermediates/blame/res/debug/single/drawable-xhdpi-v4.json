@@ -160,6 +160,10 @@
         "source": "C:\\Users\\Goloso\\.android\\build-cache\\376802157b10088f3ed4f9fa58b87f4c0fa9b914\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
+        "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\shadow_top.xml",
+        "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\drawable-xhdpi\\shadow_top.xml"
+    },
+    {
         "merged": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\empty_user.jpg",
         "source": "C:\\Users\\Goloso\\AndroidStudioProjects\\XYZ\\Application\\src\\main\\res\\drawable-xhdpi\\empty_user.jpg"
     },

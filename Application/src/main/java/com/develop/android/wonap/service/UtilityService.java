@@ -439,6 +439,9 @@ public class UtilityService extends IntentService {
 
             mStrings = "[]";
             String WEBSERVER = getApplicationContext().getString(R.string.web_server);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = preferences.edit();
+
             BufferedReader bufferedReader = null;
             try {
                 URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user=0");
@@ -468,6 +471,11 @@ public class UtilityService extends IntentService {
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             attractions_list.add(new
                                     OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"), obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
+
+                            editor.putString("ID_CIUDAD", id_ciudad);
+                            editor.putString("LOCALITY", obj.getString("pos_map_city"));
+                            editor.putString("COUNTRY", obj.getString("pos_map_country"));
+
                         }
 
 
@@ -482,7 +490,7 @@ public class UtilityService extends IntentService {
                 Log.v("JSON",e.toString());
 
             }
-
+            editor.apply();
             return attractions_list;
         }
 

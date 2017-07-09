@@ -15,25 +15,25 @@ public final class R {
         public static final int shadow_position = 0x7f01019e;
     }
     public static final class color {
-        public static final int book_loading_background = 0x7f0e000f;
-        public static final int book_loading_book = 0x7f0e0010;
-        public static final int book_loading_page = 0x7f0e0011;
+        public static final int book_loading_background = 0x7f0e0010;
+        public static final int book_loading_book = 0x7f0e0011;
+        public static final int book_loading_page = 0x7f0e0012;
     }
     public static final class dimen {
         public static final int book_border = 0x7f0a0063;
         public static final int book_padding = 0x7f0a0064;
-        public static final int page_border = 0x7f0a00ca;
+        public static final int page_border = 0x7f0a00cb;
     }
     public static final class id {
-        public static final int ball_five = 0x7f1001a5;
-        public static final int ball_four = 0x7f1001a4;
-        public static final int ball_one = 0x7f1001a1;
-        public static final int ball_three = 0x7f1001a3;
-        public static final int ball_two = 0x7f1001a2;
+        public static final int ball_five = 0x7f1001ce;
+        public static final int ball_four = 0x7f1001cd;
+        public static final int ball_one = 0x7f1001ca;
+        public static final int ball_three = 0x7f1001cc;
+        public static final int ball_two = 0x7f1001cb;
     }
     public static final class layout {
-        public static final int book_loading = 0x7f04002a;
-        public static final int newton_cradle_loading = 0x7f040044;
+        public static final int book_loading = 0x7f04002e;
+        public static final int newton_cradle_loading = 0x7f04004e;
     }
     public static final class string {
         public static final int app_name = 0x7f090047;

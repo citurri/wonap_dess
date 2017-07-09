@@ -46,8 +46,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class LoginActivity extends FragmentActivity implements
         ActivityCompat.OnRequestPermissionsResultCallback {
@@ -72,15 +72,15 @@ public class LoginActivity extends FragmentActivity implements
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @InjectView(R.id.input_email)
+    @BindView(R.id.input_email)
     EditText _emailText;
-    @InjectView(R.id.input_password)
+    @BindView(R.id.input_password)
     EditText _passwordText;
-    @InjectView(R.id.cbShowPwd)
+    @BindView(R.id.cbShowPwd)
     CheckBox _mCbShowPwd;
-    @InjectView(R.id.btn_login)
+    @BindView(R.id.btn_login)
     Button _loginButton;
-    @InjectView(R.id.link_signup)
+    @BindView(R.id.link_signup)
     TextView _signupLink;
     Boolean sucess = false;
     Boolean empresa = false;
@@ -94,7 +94,7 @@ public class LoginActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
        //INICIAMOS LOS VALORES POR DEFECTO DE AJUSTES
        //PreferenceManager.setDefaultValues(this, R.xml.ajustes_layout, false);

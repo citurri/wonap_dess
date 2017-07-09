@@ -1,6 +1,7 @@
 package com.develop.android.wonap.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -138,7 +139,9 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
         layout_empresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Click Empresa",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), CountryFilterActivity.class);
+                intent.setAction("Empresas");
+                startActivity(intent);
             }
         });
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Reckoner_Bold.ttf");
@@ -241,6 +244,9 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             CITY_LOCATIONS.put(obj.getString("id"),new LatLng( Double.parseDouble(obj.getString("latitud")), Double.parseDouble(obj.getString("longitud"))));
+
+
+
                         }
                     }
                 } catch (JSONException e) {
@@ -354,7 +360,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
             for(w_banner imagen : result) {
                 url_maps.put(imagen.getId(), WEBSERVER + "img_main/"+ imagen.getImagen());
 
-            }
+           }
 
             //TEMPORAL
             url_maps.put("a", WEBSERVER + "img_main/2.jpg");

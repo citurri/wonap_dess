@@ -36,24 +36,24 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.util.HashMap;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    @InjectView(R.id.input_name) EditText _nameText;
-    @InjectView(R.id.input_email) EditText _emailText;
-    @InjectView(R.id.spinner_ciudad) Spinner _ciudad;
-    @InjectView(R.id.input_apellidos) EditText _apellidos;
-    @InjectView(R.id.input_documento) EditText _documento;
+    @BindView(R.id.input_name) EditText _nameText;
+    @BindView(R.id.input_email) EditText _emailText;
+    @BindView(R.id.spinner_ciudad) Spinner _ciudad;
+    @BindView(R.id.input_apellidos) EditText _apellidos;
+    @BindView(R.id.input_documento) EditText _documento;
 
-    @InjectView(R.id.spinner_tipo) Spinner _tipo_doc;
+    @BindView(R.id.spinner_tipo) Spinner _tipo_doc;
 
-    @InjectView(R.id.input_password) EditText _passwordText;
-    @InjectView(R.id.btn_signup) Button _signupButton;
-    @InjectView(R.id.link_login) TextView _loginLink;
-    @InjectView(R.id.image_usuario)
+    @BindView(R.id.input_password) EditText _passwordText;
+    @BindView(R.id.btn_signup) Button _signupButton;
+    @BindView(R.id.link_login) TextView _loginLink;
+    @BindView(R.id.image_usuario)
     ImageView _imageAnuncio;
     Boolean exists = false;
     Boolean sucess = false;
@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override

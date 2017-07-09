@@ -34,7 +34,8 @@ dependencies {
     compile 'com.google.android.gms:play-services-wearable:11.0.1'
     compile 'com.android.support:support-v13:25.3.1'
     compile 'com.google.maps.android:android-maps-utils:0.3.4'
-    compile 'com.jakewharton:butterknife:6.1.0'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.squareup.picasso:picasso:2.3.2'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
@@ -46,6 +47,7 @@ dependencies {
     compile 'com.victor:lib:1.0.4'
     compile 'com.github.linger1216:labelview:v1.1.2'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
+    compile 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
 }
 
 // The sample build uses multiple directories to

@@ -30,4 +30,9 @@
         <item name="android:windowSharedElementsUseOverlay">false</item>
     </style>
 
+    <style name="MySpinnerLook" parent="@android:style/Widget.Holo.Spinner">
+
+    </style>
+
+
 </resources>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -21,6 +22,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -75,6 +77,9 @@ public class PrincipalActivity extends AppCompatActivity {
 
        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/LoveYaLikeASister.ttf");
+
+
         ActionBar mActionBar = getSupportActionBar();
         assert mActionBar != null;
         mActionBar.setDisplayShowHomeEnabled(false);
@@ -83,7 +88,9 @@ public class PrincipalActivity extends AppCompatActivity {
 
         final View actionBar = mInflater.inflate(R.layout.custom_actionbar, null);
         TextView mTitleTextView = (TextView) actionBar.findViewById(R.id.title_text);
+        mTitleTextView.setTypeface(typeface);
         mTitleTextView.setText("WONAP");
+        mTitleTextView.setGravity(Gravity.CENTER);
         mActionBar.setCustomView(actionBar);
         mActionBar.setDisplayShowCustomEnabled(true);
         ((Toolbar) actionBar.getParent()).setContentInsetsAbsolute(0,0);

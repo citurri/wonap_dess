@@ -95,7 +95,6 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     SwipeRefreshLayout swipeContainer;
     SearchView searchView;
     AttractionsRecyclerView recyclerView;
-    private List<OfertaModel> result_original = new LinkedList<OfertaModel>();
     List<OfertaModel> attractions = new LinkedList<OfertaModel>();
     private static String WEBSERVER = "";
     private static String id_ciudad = "";
@@ -272,7 +271,6 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                 Log.v("GetClosestOffers","doInBackground");
                 try {
                     attractions.clear();
-                    result_original.clear();
                     JSONArray arr = new JSONArray(mStrings);
                     if (arr.length() != 0) {
                         for (int i = 0; i < arr.length(); i++) {
@@ -284,8 +282,6 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                             // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             attractions.add(new
-                                    OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"),obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
-                            result_original.add(new
                                     OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"),obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
                         }
 
@@ -398,18 +394,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                                   }
                               }
                       );
-                      Collections.sort(result_original,
-                              new Comparator<OfertaModel>() {
-                                  @Override
-                                  public int compare(OfertaModel lhs, OfertaModel rhs) {
-                                      double lhsDistance = SphericalUtil.computeDistanceBetween(
-                                              new LatLng(Double.parseDouble(lhs.getPosLatitud()), Double.parseDouble(lhs.getPosLongitud())), curLatLng);
-                                      double rhsDistance = SphericalUtil.computeDistanceBetween(
-                                              new LatLng(Double.parseDouble(rhs.getPosLatitud()), Double.parseDouble(rhs.getPosLongitud())), curLatLng);
-                                      return (int) (lhsDistance - rhsDistance);
-                                  }
-                              }
-                      );
+
                   }
               }
             return attractions;
@@ -444,64 +429,15 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     public boolean onQueryTextChange(String newText) {
 
 
-        final List<OfertaModel> filteredModelList = filter(result_original, newText);
+        final List<OfertaModel> filteredModelList = filter(attractions, newText);
 
-        if(result_original != null & result_original.size() > 0)
-        animateTo(filteredModelList);
+        if(attractions != null & attractions.size() > 0)
+        mAdapter.animateTo(filteredModelList);
         recyclerView.scrollToPosition(0);
         return true;
 
     }
-    public void animateTo(List<OfertaModel> models) {
-        applyAndAnimateRemovals(models);
-        applyAndAnimateAdditions(models);
-        applyAndAnimateMovedItems(models);
-    }
 
-    private void applyAndAnimateRemovals(List<OfertaModel> newModels) {
-        for (int i =   mAdapter.mAttractionList.size() - 1; i >= 0; i--) {
-            final OfertaModel model =   mAdapter.mAttractionList.get(i);
-            if (!newModels.contains(model)) {
-                removeItem(i);
-            }
-        }
-    }
-
-    private void applyAndAnimateAdditions(List<OfertaModel> newModels) {
-        for (int i = 0, count = newModels.size(); i < count; i++) {
-            final OfertaModel model = newModels.get(i);
-            if (!  mAdapter.mAttractionList.contains(model)) {
-                addItem(i, model);
-            }
-        }
-    }
-
-    private void applyAndAnimateMovedItems(List<OfertaModel> newModels) {
-        for (int toPosition = newModels.size() - 1; toPosition >= 0; toPosition--) {
-            final OfertaModel model = newModels.get(toPosition);
-            final int fromPosition =   mAdapter.mAttractionList.indexOf(model);
-            if (fromPosition >= 0 && fromPosition != toPosition) {
-                moveItem(fromPosition, toPosition);
-            }
-        }
-    }
-
-    public OfertaModel removeItem(int position) {
-        final OfertaModel model =  mAdapter.mAttractionList.remove(position);
-        mAdapter.notifyItemRemoved(position);
-        return model;
-    }
-
-    public void addItem(int position, OfertaModel model) {
-        mAdapter.mAttractionList.add(position, model);
-        mAdapter.notifyItemInserted(position);
-    }
-
-    public void moveItem(int fromPosition, int toPosition) {
-        final OfertaModel model =  mAdapter.mAttractionList.remove(fromPosition);
-        mAdapter.mAttractionList.add(toPosition, model);
-        mAdapter.notifyItemMoved(fromPosition, toPosition);
-    }
 
     private List<OfertaModel> filter(List<OfertaModel> models, String query) {
         query = query.toLowerCase();
@@ -529,7 +465,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         public AttractionAdapter(Context context, List<OfertaModel> attractions) {
             super();
             mContext = context;
-            mAttractionList = attractions;
+            mAttractionList = new ArrayList<>(attractions);
         }
 
         @Override
@@ -689,6 +625,57 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         public void clear() {
             mAttractionList.clear();
             notifyDataSetChanged();
+        }
+
+        public void animateTo(List<OfertaModel> models) {
+            applyAndAnimateRemovals(models);
+            applyAndAnimateAdditions(models);
+            applyAndAnimateMovedItems(models);
+        }
+
+        private void applyAndAnimateRemovals(List<OfertaModel> newModels) {
+            for (int i =   mAttractionList.size() - 1; i >= 0; i--) {
+                final OfertaModel model =   mAttractionList.get(i);
+                if (!newModels.contains(model)) {
+                    removeItem(i);
+                }
+            }
+        }
+
+        private void applyAndAnimateAdditions(List<OfertaModel> newModels) {
+            for (int i = 0, count = newModels.size(); i < count; i++) {
+                final OfertaModel model = newModels.get(i);
+                if (!  mAttractionList.contains(model)) {
+                    addItem(i, model);
+                }
+            }
+        }
+
+        private void applyAndAnimateMovedItems(List<OfertaModel> newModels) {
+            for (int toPosition = newModels.size() - 1; toPosition >= 0; toPosition--) {
+                final OfertaModel model = newModels.get(toPosition);
+                final int fromPosition =   mAttractionList.indexOf(model);
+                if (fromPosition >= 0 && fromPosition != toPosition) {
+                    moveItem(fromPosition, toPosition);
+                }
+            }
+        }
+
+        public OfertaModel removeItem(int position) {
+            final OfertaModel model =  mAttractionList.remove(position);
+            notifyItemRemoved(position);
+            return model;
+        }
+
+        public void addItem(int position, OfertaModel model) {
+            mAttractionList.add(position, model);
+            notifyItemInserted(position);
+        }
+
+        public void moveItem(int fromPosition, int toPosition) {
+            final OfertaModel model =  mAttractionList.remove(fromPosition);
+            mAttractionList.add(toPosition, model);
+            notifyItemMoved(fromPosition, toPosition);
         }
 
     }

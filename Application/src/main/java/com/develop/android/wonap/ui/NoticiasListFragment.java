@@ -582,7 +582,7 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
 
         public MyViewHolder(View v, ItemClickListener itemClickListener) {
             super(v);
-            titleTextView = (TextView) v.findViewById(R.id.titleTextView);
+            titleTextView = (TextView) v.findViewById(R.id.titleNoticiaTextView);
             empresaTextView = (TextView) v.findViewById(R.id.EmpresaTextView);
             fechaTextView = (TextView) v.findViewById(R.id.fechaTextView);
             coverImageView = (ImageView) v.findViewById(R.id.coverImageView);

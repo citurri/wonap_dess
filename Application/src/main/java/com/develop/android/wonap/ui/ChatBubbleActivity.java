@@ -1,5 +1,7 @@
 package com.develop.android.wonap.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,14 +9,21 @@ import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,6 +31,7 @@ import com.develop.android.wonap.R;
 import com.develop.android.wonap.common.Utils;
 import com.develop.android.wonap.provider.ChatArrayAdapter;
 import com.develop.android.wonap.database.w_moferta_comentarios;
+import com.develop.android.wonap.provider.SendCommentButton;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONArray;
@@ -35,31 +45,55 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatBubbleActivity extends AppCompatActivity {
-    private static final String TAG = "ChatActivity";
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class ChatBubbleActivity extends AppCompatActivity implements SendCommentButton.OnSendClickListener  {
+    private static final String TAG = "ChatActivity";
     private static ChatArrayAdapter chatArrayAdapter;
     private ListView listView;
-    private EditText chatText;
-    private Button buttonSend;
     String id_oferta ="";
     int id_usuario;
     Integer sesion_usuario;
     String titulo = "";
-
     static List<w_moferta_comentarios> comentarios = new ArrayList<>();
-
     Intent intent;
     private boolean side = false;
+
+    //PARA IMPLEMENTAR ANIMACION
+    public static final String ARG_DRAWING_START_LOCATION = "arg_drawing_start_location";
+    private int drawingStartLocation;
+    @BindView(R.id.contentRoot) LinearLayout contentRoot;
+    @BindView(R.id.llAddComment)  LinearLayout llAddComment;
+    @BindView(R.id.etComment)
+    EditText chatText;
+    @BindView(R.id.btnSendComment)
+    SendCommentButton buttonSend;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_bubble);
+        ButterKnife.bind(this);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        setupSendCommentButton();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Intent intent = getIntent();
+        drawingStartLocation = intent.getIntExtra(ARG_DRAWING_START_LOCATION, 0);
+        if (savedInstanceState == null) {
+            contentRoot.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+                @Override
+                public boolean onPreDraw() {
+                    contentRoot.getViewTreeObserver().removeOnPreDrawListener(this);
+                    startIntroAnimation();
+                    return true;
+                }
+            });
+        }
+
+
         id_oferta = intent.getStringExtra("id");
         titulo = intent.getStringExtra("titulo");
         chatArrayAdapter = new ChatArrayAdapter(this, R.layout.activity_chat_singlemessage);
@@ -69,44 +103,70 @@ public class ChatBubbleActivity extends AppCompatActivity {
 
         getComentarios();
 
-        buttonSend = (Button) findViewById(R.id.buttonSend);
+        //buttonSend = (Button) findViewById(R.id.btnSendComment);
         listView = (ListView) findViewById(R.id.listView1);
-        chatText = (EditText) findViewById(R.id.chatText);
+        //chatText = (EditText) findViewById(R.id.etComment);
         listView.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
         listView.setAdapter(chatArrayAdapter);
-
-        buttonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                if(Utils.isConn(ChatBubbleActivity.this)){
-                    if (!chatText.getText().toString().equals("")) {
-                        sendChatMessage();
-                        getComentarios();
-                        chatArrayAdapter.notifyDataSetChanged();
-                        listView.setAdapter(chatArrayAdapter);
-                    }else
-                        Toast.makeText(getApplicationContext(), "Introduzca un mensaje por favor.", Toast.LENGTH_SHORT).show();
-                }
-                else {
-
-                    Toast.makeText(getApplicationContext(), "Por favor, conéctese a internet....", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
 
         //to scroll the list view to bottom on data change
         chatArrayAdapter.registerDataSetObserver(new DataSetObserver() {
             @Override
             public void onChanged() {
                 super.onChanged();
-                listView.setSelection(0);
+                //listView.setSelection(0);
             }
         });
 
      }
+
+    private void setupSendCommentButton() {
+        buttonSend.setOnSendClickListener(this);
+    }
+
+    private void startIntroAnimation() {
+        //ViewCompat.setElevation(getSupportActionBar().getCustomView(), 0);
+        contentRoot.setScaleY(0.1f);
+        contentRoot.setPivotY(drawingStartLocation);
+        llAddComment.setTranslationY(200);
+
+        contentRoot.animate()
+                .scaleY(1)
+                .setDuration(200)
+                .setInterpolator(new AccelerateInterpolator())
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        //ViewCompat.setElevation(getSupportActionBar().getCustomView(), Utils.dpToPx(8));
+                        animateContent();
+                    }
+                })
+                .start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //ViewCompat.setElevation(getSupportActionBar().getCustomView(), 0);
+        contentRoot.animate()
+                .translationY(Utils.getScreenHeight(this))
+                .setDuration(200)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        ChatBubbleActivity.super.onBackPressed();
+                        overridePendingTransition(0, 0);
+                    }
+                })
+                .start();
+    }
+
+    private void animateContent() {
+        //commentsAdapter.updateItems();
+        llAddComment.animate().translationY(0)
+                .setInterpolator(new DecelerateInterpolator())
+                .setDuration(200)
+                .start();
+    }
 
     public void getComentarios()
     {
@@ -143,12 +203,44 @@ public class ChatBubbleActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onSendClickListener(View v) {
+        if (validateComment()) {
+            if(Utils.isConn(ChatBubbleActivity.this)){
+                if (!chatText.getText().toString().equals("")) {
+                    sendChatMessage();
+                    getComentarios();
+                    chatArrayAdapter.notifyDataSetChanged();
+                    listView.setAdapter(chatArrayAdapter);
+                    chatText.setText(null);
+                    buttonSend.setCurrentState(SendCommentButton.STATE_DONE);
+                }else
+                    Toast.makeText(getApplicationContext(), "Introduzca un mensaje por favor.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+
+                Toast.makeText(getApplicationContext(), "Por favor, conéctese a internet....", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+    private boolean validateComment() {
+        if (TextUtils.isEmpty(chatText.getText())) {
+            buttonSend.startAnimation(AnimationUtils.loadAnimation(this, R.anim.shake_error));
+            return false;
+        }
+
+        return true;
+    }
+
+
+
     public class GetComentarios extends AsyncTask<Void, Void, List<w_moferta_comentarios>> {
 
         String mStrings;
         String id_oferta;
         String WEBSERVER;
-        ProgressDialog loading;
+        //ProgressDialog loading;
 
         public GetComentarios(String id_oferta) {
             this.id_oferta = id_oferta;
@@ -158,9 +250,9 @@ public class ChatBubbleActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             Log.v("GetComentarios", "onPreExecute");
-            loading = ProgressDialog.show(ChatBubbleActivity.this, "Recuperando comentarios, espere por favor...", null, true, true);
-            loading.setCancelable(false);
-            loading.setCanceledOnTouchOutside(false);
+            //loading = ProgressDialog.show(ChatBubbleActivity.this, "Recuperando comentarios, espere por favor...", null, true, true);
+            //loading.setCancelable(false);
+            //loading.setCanceledOnTouchOutside(false);
         }
 
         @SafeVarargs
@@ -223,7 +315,7 @@ public class ChatBubbleActivity extends AppCompatActivity {
             for (w_moferta_comentarios comentario : comentarios) {
                 chatArrayAdapter.add(comentario);
             }
-            loading.dismiss();
+            //loading.dismiss();
 
 
         }

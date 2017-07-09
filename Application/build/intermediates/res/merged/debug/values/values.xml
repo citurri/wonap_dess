@@ -56,6 +56,7 @@
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
     <color name="base">#AAAAAA</color>
+    <color name="bg_comments">#ffffff</color>
     <color name="black">#000000</color>
     <color name="book_loading_background">#ffffff</color>
     <color name="book_loading_book">#ff33b5e5</color>
@@ -66,6 +67,8 @@
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
+    <color name="btn_send_normal">#02c754</color>
+    <color name="btn_send_pressed">#006633</color>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="cardview_dark_background">#FF424242</color>
@@ -74,7 +77,7 @@
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="colorAccent">#ff7043</color>
     <color name="colorFabRipple">#D84315</color>
-    <color name="colorPrimary">#4e6cef</color>
+    <color name="colorPrimary">#FF0288D1</color>
     <color name="colorPrimaryDark">#2a36b1</color>
     <color name="color_accent">#FF5252</color>
     <color name="color_primary">#FF0288D1</color>
@@ -110,6 +113,8 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="divider">#dddddd</color>
+    <color name="fab_color_shadow">#44000000</color>
     <color name="fab_material_amber_500">#ffc107</color>
     <color name="fab_material_amber_900">#ff6f00</color>
     <color name="fab_material_black">#000000</color>
@@ -155,6 +160,7 @@
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <color name="grey_light">#FFCCCCCC</color>
+    <color name="headerBackground">#eeeeee</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="iron">#CCCCCC</color>
@@ -1049,6 +1055,7 @@
     <dimen name="default_bmb_text_inside_circle_width">80dp</dimen>
     <dimen name="default_bmb_text_outside_circle_height">80dp</dimen>
     <dimen name="default_bmb_text_outside_circle_width">80dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
     <dimen name="default_gap">8dip</dimen>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>
@@ -1134,6 +1141,7 @@
     <dimen name="standard_margin">16dp</dimen>
     <dimen name="text_size">18sp</dimen>
     <dimen name="tiny_margin">4dp</dimen>
+    <dimen name="user_profile_avatar_size">88dp</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
@@ -1145,6 +1153,7 @@
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
+    <item name="sectioning_adapter_tag_key_view_viewholder" type="id"/>
     <item name="split_action_bar" type="id"/>
     <item name="text" type="id"/>
     <item name="textinput_counter" type="id"/>
@@ -1250,6 +1259,7 @@ transferred).
     <string name="action_test_toggle_geofence">Toggle Geofence Trigger</string>
     <string name="app_name">Wonap</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="arrow">arrow</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
@@ -1269,6 +1279,7 @@ transferred).
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="country_select">Seleccione otra ciudad para consultar:</string>
     <string name="cube_ptr_hours_ago"> hours ago</string>
     <string name="cube_ptr_last_update">last update: </string>
     <string name="cube_ptr_minutes_ago"> minutes ago</string>
@@ -1318,6 +1329,8 @@ attractions in a GridViewPager UI component.
     <string name="show_pwd">Mostrar contraseña</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_chat_bubble">Consultas / Comentarios</string>
+    <string name="title_activity_country">Ciudades</string>
+    <string name="title_activity_empresa">Empresas</string>
     <string name="title_activity_gallery">Visor de Imagenes</string>
     <string name="title_activity_map_oferta">Ubicación de la Oferta</string>
     <string name="title_activity_maps_oferta">Ubicación de la oferta</string>
@@ -1325,6 +1338,8 @@ attractions in a GridViewPager UI component.
     <string name="title_activity_toolbar_capture">Escanear un QR de WONAP</string>
     <string name="turn_off_flashlight">Apagar linterna</string>
     <string name="turn_on_flashlight">Encender linterna</string>
+    <string name="user_location">Usted se encuentra en:</string>
+    <string name="user_profile_photo">http://igcdn-photos-f-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/929118_455075441302693_1605108410_a.jpg</string>
     <string name="web_server">http://www.sysmart-bo.com/wonap/</string>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
@@ -1414,6 +1429,7 @@ attractions in a GridViewPager UI component.
         <item name="colorAccent">#ffb341</item>
     </style>
     <style name="AppTheme" parent="Theme.Sample"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.Dark" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="colorAccent">@color/white</item>
         <item name="android:colorAccent" ns2:ignore="NewApi">@color/white</item>
@@ -1434,6 +1450,15 @@ attractions in a GridViewPager UI component.
         <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@color/iron</item>
         <item name="android:background">@color/color_primary</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+    <style name="AppTheme.TransparentActivity" parent="XYZAppTheme.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -2478,10 +2503,19 @@ attractions in a GridViewPager UI component.
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="Chat.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/transparent_actionbar_background</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
     <style name="ClusterIcon.TextAppearance" parent="android:TextAppearance">
         <item name="android:textColor">#ffeeeeee</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    <style name="MySpinnerLook" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:spinnerMode">dialog</item>
+        <item name="android:textColor">@color/grey_light</item>
+        <item name="android:textSize">22sp</item>
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -2807,6 +2841,9 @@ attractions in a GridViewPager UI component.
     <style name="ThemeOverlay.AppCompat.Dialog" parent="Base.ThemeOverlay.AppCompat.Dialog"/>
     <style name="ThemeOverlay.AppCompat.Dialog.Alert" parent="Base.ThemeOverlay.AppCompat.Dialog.Alert"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
+    <style name="ToolBarWithNavigationBack">
+        <item name="navigationIcon">@drawable/ic_arrow_back_white_24dp</item>
+    </style>
     <style name="Widget"/>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
@@ -2990,8 +3027,14 @@ attractions in a GridViewPager UI component.
     <style name="XYZAppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
     <style name="XYZAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="XYZAppTheme.TransparentActivity" parent="XYZAppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="actionBarStyle">@style/ActionBar.Detail</item>
+    </style>
     <style name="zxing_CaptureTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen">
   </style>
 </resources>

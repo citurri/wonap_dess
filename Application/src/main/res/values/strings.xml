@@ -79,4 +79,10 @@ appear further down your stream
     <string name="action_chat">Mensaje</string>
     <string name="title_activity_chat_bubble">Consultas / Comentarios</string>
     <string name="send_to">Compartir</string>
+    <string name="arrow">arrow</string>
+    <string name="user_location">Usted se encuentra en:</string>
+    <string name="country_select">Seleccione otra ciudad para consultar:</string>
+    <string name="title_activity_country">Ciudades</string>
+    <string name="title_activity_empresa">Empresas</string>
+    <string name="user_profile_photo">http://igcdn-photos-f-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/929118_455075441302693_1605108410_a.jpg</string>
 </resources>

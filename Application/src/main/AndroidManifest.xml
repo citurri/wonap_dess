@@ -108,12 +108,14 @@
 
         <activity
             android:name=".ui.MapsOfertaActivity"
-            android:label="@string/title_activity_maps_oferta"/>
+            android:label="@string/title_activity_maps_oferta"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".ui.ChatBubbleActivity"
             android:label="@string/title_activity_chat_bubble"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.TransparentActivity" >
 
         </activity>
 
@@ -122,6 +124,23 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/XYZAppTheme.Detail" />
+
+        <activity
+            android:name=".ui.CountryFilterActivity"
+            android:label="@string/title_activity_country"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.EmpresasActivity"
+            android:label="@string/title_activity_empresa"
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.NoActionBar"
+            />
+
+        <activity
+            android:name=".ui.EmpresaProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity" />
 
     </application>
 

@@ -29,25 +29,25 @@ public final class R {
         public static final int zOrderOnTop = 0x7f010160;
     }
     public static final class drawable {
-        public static final int bubble_mask = 0x7f020055;
-        public static final int bubble_shadow = 0x7f020056;
-        public static final int common_full_open_on_phone = 0x7f020057;
+        public static final int bubble_mask = 0x7f020058;
+        public static final int bubble_shadow = 0x7f020059;
+        public static final int common_full_open_on_phone = 0x7f02005a;
     }
     public static final class id {
-        public static final int adjust_height = 0x7f1000df;
-        public static final int adjust_width = 0x7f1000e0;
-        public static final int hybrid = 0x7f1000e1;
-        public static final int none = 0x7f10001c;
-        public static final int normal = 0x7f100018;
-        public static final int satellite = 0x7f1000e2;
-        public static final int terrain = 0x7f1000e3;
-        public static final int text = 0x7f100009;
+        public static final int adjust_height = 0x7f1000e0;
+        public static final int adjust_width = 0x7f1000e1;
+        public static final int hybrid = 0x7f1000e2;
+        public static final int none = 0x7f10001d;
+        public static final int normal = 0x7f100019;
+        public static final int satellite = 0x7f1000e3;
+        public static final int terrain = 0x7f1000e4;
+        public static final int text = 0x7f10000a;
     }
     public static final class integer {
         public static final int google_play_services_version = 0x7f0d0019;
     }
     public static final class layout {
-        public static final int text_bubble = 0x7f04005e;
+        public static final int text_bubble = 0x7f040068;
     }
     public static final class string {
         public static final int common_google_play_services_enable_button = 0x7f090013;
@@ -66,9 +66,9 @@ public final class R {
         public static final int common_signin_button_text_long = 0x7f090023;
     }
     public static final class style {
-        public static final int Bubble_TextAppearance_Dark = 0x7f0b00e2;
-        public static final int Bubble_TextAppearance_Light = 0x7f0b00e3;
-        public static final int ClusterIcon_TextAppearance = 0x7f0b00e6;
+        public static final int Bubble_TextAppearance_Dark = 0x7f0b00e6;
+        public static final int Bubble_TextAppearance_Light = 0x7f0b00e7;
+        public static final int ClusterIcon_TextAppearance = 0x7f0b00eb;
     }
     public static final class styleable {
         public static final int[] LoadingImageView = { 0x7f01014f, 0x7f010150, 0x7f010151 };

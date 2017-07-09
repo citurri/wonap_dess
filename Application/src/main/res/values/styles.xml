@@ -38,10 +38,21 @@
         <item name="actionButtonStyle">@style/ActionButtonStyle</item>
     </style>
 
+    <style name="Chat.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/transparent_actionbar_background</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
+
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
         <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@color/iron</item>
         <item name="android:background">@color/color_primary</item>
+    </style>
+
+    <style name="XYZAppTheme.TransparentActivity"  parent="XYZAppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="actionBarStyle">@style/ActionBar.Detail</item>
     </style>
 
     <style name="AppTheme.Dark" parent="@style/Theme.AppCompat.NoActionBar">
@@ -72,6 +83,7 @@
     <style name="XYZAppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
     <style name="XYZAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -82,5 +94,27 @@
         <item name="android:minWidth">0dip</item>
         <item name="android:paddingLeft">0dip</item>
         <item name="android:paddingRight">0dip</item>
+    </style>
+
+    <style name="MySpinnerLook" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:spinnerMode">dialog</item>
+        <item name="android:textColor">@color/grey_light</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="ToolBarWithNavigationBack">
+        <item name="navigationIcon">@drawable/ic_arrow_back_white_24dp</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.TransparentActivity" parent="XYZAppTheme.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

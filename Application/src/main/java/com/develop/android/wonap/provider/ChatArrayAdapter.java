@@ -62,10 +62,7 @@ public class ChatArrayAdapter extends ArrayAdapter<w_moferta_comentarios> {
         }
 
         new insertComentarios(context).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-
-
-
-  }
+ }
 
     public ChatArrayAdapter(Activity context, int textViewResourceId) {
         super(context, textViewResourceId);

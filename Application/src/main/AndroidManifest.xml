@@ -120,6 +120,14 @@
         </activity>
 
         <activity
+            android:name=".ui.ChatEmpresaActivity"
+            android:label="@string/title_activity_chat_bubble"
+            android:screenOrientation="portrait"
+            android:theme="@style/XYZAppTheme.TransparentActivity" >
+
+        </activity>
+
+        <activity
             android:name=".ui.NoticiaDetailActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -140,6 +148,7 @@
         <activity
             android:name=".ui.EmpresaProfileActivity"
             android:screenOrientation="portrait"
+            android:label="@string/title_activity_empresa_detalle"
             android:theme="@style/AppTheme.TransparentActivity" />
 
     </application>

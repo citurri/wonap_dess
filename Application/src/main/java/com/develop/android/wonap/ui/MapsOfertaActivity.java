@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.develop.android.wonap.R;
+import com.develop.android.wonap.database.markers;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -19,14 +20,16 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    LatLng ubicacion;
     String titulo;
     String titulo_mapa;
-    String empresa;
-    String direccion;
+    ArrayList<markers> m = new ArrayList<>();
     private UiSettings mUiSettings;
 
     @Override
@@ -36,11 +39,10 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ubicacion = getIntent().getExtras().getParcelable("ubicacion");
+
         titulo = getIntent().getStringExtra("titulo");
         titulo_mapa = getIntent().getStringExtra("titulo_mapa");
-        empresa = getIntent().getStringExtra("empresa");
-        direccion = getIntent().getStringExtra("direccion");
+        m = getIntent().getParcelableArrayListExtra("markers");
 
         getSupportActionBar().setTitle(titulo_mapa);
 
@@ -89,12 +91,10 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
         mUiSettings.setIndoorLevelPickerEnabled(true);
 
         // Add a marker in Sydney and move the camera
-        Marker marker = mMap.addMarker(new MarkerOptions().position(ubicacion).title(empresa).snippet(direccion));
-        //marker.showInfoWindow();
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion,17));
-        //mMap.animateCamera(CameraUpdateFactory.zoomIn());
-
+        for(markers mark : m) {
+            mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(mark.getLatitud()),Double.parseDouble(mark.getLongitud()))).title(mark.getEmpresa()).snippet(mark.getDireccion()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(mark.getLatitud()),Double.parseDouble(mark.getLongitud())), 17));
+        }
         Toast.makeText(this,"Pulse sobre el marcador para acceder a más información e indicaciones de como llegar.",Toast.LENGTH_LONG).show();
     }
 

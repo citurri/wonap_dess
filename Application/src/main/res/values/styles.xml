@@ -38,6 +38,12 @@
         <item name="actionButtonStyle">@style/ActionButtonStyle</item>
     </style>
 
+    <style name="ActionBar.DetailChatEmpresa" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/transparent_actionbar_background2</item>
+        <item name="displayOptions">showHome|homeAsUp</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
+
     <style name="Chat.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@color/transparent_actionbar_background</item>
         <item name="actionButtonStyle">@style/ActionButtonStyle</item>
@@ -53,6 +59,12 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="actionBarStyle">@style/ActionBar.Detail</item>
+    </style>
+
+    <style name="XYZAppTheme.ActivityChatEmpresa"  parent="XYZAppTheme">
+        <item name="android:windowBackground">@color/color_primary</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="actionBarStyle">@style/ActionBar.DetailChatEmpresa</item>
     </style>
 
     <style name="AppTheme.Dark" parent="@style/Theme.AppCompat.NoActionBar">

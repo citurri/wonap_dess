@@ -309,4 +309,6 @@ public class Utils {
 
         return screenWidth;
     }
+
+
 }

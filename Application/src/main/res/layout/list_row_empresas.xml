@@ -41,8 +41,10 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginStart="10dp"
                 android:padding="5dp"
                 android:scaleType="centerCrop"
@@ -55,32 +57,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="12dp"
                 android:layout_toEndOf="@+id/imageView5"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:padding="3dp"
-                android:paddingStart="15dp"
+                android:paddingEnd="35dp"
+                android:paddingStart="5dp"
                 android:textStyle="bold"
                 android:transitionName="image"
+                tools:text="Empresa" />
+
+            <TextView
+                android:id="@+id/empTextView"
+                style="?android:textAppearanceMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@+id/imageView5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="3dp"
+                android:paddingEnd="35dp"
+                android:paddingStart="5dp"
+                android:textStyle="bold"
+                android:transitionName="image"
+                android:visibility="gone"
                 tools:text="Empresa" />
 
             <TextView
                 android:id="@+id/categoriaText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/imageView6"
-                android:layout_toEndOf="@+id/imageView5"
+                android:layout_alignBottom="@+id/imageView5"
+                android:layout_toEndOf="@+id/textID"
                 android:ellipsize="end"
+
                 android:maxLines="1"
                 android:padding="1dp"
-                android:paddingStart="10dp"
+                android:paddingEnd="13dp"
                 android:text="Categoria"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textIsSelectable="false"
                 android:textSize="14sp"
                 android:visibility="visible"
-                tools:text="" />
+                tools:text="Categoria" />
 
             <TextView
                 android:id="@+id/textID"
@@ -105,6 +126,29 @@
                 android:layout_alignParentEnd="true"
                 android:padding="13dp"
                 android:src="@drawable/ic_like" />
+
+            <TextView
+                android:id="@+id/distTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dirTextView"
+                android:layout_toEndOf="@+id/imageView5"
+                android:maxLines="1"
+                android:paddingStart="5dp"
+                android:text="Distancia"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/dirTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/empresaNombre"
+                android:layout_toEndOf="@+id/imageView5"
+                android:maxLines="1"
+                android:paddingEnd="35dp"
+                android:paddingStart="5dp"
+                android:text="Direccion"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 

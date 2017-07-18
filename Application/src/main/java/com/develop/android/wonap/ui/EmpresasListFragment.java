@@ -29,8 +29,11 @@ import com.develop.android.wonap.R;
 import com.develop.android.wonap.common.CircleTransform;
 import com.develop.android.wonap.common.Constants;
 import com.develop.android.wonap.common.Utils;
+import com.develop.android.wonap.database.OfertaModel;
+import com.develop.android.wonap.database.markers;
 import com.develop.android.wonap.database.w_empresas;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.maps.android.SphericalUtil;
 import com.kosalgeek.genasync12.AsyncResponse;
 import com.kosalgeek.genasync12.EachExceptionsHandler;
 import com.kosalgeek.genasync12.PostResponseAsyncTask;
@@ -51,6 +54,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -70,16 +75,20 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
     private static String pais;
     private static String ciudad;
     private static Boolean todos;
+    private static Boolean proximidad;
     private static String WEBSERVER = "";
     private Integer id_user = 0;
     SearchView searchView;
     private boolean mItemClicked;
+    static EmpresasActivity empresasActivity;
 
-    public static EmpresasListFragment newInstance(String id_ciudad_arg, String pais_arg, String ciudad_arg, Boolean todos_arg) {
+    public static EmpresasListFragment newInstance(String id_ciudad_arg, String pais_arg, String ciudad_arg, Boolean todos_arg, Boolean proximidad_arg, EmpresasActivity empresasActivity_args) {
         id_ciudad = id_ciudad_arg;
         pais = pais_arg;
         ciudad = ciudad_arg;
         todos = todos_arg;
+        proximidad = proximidad_arg;
+        empresasActivity = empresasActivity_args;
         return new EmpresasListFragment();
     }
 
@@ -146,7 +155,12 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
 
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getEmpresas.php?id_ciudad="+id_ciudad+"&id_user="+id_user+"&filter="+filter);
+                URL url;
+                if(proximidad)
+                    url = new URL(WEBSERVER+"api/getEmpresasProximidad.php?id_ciudad="+id_ciudad+"&id_user="+id_user+"&filter="+filter);
+                else
+                    url = new URL(WEBSERVER+"api/getEmpresas.php?id_ciudad="+id_ciudad+"&id_user="+id_user+"&filter="+filter);
+
                 Log.v("getEmpresas",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -167,10 +181,12 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
                         for (int i = 0; i < arr.length(); i++) {
                             JSONObject obj = (JSONObject) arr.get(i);
 
-                            empresas.add(new
-                                    w_empresas(obj.getString("id"), obj.getString("id_categoria"), obj.getString("nombre_categoria"), obj.getString("nombre"), obj.getString("descripcion"),obj.getString("logo"),obj.getBoolean("favorito")));
-                            //result_original.add(new
-                                    //NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_noticia"),obj.getBoolean("es_favorito"),obj.getString("fecha_publicacion")));
+                            if(proximidad)
+                                empresas.add(new
+                                    w_empresas(obj.getString("id"), obj.getString("id_categoria"), obj.getString("nombre_categoria"), obj.getString("nombre"), obj.getString("descripcion"),obj.getString("logo"),obj.getBoolean("favorito"),obj.getString("direccion"),obj.getString("pos_latitud"),obj.getString("pos_longitud")));
+                            else
+                                empresas.add(new
+                                        w_empresas(obj.getString("id"), obj.getString("id_categoria"), obj.getString("nombre_categoria"), obj.getString("nombre"), obj.getString("descripcion"),obj.getString("logo"),obj.getBoolean("favorito")));
 
                         }
 
@@ -194,18 +210,39 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
             super.onPostExecute(result);
             Log.v("getEmpresas","onPostExecute");
             mAdapter = new EmpresasAdapter();
-            mAdapter.setmEmpresas(empresas);
+
+            if(proximidad)
+                mAdapter.setmEmpresas(loadAttractionsFromLocation(location));
+            else
+                mAdapter.setmEmpresas(empresas);
             // Set layout manager
             recyclerView.setLayoutManager(new StickyHeaderLayoutManager());
             recyclerView.setAdapter(mAdapter);
-            //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-                   // DividerItemDecoration.VERTICAL);
-
-            //recyclerView.addItemDecoration(dividerItemDecoration);
 
             loading.dismiss();
         }
 
+    }
+
+    public  List<w_empresas> loadAttractionsFromLocation(final LatLng curLatLng) {
+        if (curLatLng != null) {
+            if (empresas.size() > 0) {
+                Collections.sort(empresas,
+                        new Comparator<w_empresas>() {
+                            @Override
+                            public int compare(w_empresas lhs, w_empresas rhs) {
+                                double lhsDistance = SphericalUtil.computeDistanceBetween(
+                                        new LatLng(Double.parseDouble(lhs.getLatitud()), Double.parseDouble(lhs.getLongitud())), curLatLng);
+                                double rhsDistance = SphericalUtil.computeDistanceBetween(
+                                        new LatLng(Double.parseDouble(rhs.getLatitud()), Double.parseDouble(rhs.getLongitud())), curLatLng);
+                                return (int) (lhsDistance - rhsDistance);
+                            }
+                        }
+                );
+
+            }
+        }
+        return empresas;
     }
 
     @Override
@@ -255,17 +292,6 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
         @Override
         public void onItemClick(View view, int position) {
             TextView textID = view.findViewById(R.id.textID);
-           // if (!mItemClicked) {
-            //    mItemClicked = true;
-                //Toast.makeText(getContext(), "CLICK ON ID: " + textID.getText().toString(), Toast.LENGTH_SHORT).show();
-          //  }
-            //Intent intent = null;
-            //intent = new Intent(getActivity(), EmpresaProfileActivity.class);
-            //Bundle b = new Bundle();
-            //b.putString("id_empresa", textID.getText().toString());
-            //intent.putExtras(b);
-            //startActivity(intent);
-
             int[] startingLocation = new int[2];
             view.getLocationOnScreen(startingLocation);
             startingLocation[0] += view.getWidth() / 2;
@@ -283,7 +309,10 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
 
             TextView textID;
             TextView empresaTextView;
+            TextView empTextView;
             TextView categoriaView;
+            TextView dirTextView;
+            TextView distTextView;
             ImageView logoView;
             ImageView favoritoView;
             ItemClickListener mItemClickListener;
@@ -292,7 +321,10 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
                 super(itemView);
                 textID = (TextView) itemView.findViewById(R.id.textID);
                 empresaTextView = (TextView) itemView.findViewById(R.id.empresaNombre);
+                empTextView = (TextView) itemView.findViewById(R.id.empTextView);
                 categoriaView = (TextView) itemView.findViewById(R.id.categoriaText);
+                dirTextView = (TextView) itemView.findViewById(R.id.dirTextView);
+                distTextView = (TextView) itemView.findViewById(R.id.distTextView);
                 logoView = (ImageView) itemView.findViewById(R.id.imageView5);
                 favoritoView = (ImageView) itemView.findViewById(R.id.imageView6);
                 mItemClickListener = itemClickListener;
@@ -325,26 +357,36 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
         public void setmEmpresas(List<w_empresas> empresas) {
             this.mEmpresas = new ArrayList<>(empresas);
             sections.clear();
-
             // sort people into buckets by the first letter of last name
             char alpha = 0;
             Section currentSection = null;
-            for (w_empresas empresa : empresas) {
-                if (empresa.getNombre().charAt(0) != alpha) {
-                    if (currentSection != null) {
-                        sections.add(currentSection);
+
+            if(!proximidad) {
+                for (w_empresas empresa : empresas) {
+                    if (empresa.getNombre().charAt(0) != alpha) {
+                        if (currentSection != null) {
+                            sections.add(currentSection);
+                        }
+
+                        currentSection = new Section();
+                        alpha = empresa.getNombre().charAt(0);
+                        currentSection.alpha = String.valueOf(alpha);
                     }
 
-                    currentSection = new Section();
-                    alpha = empresa.getNombre().charAt(0);
-                    currentSection.alpha = String.valueOf(alpha);
-                }
-
-                if (currentSection != null) {
-                   currentSection.empresas.add(empresa);
+                    if (currentSection != null) {
+                       currentSection.empresas.add(empresa);
+                    }
                 }
             }
-
+            else {
+                currentSection = new Section();
+                currentSection.alpha = "Sucursales más cercanas";
+                for (w_empresas empresa : empresas) {
+                    if (currentSection != null) {
+                        currentSection.empresas.add(empresa);
+                    }
+                }
+            }
             sections.add(currentSection);
             notifyAllSectionsDataSetChanged();
         }
@@ -397,6 +439,7 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
 
             holder.textID.setText(empresa.getId());
             holder.empresaTextView.setText(empresa.getNombre());
+            holder.empTextView.setText(empresa.getNombre());
             Log.v("EMPRESA", "ID: " + empresa.getId());
             holder.categoriaView.setText(empresa.getNombre_categoria());
             Glide.with(getActivity())
@@ -489,6 +532,45 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
 
                 }
             });
+
+            if(proximidad) {
+                empresasActivity.maps.setVisibility(View.VISIBLE);
+                empresasActivity.maps.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ArrayList<markers> marks = new ArrayList<markers>();
+                        for(w_empresas emp : empresas) {
+                           marks.add(new markers(emp.getNombre(), emp.getDireccion(), emp.getLatitud(), emp.getLongitud()));
+                        }
+                        Collections.reverse(marks);
+                        Intent i = new Intent(getActivity(), MapsOfertaActivity.class);
+                        i.putParcelableArrayListExtra("markers", marks);
+                        i.putExtra("titulo", "Empresas Cercanas");
+                        i.putExtra("titulo_mapa", "Empresas Cercanas");
+                        startActivity(i);
+                    }
+                });
+
+
+                holder.dirTextView.setVisibility(View.VISIBLE);
+                holder.empTextView.setVisibility(View.GONE);
+                holder.empresaTextView.setVisibility(View.VISIBLE);
+                holder.distTextView.setVisibility(View.VISIBLE);
+                holder.dirTextView.setText(empresa.getDireccion());
+
+                String distance =
+                        Utils.formatDistanceBetween(location, new LatLng(Double.parseDouble(empresa.getLatitud()),Double.parseDouble(empresa.getLongitud())));
+                holder.distTextView.setText("Se encuentra a "+distance);
+            }
+            else
+            {
+                empresasActivity.maps.setVisibility(View.GONE);
+                holder.empTextView.setVisibility(View.VISIBLE);
+                holder.empresaTextView.setVisibility(View.GONE);
+                holder.dirTextView.setVisibility(View.GONE);
+                holder.distTextView.setVisibility(View.GONE);
+
+            }
 
         }
 

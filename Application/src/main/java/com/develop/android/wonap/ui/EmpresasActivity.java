@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -45,8 +46,6 @@ public class EmpresasActivity extends BaseEmpresaActivity {
     private List<w_categorias> categorias = new LinkedList<w_categorias>();
     EmpresasListFragment emp_list;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,16 +55,15 @@ public class EmpresasActivity extends BaseEmpresaActivity {
         String pais = bundle.getString("Pais");
         String ciudad = bundle.getString("Ciudad");
         Boolean todos = bundle.getBoolean("Todos");
-
+        Boolean proximidad = bundle.getBoolean("Proximidad");
 
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/LoveYaLikeASister.ttf");
-
 
         WEBSERVER = getString(R.string.web_server);
 
         new GetCategorias().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
-        emp_list = EmpresasListFragment.newInstance(id_ciudad, pais, ciudad, todos);
+        emp_list = EmpresasListFragment.newInstance(id_ciudad, pais, ciudad, todos, proximidad, this);
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_empresas, emp_list)

@@ -19,7 +19,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <android.support.v7.widget.RecyclerView
+
+        <android.support.v4.view.ViewPager
             android:id="@+id/rvUserProfile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -72,6 +73,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/nempresaTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:maxLines="2"
@@ -80,16 +82,18 @@
                                 android:textSize="24sp" />
 
                             <TextView
+                                android:id="@+id/dempresaTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2dp"
                                 android:layout_marginTop="2dp"
-                                android:maxLines="3"
+                                android:maxLines="5"
                                 android:text="Descripcion"
                                 android:textColor="#ffffff"
                                 android:textSize="12sp" />
 
                             <TextView
+                                android:id="@+id/sempresaTextView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="2dp"
@@ -106,7 +110,8 @@
                                 android:layout_marginRight="24dp"
                                 android:layout_marginTop="8dp"
                                 android:background="@drawable/btn_following"
-                                android:text="contactarse"
+                                android:elevation="1dp"
+                                android:text="MENSAJE PRIVADO"
                                 android:textColor="#ffffff"
                                 android:textSize="12sp" />
 
@@ -130,7 +135,7 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:id="@+id/imageView6"
+                                android:id="@+id/favImageView"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_alignParentEnd="true"
@@ -153,17 +158,16 @@
                             android:orientation="vertical">
 
                             <android.support.v7.widget.SwitchCompat
-                                android:id="@+id/switch1"
+                                android:id="@+id/switchNoticias"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
-                                android:layout_marginTop="12dp"
-                        />
+                                android:layout_marginTop="12dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Recibir \nNoticias"
+                                android:text="Notificación de \nNoticias"
                                 android:textAlignment="center"
                                 android:textColor="#ffffff"
                                 android:textSize="12sp" />
@@ -177,18 +181,17 @@
                             android:orientation="vertical">
 
                             <android.support.v7.widget.SwitchCompat
-                                android:id="@+id/switch2"
+                                android:id="@+id/switchNotificaciones"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
-                                android:layout_marginTop="12dp"
-                            />
+                                android:layout_marginTop="12dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:elevation="1dp"
-                                android:text="Recibir \nNotificaciones"
+                                android:text="Notif. Ofertas\nCercanas"
                                 android:textAlignment="center"
                                 android:textColor="#ffffff"
                                 android:textSize="12sp" />
@@ -208,13 +211,13 @@
                     app:layout_scrollFlags="scroll|enterAlways"
                     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-                    <ImageView
+                    <TextView
                         android:id="@+id/ivLogo"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:scaleType="center"
-                        android:src="@drawable/img_toolbar_logo"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Empresa"
+                        android:textSize="24sp"
                         android:visibility="invisible" />
                 </android.support.v7.widget.Toolbar>
 
@@ -224,15 +227,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp">
 
-                <android.support.design.widget.TabLayout
+                <com.ogaclejapan.smarttablayout.SmartTabLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/tlUserProfileTabs"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:background="?attr/colorAccent"
-                    app:tabGravity="fill"
-                    app:tabIndicatorColor="#5be5ad"
-                    app:tabIndicatorHeight="4dp"
-                    app:tabMode="fixed" />
+                    android:clipToPadding="false"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    app:stl_defaultTabTextColor="@color/white"
+                    app:stl_defaultTabTextHorizontalPadding="18dp"
+                    app:stl_distributeEvenly="true"
+                    app:stl_dividerColor="@color/grey_light"
+                    app:stl_dividerThickness="0dp"
+                    app:stl_indicatorColor="@color/color_accent"
+                    app:stl_indicatorCornerRadius="18dp"
+                    app:stl_indicatorGravity="center"
+                    app:stl_indicatorInterpolation="smart"
+                    app:stl_indicatorThickness="36dp"
+                    app:stl_underlineColor="@color/grey_light"
+                    app:stl_underlineThickness="0dp"
+                    />
+
 
             </FrameLayout>
 
@@ -248,6 +265,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/ic_instagram_white"
+            android:visibility="invisible"
             app:borderWidth="0dp"
             app:elevation="6dp"
             app:pressedTranslationZ="12dp" />

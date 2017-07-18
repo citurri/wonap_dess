@@ -208,6 +208,7 @@ public class CountryListFragment extends Fragment {
             b.putString("Pais", ciudad.getPais());
             b.putString("Ciudad", ciudad.getNombre());
             b.putBoolean("Todos", false);
+            b.putBoolean("Proximidad", false);
             intent.putExtras(b);
             startActivity(intent);
         }

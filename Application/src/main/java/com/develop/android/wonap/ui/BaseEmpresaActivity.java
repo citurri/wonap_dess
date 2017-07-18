@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -39,6 +40,7 @@ public class BaseEmpresaActivity extends AppCompatActivity {
 	CollapsingToolbarLayout collapsingToolbarLayout;
 	ProgressBar progressBar;
 	Spinner spinner;
+	public FloatingActionButton maps;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class BaseEmpresaActivity extends AppCompatActivity {
 		appBarLayout = (AppBarLayout) findViewById(R.id.appBar);
 		collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
 		progressBar = (ProgressBar) findViewById(R.id.progress);
+		maps = (FloatingActionButton) findViewById(R.id.mapFab);
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);

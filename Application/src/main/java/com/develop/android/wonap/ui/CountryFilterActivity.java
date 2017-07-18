@@ -40,9 +40,15 @@ public class CountryFilterActivity extends AppCompatActivity {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/LoveYaLikeASister.ttf");
         mensaje1.setTypeface(typeface);
+        if (action.equals("Empresas") || action.equals("Anuncios") )
+            mensaje1.setText("Usted se encuentra en: "+prefs.getString("LOCALITY", ""));
+
         mensaje2.setTypeface(typeface);
         ciudad.setTypeface(typeface);
-        ciudad.setText(prefs.getString("LOCALITY", ""));
+        if (action.equals("Empresas") || action.equals("Anuncios") )
+            ciudad.setText("Listar por proximidad");
+        else
+            ciudad.setText(prefs.getString("LOCALITY", ""));
         todos_text.setTypeface(typeface);
         if (!Utils.isConn(this) || prefs.getString("LOCALITY", "").equals("")) {
             frame.setVisibility(View.GONE);
@@ -50,7 +56,8 @@ public class CountryFilterActivity extends AppCompatActivity {
         }
         todos_text.setTypeface(typeface);
         if (action.equals("Empresas")) todos_text.setText("Listar todas las empresas");
-        else todos_text.setText("Listar todas los anuncios");
+        else if (action.equals("Anuncios")) todos_text.setText("Listar todas los anuncios");
+             else todos_text.setText("Listar todas las noticias");
 
         frame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +73,7 @@ public class CountryFilterActivity extends AppCompatActivity {
                 b.putString("Pais", prefs.getString("COUNTRY", ""));
                 b.putString("Ciudad", prefs.getString("LOCALITY", ""));
                 b.putBoolean("Todos", false);
+                b.putBoolean("Proximidad", true);
                 intent.putExtras(b);
                 startActivity(intent);
             }
@@ -85,6 +93,7 @@ public class CountryFilterActivity extends AppCompatActivity {
                 b.putString("Pais", prefs.getString("COUNTRY", ""));
                 b.putString("Ciudad", prefs.getString("LOCALITY", ""));
                 b.putBoolean("Todos", true);
+                b.putBoolean("Proximidad", false);
                 intent.putExtras(b);
                 startActivity(intent);
             }

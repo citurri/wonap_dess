@@ -126,6 +126,11 @@ public class NoticiaDetailFragment extends Fragment implements
             @Override
             public void onClick(View v) {
                 //PERFIL DE EMPRESA
+                int[] startingLocation = new int[2];
+                v.getLocationOnScreen(startingLocation);
+                startingLocation[0] += v.getWidth() / 2;
+                EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(),  noticia_detalle.getIdEmpresa());
+                getActivity().overridePendingTransition(0, 0);
             }
         });
 

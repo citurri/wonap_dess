@@ -84,5 +84,13 @@ appear further down your stream
     <string name="country_select">Seleccione otra ciudad para consultar:</string>
     <string name="title_activity_country">Ciudades</string>
     <string name="title_activity_empresa">Empresas</string>
+    <string name="title_activity_empresa_detalle">Nombre de Empresa</string>
     <string name="user_profile_photo">http://igcdn-photos-f-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-19/929118_455075441302693_1605108410_a.jpg</string>
+    <string-array name="user_photos">
+        <item>http://www.sysmart-bo.com/wonap/img_main/1.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/2.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/3.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/4.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/5.jpg</item>
+    </string-array>
 </resources>

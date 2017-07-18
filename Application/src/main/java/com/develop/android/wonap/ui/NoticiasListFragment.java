@@ -199,7 +199,7 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
                 if (!result.isEmpty()) {
                     id_ciudad = loadIdCiudadCercana();
                     //Log.v("GetCiudadCercana",id_ciudad);
-                    if (id_ciudad != null) {
+                    if (!id_ciudad.equals("0")) {
                         if (Utils.isConn(getActivity()))
                             new GetClosestNoticias(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
                     }
@@ -317,15 +317,17 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
     }
 
     private String loadIdCiudadCercana() {
+        String closestCity = "0";
         mLatestLocation = Utils.getLocation(getActivity());
+        if(mLatestLocation != null) {
+            double minDistance = 0;
 
-        double minDistance = 0;
-        String closestCity = null;
-        for (Map.Entry<String, LatLng> entry: CITY_LOCATIONS.entrySet()) {
-            double distance = SphericalUtil.computeDistanceBetween(mLatestLocation, entry.getValue());
-            if (minDistance == 0 || distance < minDistance) {
-                minDistance = distance;
-                closestCity = entry.getKey();
+            for (Map.Entry<String, LatLng> entry : CITY_LOCATIONS.entrySet()) {
+                double distance = SphericalUtil.computeDistanceBetween(mLatestLocation, entry.getValue());
+                if (minDistance == 0 || distance < minDistance) {
+                    minDistance = distance;
+                    closestCity = entry.getKey();
+                }
             }
         }
         return closestCity;

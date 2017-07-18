@@ -39,17 +39,17 @@ public final class R {
         public static final int zOrderOnTop = 0x7f010160;
     }
     public static final class color {
-        public static final int common_google_signin_btn_text_dark = 0x7f0e00c6;
+        public static final int common_google_signin_btn_text_dark = 0x7f0e00c7;
         public static final int common_google_signin_btn_text_dark_default = 0x7f0e0028;
         public static final int common_google_signin_btn_text_dark_disabled = 0x7f0e0029;
         public static final int common_google_signin_btn_text_dark_focused = 0x7f0e002a;
         public static final int common_google_signin_btn_text_dark_pressed = 0x7f0e002b;
-        public static final int common_google_signin_btn_text_light = 0x7f0e00c7;
+        public static final int common_google_signin_btn_text_light = 0x7f0e00c8;
         public static final int common_google_signin_btn_text_light_default = 0x7f0e002c;
         public static final int common_google_signin_btn_text_light_disabled = 0x7f0e002d;
         public static final int common_google_signin_btn_text_light_focused = 0x7f0e002e;
         public static final int common_google_signin_btn_text_light_pressed = 0x7f0e002f;
-        public static final int common_google_signin_btn_tint = 0x7f0e00c8;
+        public static final int common_google_signin_btn_tint = 0x7f0e00c9;
     }
     public static final class drawable {
         public static final int common_full_open_on_phone = 0x7f02005a;
@@ -78,7 +78,7 @@ public final class R {
         public static final int adjust_height = 0x7f1000e0;
         public static final int adjust_width = 0x7f1000e1;
         public static final int auto = 0x7f1000c0;
-        public static final int button = 0x7f10017f;
+        public static final int button = 0x7f100183;
         public static final int center = 0x7f1000c2;
         public static final int dark = 0x7f1000f1;
         public static final int hybrid = 0x7f1000e2;
@@ -91,7 +91,7 @@ public final class R {
         public static final int standard = 0x7f1000ef;
         public static final int terrain = 0x7f1000e4;
         public static final int text = 0x7f10000a;
-        public static final int text2 = 0x7f1001e2;
+        public static final int text2 = 0x7f1001f2;
         public static final int toolbar = 0x7f10013b;
         public static final int wide = 0x7f1000f0;
         public static final int wrap_content = 0x7f100031;

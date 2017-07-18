@@ -51,6 +51,7 @@ import com.develop.android.wonap.common.Constants;
 import com.develop.android.wonap.common.Utils;
 import com.develop.android.wonap.database.OfertaModel;
 import com.develop.android.wonap.database.WonapDatabaseLocal;
+import com.develop.android.wonap.database.markers;
 import com.develop.android.wonap.provider.GalleryActivity;
 import com.develop.android.wonap.provider.TouristAttractions;
 import com.develop.android.wonap.test.Attraction;
@@ -76,6 +77,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -162,6 +164,12 @@ public class DetailFragment extends Fragment implements
             @Override
             public void onClick(View v) {
                 //PERFIL DE EMPRESA
+
+                int[] startingLocation = new int[2];
+                v.getLocationOnScreen(startingLocation);
+                startingLocation[0] += v.getWidth() / 2;
+                EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(),  oferta_detalle.getIdEmpresa());
+                getActivity().overridePendingTransition(0, 0);
             }
         });
 
@@ -419,13 +427,13 @@ public class DetailFragment extends Fragment implements
             mapFab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ArrayList<markers> marks = new ArrayList<markers>();
+                    markers m = new markers(oferta_detalle.getNombreEmpresa(), oferta_detalle.getPosMapAddress(), oferta_detalle.getPosLatitud(), oferta_detalle.getPosLongitud());
+                    marks.add(m);
                     Intent i = new Intent(getActivity(), MapsOfertaActivity.class);
-                    LatLng oferta_lugar = new LatLng(Double.parseDouble(oferta_detalle.getPosLatitud()),Double.parseDouble(oferta_detalle.getPosLongitud()));
-                    i.putExtra("ubicacion", oferta_lugar);
-                    i.putExtra("empresa", "Empresa: " + oferta_detalle.getNombreEmpresa());
+                    i.putParcelableArrayListExtra("markers", marks);
                     i.putExtra("titulo", oferta_detalle.getTitulo());
                     i.putExtra("titulo_mapa", "Ubicación de la oferta");
-                    i.putExtra("direccion", oferta_detalle.getPosMapAddress());
                     startActivity(i);
                 }
             });
@@ -533,6 +541,9 @@ public class DetailFragment extends Fragment implements
                     //VERIFICAR EL CUPON
                     if(result.getContents().split(",")[0].equals("empresa")) {
                         //intent a perfil de empresa
+                        int[] startingLocation = new int[2];
+                        EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(), result.getContents().split(",")[1]);
+                        getActivity().overridePendingTransition(0, 0);
                     }
                     else
                         verificarQR(result.getContents().split(",")[1]);

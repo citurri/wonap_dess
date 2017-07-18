@@ -20,6 +20,13 @@
         <item>Pasaporte</item>
         <item>Libreta de Servicio</item>
     </string-array>
+    <string-array name="user_photos">
+        <item>http://www.sysmart-bo.com/wonap/img_main/1.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/2.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/3.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/4.jpg</item>
+        <item>http://www.sysmart-bo.com/wonap/img_main/5.jpg</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -206,6 +213,7 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="text_background">#90000000</color>
     <color name="transparent_actionbar_background">#50000000</color>
+    <color name="transparent_actionbar_background2">#10000000</color>
     <color name="transparent_cupon_background">#9047ca4d</color>
     <color name="transparent_cupon_background_verified">#90FF5252</color>
     <color name="validez_background">#FF03A9F4</color>
@@ -1193,7 +1201,7 @@
     <integer name="default_bmb_showRotateEaseEnum">22</integer>
     <integer name="default_bmb_showScaleEaseEnum">22</integer>
     <integer name="design_snackbar_text_max_lines">2</integer>
-    <integer name="google_play_services_version">11011000</integer>
+    <integer name="google_play_services_version">11020000</integer>
     <integer name="hide_password_duration">320</integer>
     <integer name="list_columns">1</integer>
     <integer name="show_password_duration">200</integer>
@@ -1331,6 +1339,7 @@ attractions in a GridViewPager UI component.
     <string name="title_activity_chat_bubble">Consultas / Comentarios</string>
     <string name="title_activity_country">Ciudades</string>
     <string name="title_activity_empresa">Empresas</string>
+    <string name="title_activity_empresa_detalle">Nombre de Empresa</string>
     <string name="title_activity_gallery">Visor de Imagenes</string>
     <string name="title_activity_map_oferta">Ubicación de la Oferta</string>
     <string name="title_activity_maps_oferta">Ubicación de la oferta</string>
@@ -1347,6 +1356,11 @@ attractions in a GridViewPager UI component.
     <string name="zxing_msg_default_status">Place a Wonap Coupon QR code inside the viewfinder rectangle to verify it.</string>
     <style name="ActionBar.Detail" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="background">@color/transparent_actionbar_background</item>
+        <item name="displayOptions">showHome|homeAsUp</item>
+        <item name="actionButtonStyle">@style/ActionButtonStyle</item>
+    </style>
+    <style name="ActionBar.DetailChatEmpresa" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/transparent_actionbar_background2</item>
         <item name="displayOptions">showHome|homeAsUp</item>
         <item name="actionButtonStyle">@style/ActionButtonStyle</item>
     </style>
@@ -3012,6 +3026,11 @@ attractions in a GridViewPager UI component.
         <item name="android:shadowRadius">2</item>
     </style>
     <style name="XYZAppTheme" parent="XYZAppTheme.Base"/>
+    <style name="XYZAppTheme.ActivityChatEmpresa" parent="XYZAppTheme">
+        <item name="android:windowBackground">@color/color_primary</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="actionBarStyle">@style/ActionBar.DetailChatEmpresa</item>
+    </style>
     <style name="XYZAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="XYZAppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>

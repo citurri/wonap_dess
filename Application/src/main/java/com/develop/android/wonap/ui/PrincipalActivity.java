@@ -38,6 +38,7 @@ import com.develop.android.wonap.database.ParseJSON;
 import com.develop.android.wonap.database.WonapDatabaseLocal;
 import com.develop.android.wonap.service.UtilityService;
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -356,6 +357,32 @@ public class PrincipalActivity extends AppCompatActivity {
                     Log.e("value", "Permiso negado. No puede acceder a la cámara.");
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+            } else {
+
+                //VERIFICAR EL CUPON
+                if (result.getContents().split(",")[0].equals("empresa")) {
+                    //intent a perfil de empresa
+                    int[] startingLocation = new int[2];
+                    EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, this, result.getContents().split(",")[1]);
+                    this.overridePendingTransition(0, 0);
+                } else {
+                    Intent i = DetailActivity.getLaunchIntent(
+                            this, result.getContents().split(",")[1]);
+                    startActivity(i);
+                }
+
+                // At this point we may or may not have a reference to the activity
+                //displayToast();
+            }
         }
     }
 

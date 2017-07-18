@@ -181,7 +181,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
                 .override(80, 80)
                 .into(imagen_usuario);
 
-        String welcome = "Bienvenido a WONAP,\r\n"+nombre_completo.replace(",","\r\n");
+        String welcome = "Bienvenido(a) a WONAP,\r\n"+nombre_completo.replace(",","\r\n");
         text_user.setText(welcome);
        /* rotatingTextWrapper = (RotatingTextWrapper) view.findViewById(R.id.custom_switcher);
         rotatingTextWrapper2 = (RotatingTextWrapper) view.findViewById(R.id.custom_switcher_noticias);

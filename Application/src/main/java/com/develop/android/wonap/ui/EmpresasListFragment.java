@@ -1,17 +1,12 @@
 package com.develop.android.wonap.ui;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NotificationCompatSideChannelService;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -29,7 +24,6 @@ import com.develop.android.wonap.R;
 import com.develop.android.wonap.common.CircleTransform;
 import com.develop.android.wonap.common.Constants;
 import com.develop.android.wonap.common.Utils;
-import com.develop.android.wonap.database.OfertaModel;
 import com.develop.android.wonap.database.markers;
 import com.develop.android.wonap.database.w_empresas;
 import com.google.android.gms.maps.model.LatLng;
@@ -41,7 +35,6 @@ import com.kosalgeek.genasync12.PostResponseAsyncTask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 import org.zakariya.stickyheaders.SectioningAdapter;
 import org.zakariya.stickyheaders.StickyHeaderLayoutManager;
 
@@ -320,7 +313,7 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
             public ItemViewHolder(View itemView, ItemClickListener itemClickListener) {
                 super(itemView);
                 textID = (TextView) itemView.findViewById(R.id.textID);
-                empresaTextView = (TextView) itemView.findViewById(R.id.empresaNombre);
+                empresaTextView = (TextView) itemView.findViewById(R.id.denoTextView);
                 empTextView = (TextView) itemView.findViewById(R.id.empTextView);
                 categoriaView = (TextView) itemView.findViewById(R.id.categoriaText);
                 dirTextView = (TextView) itemView.findViewById(R.id.dirTextView);

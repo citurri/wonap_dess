@@ -568,10 +568,10 @@ public class EmpresaProfileActivity extends AppCompatActivity implements RevealB
                     f= EmpresaGeneralesFragment.newInstance(empresa.getHistoria(), empresa.getValores());
                     break;
                 case 1:
-                    f= new EmpresaGeneralesFragment();
+                    f= EmpresaContactosFragment.newInstance(empresa.getId());
                     break;
                 case 2:
-                    f= new EmpresaGeneralesFragment();
+                    f = EmpresaSucursalesFragment.newInstance(empresa.getId());
                     break;
                 case 3:
                     f= EmpresaImagenesFragment.newInstance(empresa.getId());

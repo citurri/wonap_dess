@@ -22,18 +22,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/content_panel"
+    <RelativeLayout
+        android:id="@+id/ciudad_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp">
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_margin="10dp"
+        android:background="@drawable/corner_layout_country"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,14 +38,14 @@
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:layout_margin="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginStart="10dp"
-                android:padding="5dp"
+                android:padding="15dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/empty_photo"
+                android:src="@drawable/contacto_imagen"
                 android:transitionName="image" />
 
             <TextView
@@ -65,43 +62,7 @@
                 android:paddingStart="5dp"
                 android:textStyle="bold"
                 android:transitionName="image"
-                tools:text="Empresa" />
-
-            <TextView
-                android:id="@+id/empTextView"
-                style="?android:textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="25dp"
-                android:layout_toEndOf="@+id/imageView5"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:padding="3dp"
-                android:paddingEnd="35dp"
-                android:paddingStart="5dp"
-                android:textStyle="bold"
-                android:transitionName="image"
-                android:visibility="gone"
-                tools:text="Empresa" />
-
-            <TextView
-                android:id="@+id/categoriaText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imageView5"
-                android:layout_toEndOf="@+id/textID"
-                android:ellipsize="end"
-
-                android:maxLines="1"
-                android:padding="1dp"
-                android:paddingEnd="13dp"
-                android:text="Categoria"
-                android:textAlignment="textEnd"
-                android:textIsSelectable="false"
-                android:textSize="14sp"
-                android:visibility="visible"
-                tools:text="Categoria" />
+                tools:text="Contacto Nombre" />
 
             <TextView
                 android:id="@+id/textID"
@@ -119,24 +80,18 @@
                 android:visibility="gone"
                 tools:text="" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="@dimen/icon_width"
-                android:layout_height="@dimen/icon_height"
-                android:layout_alignParentEnd="true"
-                android:padding="13dp"
-                android:src="@drawable/ic_like" />
-
             <TextView
-                android:id="@+id/distTextView"
+                android:id="@+id/telTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dirTextView"
                 android:layout_toEndOf="@+id/imageView5"
                 android:maxLines="1"
+                android:padding="1dp"
+                android:paddingRight="5dp"
                 android:paddingStart="5dp"
-                android:text="Distancia"
-                android:textSize="12sp" />
+                android:text="Telefonos"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/dirTextView"
@@ -145,14 +100,34 @@
                 android:layout_below="@+id/denoTextView"
                 android:layout_toEndOf="@+id/imageView5"
                 android:maxLines="1"
-                android:paddingEnd="35dp"
+                android:padding="1dp"
+                android:paddingEnd="5dp"
                 android:paddingStart="5dp"
                 android:text="Direccion"
-                android:textSize="12sp" />
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/telTextView"
+
+                android:layout_toEndOf="@+id/imageView5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:padding="1dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:text="Categoria"
+                android:textAlignment="textStart"
+                android:textIsSelectable="false"
+                android:textSize="16sp"
+                android:visibility="visible"
+                tools:text="Categoria" />
 
         </RelativeLayout>
 
 
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
 </LinearLayout>

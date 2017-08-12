@@ -1,9 +1,9 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.develop.android.wonap.ui.EmpresaSucursalesFragment">
 
     <TextView
         android:id="@+id/nulltextView"
@@ -11,16 +11,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:gravity="center_vertical|center_horizontal"
-        android:text="No existen contactos"
+        android:text="No existen sucursales"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         android:visibility="invisible" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/empresaImagenes"
+        android:id="@+id/empresaSucursales"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

@@ -26,14 +26,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+
 import com.develop.android.wonap.R;
 import com.develop.android.wonap.SocialNetwork.SignupActivity;
 import com.develop.android.wonap.SocialNetwork.SplashFragment;
 import com.develop.android.wonap.common.Utils;
 //import com.develop.android.wonap.database.ParseJSON;
 import com.develop.android.wonap.database.ParseJSON;
-import com.develop.android.wonap.service.GCMClientManager;
+import com.develop.android.wonap.service.SharedPrefManager;
 import com.develop.android.wonap.service.UtilityService;
+import com.facebook.AccessToken;
+import com.kosalgeek.genasync12.AsyncResponse;
+import com.kosalgeek.genasync12.EachExceptionsHandler;
+import com.kosalgeek.genasync12.PostResponseAsyncTask;
 
 
 import org.json.JSONArray;
@@ -41,10 +48,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,7 +98,7 @@ public class LoginActivity extends FragmentActivity implements
     Boolean empresa = false;
     String ciudad = "";
     String nombre_completo = "";
-    int id_user = 0;
+    Integer id_user = 0;
     String email_user;
     String password_user;
     String image_user;
@@ -180,6 +192,7 @@ public class LoginActivity extends FragmentActivity implements
 
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void login() {
         Log.d(TAG, "Login");
 
@@ -199,8 +212,12 @@ public class LoginActivity extends FragmentActivity implements
         email_user = _emailText.getText().toString();
         password_user = _passwordText.getText().toString();
 
-
-        new ValidateUser().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            new ValidateUser().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
+        else {
+            new ValidateUser().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        }
     }
 
     private void BaseInit() {
@@ -227,35 +244,11 @@ public class LoginActivity extends FragmentActivity implements
         FragmentTransaction transaction = fm.beginTransaction();
         transaction.commit();
 
-        //GCM
-        GCMInit();
 
         //Ver si el usuario ya esta logueado
         VerificarLogueos();
 
         showFragment(SPLASH, false);
-    }
-
-    private void GCMInit() {
-        //INICIAMOS GCM
-        if (Utils.isConn(this)){
-            GCMClientManager pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
-            pushClientManager.registerIfNeeded(new GCMClientManager.RegistrationCompletedHandler() {
-                @Override
-                public void onSuccess(String registrationId, boolean isNewRegistration) {
-                    id_registration = registrationId;
-                    Log.v("registrationId: ", registrationId);
-                }
-
-                @Override
-                public void onFailure(String ex) {
-                    super.onFailure(ex);
-                }
-            });
-
-        } else {
-            Toast.makeText(getApplicationContext(), "Por favor, conéctese a internet....", Toast.LENGTH_SHORT).show();
-        }
     }
 
     @Override
@@ -310,18 +303,35 @@ public class LoginActivity extends FragmentActivity implements
 
     protected void VerificarLogueos() {
 
+        final AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        if (accessToken != null) {
+            // if the user already logged in, try to show the selection fragment
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            int id_usuario = preferences.getInt("id_usuario", 0);
 
-      if (Utils.WonapLogin(this)) {
-           // if the user already logged in, try to show the selection fragment
-           Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
-           finish();
-           i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-           i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-           i.setAction("LOGIN_NORMAL");
-           startActivity(i);
-       }
+            if(id_usuario > 0) {
+                Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
+                finish();
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setAction("FROM_MAIN_ACTIVITY");
+                startActivity(i);
+            }
+        } else if (Utils.WonapLogin(this)) {
+            // if the user already logged in, try to show the selection fragment
+            Intent i = new Intent(LoginActivity.this, PrincipalActivity.class);
+            finish();
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setAction("LOGIN_NORMAL");
+            startActivity(i);
+        }
+     }
 
-    }
+
+
+
+
 
      private void showFragment(int fragmentIndex, boolean addToBackStack) {
         FragmentManager fm = getSupportFragmentManager();

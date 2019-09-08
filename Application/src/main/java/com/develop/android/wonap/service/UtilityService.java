@@ -32,7 +32,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-
+import com.google.android.gms.location.GeofencingRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.develop.android.wonap.R;
@@ -98,6 +98,10 @@ public class UtilityService extends IntentService {
     private static final long EXPIRATION_DURATION = Geofence.NEVER_EXPIRE;
 
     private Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>();
+
+    int id_user = 0;
+
+    SharedPreferences.Editor editor;
 
     public static IntentFilter getLocationUpdatedIntentFilter() {
         return new IntentFilter(UtilityService.ACTION_LOCATION_UPDATED);
@@ -202,11 +206,28 @@ public class UtilityService extends IntentService {
             ConnectionResult connectionResult = googleApiClient.blockingConnect(
                     Constants.GOOGLE_API_CLIENT_TIMEOUT_S, TimeUnit.SECONDS);
 
+            GeofencingRequest.Builder geofenceRequest = new GeofencingRequest.Builder();
+
+            // The INITIAL_TRIGGER_ENTER flag indicates that geofencing service should trigger a
+            // GEOFENCE_TRANSITION_ENTER notification when the geofence is added and if the device
+            // is already inside that geofence.
+            //geofenceRequest.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);}
+
+            //No queremos que nos dispare cada vez que se crean los geofences, sino cuando haya alguna actividad de ingreso
+            geofenceRequest.setInitialTrigger(0);
+
+            // Add the geofences to be monitored by geofencing service.
+            geofenceRequest.addGeofences(geofenceList);
+
+
             if (connectionResult.isSuccess() && googleApiClient.isConnected()) {
                 PendingIntent pendingIntent = PendingIntent.getBroadcast(
                         this, 0, new Intent(this, UtilityReceiver.class), 0);
+                //Eliminamos los geofences creados
+                GeofencingApi.removeGeofences(googleApiClient,pendingIntent);
+                //Añadimos los nuevos
                 GeofencingApi.addGeofences(googleApiClient,
-                        geofenceList, pendingIntent);
+                        geofenceRequest.build(), pendingIntent);
                 googleApiClient.disconnect();
             } else {
                 Log.e(TAG, String.format(Constants.GOOGLE_API_CLIENT_ERROR_MSG,
@@ -229,7 +250,7 @@ public class UtilityService extends IntentService {
         List<Geofence> geofences = event.getTriggeringGeofences();
 
         if (geofenceEnabled && geofences != null && geofences.size() > 0) {
-            if (event.getGeofenceTransition() == Geofence.GEOFENCE_TRANSITION_ENTER) {
+            if (event.getGeofenceTransition() == Geofence.GEOFENCE_TRANSITION_ENTER & event.getGeofenceTransition() != Geofence.GEOFENCE_TRANSITION_DWELL) {
                 // Trigger the notification based on the first geofence
                 if(geofences.size() > 1)
                     showNotificationMany(geofences);
@@ -316,12 +337,18 @@ public class UtilityService extends IntentService {
             // Store in a local preference as well
             Utils.storeLocation(this, latLngLocation);
 
-            if (Utils.isConn(getApplicationContext()))
-            new GetCiudadCercana(latLngLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            editor = preferences.edit();
+            id_user = preferences.getInt("id_usuario", 0);
 
-            // Send a local broadcast so if an Activity is open it can respond
+            // Solo si esta logueado
+            if (Utils.isConn(getApplicationContext()) & id_user > 0) {
+                new GetCiudadCercana(latLngLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+            }
+                // Send a local broadcast so if an Activity is open it can respond
             // to the updated location
-            LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+
         }
     }
 
@@ -439,12 +466,11 @@ public class UtilityService extends IntentService {
 
             mStrings = "[]";
             String WEBSERVER = getApplicationContext().getString(R.string.web_server);
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor editor = preferences.edit();
+
 
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user=0");
+                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user="+id_user);
                 Log.v("ClosestOffers_location",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -466,10 +492,10 @@ public class UtilityService extends IntentService {
                             //getClosestPOS( , mLatestLocation, "", "", true);
 
                             //if(getPOS.size() > 0) {
-                            //  LatLng lugar = new LatLng(Double.parseDouble(getPOS.get(0).pos_latitud), Double.parseDouble(getPOS.get(0).pos_longitud));
-                            // Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
-                            // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
-                            attractions_list.add(new
+                             LatLng lugar = new LatLng(Double.parseDouble( obj.getString("pos_latitud")), Double.parseDouble(obj.getString("pos_longitud")));
+                             Double distancia = Utils.formatDistanceBetweenMetros(mLatestLocation, lugar);
+                             if (distancia <= Integer.parseInt(new WonapDatabaseLocal(getApplicationContext()).getValueApp("GEOFENCES_DISTANCE")))
+                             attractions_list.add(new
                                     OfertaModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_oferta"),obj.getBoolean("es_cupon"),obj.getString("fecha_inicio"),obj.getString("fecha_fin"), obj.getString("denominacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud"),obj.getString("pos_map_address"),  obj.getString("pos_map_city") ,obj.getString("pos_map_country"), obj.getString("distancia_user"), obj.getString("cupones_habilitados"), obj.getString("cupones_redimidos"), obj.getBoolean("cupon_permitido"), obj.getString("dias_restantes"), obj.getBoolean("es_favorito"),obj.getString("secundarias_oferta")));
 
                             editor.putString("ID_CIUDAD", id_ciudad);
@@ -512,6 +538,7 @@ public class UtilityService extends IntentService {
                                 }
                             }
                     );
+
 
                     addGeofences(getApplicationContext(), attractions_list);
                 }
@@ -658,7 +685,7 @@ public class UtilityService extends IntentService {
                     if (null != bitmaps) {
                         // The intent to trigger when the notification is tapped
                         PendingIntent pendingIntent = PendingIntent.getActivity(UtilityService.this, 0,
-                                DetailActivity.getLaunchIntent(UtilityService.this, result.getId()),
+                                DetailActivity.getLaunchIntent(UtilityService.this, result.getId(), "0"),
                                 PendingIntent.FLAG_UPDATE_CURRENT);
 
                         // The intent to trigger when the notification is dismissed, in this case
@@ -681,6 +708,7 @@ public class UtilityService extends IntentService {
                                 .setDeleteIntent(deletePendingIntent)
                                 //.setColor(getResources().getColor(R.color.colorPrimary, getTheme()))
                                 .setCategory(Notification.CATEGORY_RECOMMENDATION)
+                                .setDefaults(Notification.DEFAULT_ALL)
                                 .setAutoCancel(true);
 
                         // Trigger the notification
@@ -751,13 +779,12 @@ public class UtilityService extends IntentService {
                 )
                 .setContentTitle("Wonap")
                 .setContentText("Existen " + geofences.size() + " anuncios cercanos a usted!!!!!!.")
-                .setSmallIcon(R.drawable.ic_stat_maps_pin_drop)
+                .setSmallIcon(R.drawable.ic_wonap)
                 .setContentIntent(pendingIntent)
                 .setDeleteIntent(deletePendingIntent)
                 .setColor(getResources().getColor(R.color.color_primary))
                 .setCategory(Notification.CATEGORY_RECOMMENDATION)
-                .setSound(Uri.parse(tono))
-                .setVibrate(vibrar)
+                .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true);
 
         // Trigger the notification

@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.develop.android.wonap.ui.EmpresaProductosFragment">
+
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search_productos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/empresaProducto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <TextView
+        android:id="@+id/nulltextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="No existen productos"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        android:visibility="invisible" />
+</LinearLayout>

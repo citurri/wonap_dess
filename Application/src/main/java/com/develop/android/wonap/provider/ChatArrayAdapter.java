@@ -91,7 +91,7 @@ public class ChatArrayAdapter extends ArrayAdapter<w_moferta_comentarios> {
         Transformation transformation = new RoundedCornersTransformation(Glide.get(getContext()).getBitmapPool(), 100, 0);
         //NOMBRE USUARIO
         if (comentario.tipo_remitente.equals("Administrador")) {
-            nombre_usuario.setText(empresa.nombre_empresa);
+            nombre_usuario.setText("Administrador");
 
             Glide.with(getContext())
                     .load(WEBSERVER+"upload/"+comentario.imagen_empresa)

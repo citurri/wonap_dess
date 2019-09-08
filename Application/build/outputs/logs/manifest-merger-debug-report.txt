@@ -1,432 +1,840 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-156:12
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
+MERGED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:1-58:12
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a5c5dd5e500b656905209fb6159456ec/play-services-location-11.8.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:17:1-47:12
+MERGED from [com.android.support:design:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/9c797d3061139e2ec83fdf18ca23d3cf/design-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] /root/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/AndroidManifest.xml:2:1-17:12
+MERGED from [com.facebook.android:facebook-android-sdk:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/2034033cad229928d43ad8dbcc57e400/facebook-android-sdk-4.34.0/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-login:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/90e10691f0f899bef53596406dc4f484/facebook-login-4.34.0/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-share:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/5ba3788049e32a648570d3fafc3bd04b/facebook-share-4.34.0/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:21:1-37:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/c217146f75bae827abd4932d2bd56acb/appcompat-v7-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] /root/.gradle/caches/transforms-2/files-2.1/063d95003b856909be4194ac138c7a07/stickyheaders-0.7.6/AndroidManifest.xml:2:1-16:12
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/94f9609b04e8f1d5b7881cbd270daa75/recyclerview-v7-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:gridlayout-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/650c22563be0114243ea00def01486de/gridlayout-v7-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/88734d53490c7da36bbb1a9a8d0e8323/cardview-v7-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-wearable:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/30fbb9b5c423a571e1a8b7b9ecaf5031/play-services-wearable-11.8.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v13:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/6663b0301764c546d06840e9999d0356/support-v13-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.maps.android:android-maps-utils:0.3.4] /root/.gradle/caches/transforms-2/files-2.1/d3534f4b039e0db6f600232c91140b06/android-maps-utils-0.3.4/AndroidManifest.xml:2:1-9:12
+MERGED from [com.jakewharton:butterknife:8.4.0] /root/.gradle/caches/transforms-2/files-2.1/5e3bc8914902216237c872e7f274732d/butterknife-8.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:2:1-14:12
+MERGED from [com.nightonke:boommenu:2.1.0] /root/.gradle/caches/transforms-2/files-2.1/ec503ca71e8f51cff2aeb9c096dd7ff7/boommenu-2.1.0/AndroidManifest.xml:2:1-16:12
+MERGED from [com.ogaclejapan.smarttablayout:library:1.6.1] /root/.gradle/caches/transforms-2/files-2.1/eef2029c870209472e509e5752d0b7a2/library-1.6.1/AndroidManifest.xml:2:1-12:12
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] /root/.gradle/caches/transforms-2/files-2.1/f45367a8118636c0fae2600a7a54315a/ultra-ptr-1.0.11/AndroidManifest.xml:2:1-13:12
+MERGED from [com.scalified:fab:1.1.3] /root/.gradle/caches/transforms-2/files-2.1/5e97d1fcd999393fe69e9c06a74227a4/fab-1.1.3/AndroidManifest.xml:17:1-27:12
+MERGED from [com.victor:lib:1.0.4] /root/.gradle/caches/transforms-2/files-2.1/3292bea4ac8ec3b1488e82f996bf0bfc/lib-1.0.4/AndroidManifest.xml:2:1-16:12
+MERGED from [com.github.linger1216:labelview:v1.1.2] /root/.gradle/caches/transforms-2/files-2.1/964428e3f8ae12804248044f450c9931/labelview-v1.1.2/AndroidManifest.xml:2:1-12:12
+MERGED from [com.davemorrissey.labs:subsampling-scale-image-view:3.6.0] /root/.gradle/caches/transforms-2/files-2.1/22d81a28eb9f5d2880753a3067c853bb/subsampling-scale-image-view-3.6.0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:17:1-37:12
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d2b62d79c7973269a5f3b6146f8a1d2e/play-services-tagmanager-v4-impl-11.8.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:17:1-59:12
+MERGED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:2:1-15:12
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/76ee489ff20fde3b011581b005dfdbe4/play-services-tasks-11.8.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/679cd62a9b9a9cdfb321eec131bde5fd/support-v4-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/9d4d314693848a2fae5bc35f953ea43b/play-services-location-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8857d379dd5f8deba27d72d54e4027f3/play-services-maps-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-analytics-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/2588a551648ed836c9b62115d313617a/play-services-analytics-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:support-fragment:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/2aca1d03d754e9779935698b508b6dc5/support-fragment-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.android:facebook-places:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/8bdebf909a2c66d9ab555c2963d849b6/facebook-places-4.34.0/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-applinks:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/269a13efce9d57e5dc207478c8a059ed/facebook-applinks-4.34.0/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-messenger:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/f7f4a886a722110dc0dce6cb259dc6b0/facebook-messenger-4.34.0/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:21:1-35:12
+MERGED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:21:1-53:12
+MERGED from [com.android.support:support-core-utils:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/aed593509cfca8042a499f5a97249387/support-core-utils-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/269dc6c06229b2a210beda3e1d4fad92/animated-vector-drawable-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/0e2b8c3dd3b6d609f4fe5165b8a3b8b1/support-vector-drawable-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/204c3d4be617de1929eb004825910e78/support-core-ui-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/7c7cc80f6801878637c75e42f75928e9/transition-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/95d913eda39f0105fb3fde5d5aa6a684/support-media-compat-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/b3f15d9078ecb031f2942ea4915e17fa/customtabs-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/f81f66d97b984518f3c52a9a040e8f05/support-compat-27.0.2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-wearable-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8d0e765aeaf6393b384da4b645f8a4f8/play-services-wearable-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.scalified:viewmover:1.1.1] /root/.gradle/caches/transforms-2/files-2.1/629c7dc829726c233cb94ffe1b38a264/viewmover-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [com.scalified:uitools:1.1.2] /root/.gradle/caches/transforms-2/files-2.1/49e1f59f9da13c396de0b7125664e5e2/uitools-1.1.2/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.firebase:firebase-messaging-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/693fcd072c4159b6e630ec9906721bf9/firebase-messaging-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/c408a1fa3665bd319ee670bfaee3a591/play-services-base-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/82477c7f70e5fe9f52f597f7995888a7/play-services-basement-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/5ff45edeb69e3f85e7990fecfeb00a3b/play-services-tasks-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3f78233efd33e0bcd606ce404756161c/play-services-analytics-impl-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/f72e0552ef5c477913bec1a61b06b425/play-services-tagmanager-v4-impl-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /root/.gradle/caches/transforms-2/files-2.1/74b0614b9e1c39de73200d75216e81d7/runtime-1.0.3/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-iid-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0045c8c7f055c0b3cba5a9316ee6972e/firebase-iid-license-11.8.0/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-common-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d15b76d6486fe6bf5ef5f2f4aa42d7e3/firebase-common-license-11.8.0/AndroidManifest.xml:2:1-6:12
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
 	package
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:18:5-40
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:4:5-40
 	android:versionName
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:17:5-51
-	xmlns:android
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:11-69
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:20:5-67
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:20:5-66
-MERGED from [com.google.android.gms:play-services-analytics:11.0.2] C:\Users\Goloso\.android\build-cache\4104e9368fa12f4590ce4a6d484c11c369166ccc\output\AndroidManifest.xml:20:5-66
-MERGED from [com.google.android.gms:play-services-analytics-impl:11.0.2] C:\Users\Goloso\.android\build-cache\09f6805cef43b2c9f2d74ce36732bdddb8fb1185\output\AndroidManifest.xml:20:5-66
-MERGED from [com.google.android.gms:play-services-gcm:11.0.2] C:\Users\Goloso\.android\build-cache\5992189e52347b361902f4b277621cd89117738c\output\AndroidManifest.xml:21:5-66
-MERGED from [com.google.android.gms:play-services-iid:11.0.2] C:\Users\Goloso\.android\build-cache\f368fb4a5f10a71333a204e764496e908b53a533\output\AndroidManifest.xml:21:5-66
-MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\Goloso\.android\build-cache\5fc5449bf2744bf1641310d3e0d764a518985065\output\AndroidManifest.xml:11:5-67
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:20:22-64
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:21:5-79
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:11:5-79
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:21:22-76
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:11:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:12:5-67
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:23:5-67
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:11:5-67
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:12:22-64
 uses-permission#android.permission.WAKE_LOCK
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:22:5-68
-MERGED from [com.google.android.gms:play-services-analytics:11.0.2] C:\Users\Goloso\.android\build-cache\4104e9368fa12f4590ce4a6d484c11c369166ccc\output\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:11.0.2] C:\Users\Goloso\.android\build-cache\09f6805cef43b2c9f2d74ce36732bdddb8fb1185\output\AndroidManifest.xml:24:5-67
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:13:5-68
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:27:5-68
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:24:5-68
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:22:22-65
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:13:22-65
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:19:5-78
-MERGED from [com.google.android.gms:play-services-analytics:11.0.2] C:\Users\Goloso\.android\build-cache\4104e9368fa12f4590ce4a6d484c11c369166ccc\output\AndroidManifest.xml:21:5-78
-MERGED from [com.google.android.gms:play-services-analytics-impl:11.0.2] C:\Users\Goloso\.android\build-cache\09f6805cef43b2c9f2d74ce36732bdddb8fb1185\output\AndroidManifest.xml:21:5-78
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:14:5-79
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:23:22-76
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:14:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:24:5-76
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:15:5-76
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:24:22-73
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:15:22-73
 uses-feature#android.hardware.camera2
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:26:5-28:35
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:17:5-19:35
 	android:required
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:28:9-32
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:19:9-32
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:27:9-48
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:18:9-48
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:30:5-65
-MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:23:5-65
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:21:5-65
+MERGED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:5-65
+MERGED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:5-65
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:30:22-62
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:21:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:31:5-81
-MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\Goloso\.android\build-cache\5fc5449bf2744bf1641310d3e0d764a518985065\output\AndroidManifest.xml:12:5-81
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:22:5-81
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:12:5-81
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:31:22-78
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:22:22-78
 application
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:33:5-154:19
-MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:47:5-55:19
-MERGED from [com.google.android.gms:play-services-location:11.0.2] C:\Users\Goloso\.android\build-cache\7b59a5cf989bfa1ea3d72764d9c87bec07ce011f\output\AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-analytics:11.0.2] C:\Users\Goloso\.android\build-cache\4104e9368fa12f4590ce4a6d484c11c369166ccc\output\AndroidManifest.xml:26:5-19
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.0.2] C:\Users\Goloso\.android\build-cache\9826b635d19e794dd895860867b323171fd9ddeb\output\AndroidManifest.xml:19:5-19
-MERGED from [com.google.android.gms:play-services-analytics-impl:11.0.2] C:\Users\Goloso\.android\build-cache\09f6805cef43b2c9f2d74ce36732bdddb8fb1185\output\AndroidManifest.xml:26:5-19
-MERGED from [com.google.android.gms:play-services-gcm:11.0.2] C:\Users\Goloso\.android\build-cache\5992189e52347b361902f4b277621cd89117738c\output\AndroidManifest.xml:23:5-19
-MERGED from [com.google.android.gms:play-services-iid:11.0.2] C:\Users\Goloso\.android\build-cache\f368fb4a5f10a71333a204e764496e908b53a533\output\AndroidManifest.xml:23:5-19
-MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a89e989bffbd4a2d678aa8f24386c1c14d34ba3d\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Goloso\.android\build-cache\d98520b3b33383f4e50147fa6634ce5cacf74223\output\AndroidManifest.xml:26:5-20
-MERGED from [com.google.android.gms:play-services-wearable:11.0.2] C:\Users\Goloso\.android\build-cache\ae0a73c6d7ce74b959172bdb1bd54eeb9eaa02e9\output\AndroidManifest.xml:18:5-19
-MERGED from [com.google.android.gms:play-services-base:11.0.2] C:\Users\Goloso\.android\build-cache\a4646c1f53c23792ce8fbc80be235a9a8732a13f\output\AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:11.0.2] C:\Users\Goloso\.android\build-cache\10bf82dc0062e07d7a00ddee759b5ba7f61cb5bd\output\AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Goloso\.android\build-cache\ba75f3d8e58358918b27f9abc718f2886fce0eee\output\AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v13:25.3.1] C:\Users\Goloso\.android\build-cache\023ac202328a7c9fac5165723b5ee0269607307f\output\AndroidManifest.xml:29:5-20
-MERGED from [com.google.maps.android:android-maps-utils:0.3.4] C:\Users\Goloso\.android\build-cache\3599c3df960f6ba7887a024778d98f67227ce5a1\output\AndroidManifest.xml:7:5-20
-MERGED from [com.nightonke:boommenu:2.1.0] C:\Users\Goloso\.android\build-cache\99a548e20b57f65aebe99aac4be40408d9a2159e\output\AndroidManifest.xml:11:5-14:19
-MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] C:\Users\Goloso\.android\build-cache\e64a5852869cc3cfa902248e944cf38854e7119e\output\AndroidManifest.xml:11:5-15:19
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Goloso\.android\build-cache\376802157b10088f3ed4f9fa58b87f4c0fa9b914\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\be9242946c16a55974dea9c449295ef8eb480aeb\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\47eecdf2805d9dc63edabe0f495f0cd2174c682c\output\AndroidManifest.xml:26:5-20
-MERGED from [in.srain.cube:ultra-ptr:1.0.11] C:\Users\Goloso\.android\build-cache\a09b0d4e30072709837a11487ab14b58bc1762b2\output\AndroidManifest.xml:11:5-20
-MERGED from [com.victor:lib:1.0.4] C:\Users\Goloso\.android\build-cache\21c1c3ade4635b6d8b8c2173f76e62d0d6189be4\output\AndroidManifest.xml:11:5-14:19
-MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] C:\Users\Goloso\.android\build-cache\fd4f8ca2a3d69c32f230a747f13b85966a2462a9\output\AndroidManifest.xml:11:5-14:19
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Goloso\.android\build-cache\3420b603de2e907448629c80f60495beae4c1d62\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Goloso\.android\build-cache\0e9fe7f2132a797022bc3317cc81bda501cade41\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Goloso\.android\build-cache\6dd16e0fc7075afd1457d625d253ab5e8925014c\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Goloso\.android\build-cache\eb8796e60d423a8520438b259097fdf05cdd0570\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:29:5-20
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:37:9-41
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:24:5-170:19
+MERGED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:48:5-56:19
+MERGED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:48:5-56:19
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a5c5dd5e500b656905209fb6159456ec/play-services-location-11.8.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a5c5dd5e500b656905209fb6159456ec/play-services-location-11.8.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:29:5-45:19
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:29:5-45:19
+MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] /root/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] /root/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/2034033cad229928d43ad8dbcc57e400/facebook-android-sdk-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/2034033cad229928d43ad8dbcc57e400/facebook-android-sdk-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/90e10691f0f899bef53596406dc4f484/facebook-login-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/90e10691f0f899bef53596406dc4f484/facebook-login-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/5ba3788049e32a648570d3fafc3bd04b/facebook-share-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/5ba3788049e32a648570d3fafc3bd04b/facebook-share-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:28:5-35:19
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:28:5-35:19
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] /root/.gradle/caches/transforms-2/files-2.1/063d95003b856909be4194ac138c7a07/stickyheaders-0.7.6/AndroidManifest.xml:11:5-14:19
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] /root/.gradle/caches/transforms-2/files-2.1/063d95003b856909be4194ac138c7a07/stickyheaders-0.7.6/AndroidManifest.xml:11:5-14:19
+MERGED from [com.google.android.gms:play-services-wearable:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/30fbb9b5c423a571e1a8b7b9ecaf5031/play-services-wearable-11.8.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-wearable:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/30fbb9b5c423a571e1a8b7b9ecaf5031/play-services-wearable-11.8.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.maps.android:android-maps-utils:0.3.4] /root/.gradle/caches/transforms-2/files-2.1/d3534f4b039e0db6f600232c91140b06/android-maps-utils-0.3.4/AndroidManifest.xml:7:5-20
+MERGED from [com.google.maps.android:android-maps-utils:0.3.4] /root/.gradle/caches/transforms-2/files-2.1/d3534f4b039e0db6f600232c91140b06/android-maps-utils-0.3.4/AndroidManifest.xml:7:5-20
+MERGED from [com.nightonke:boommenu:2.1.0] /root/.gradle/caches/transforms-2/files-2.1/ec503ca71e8f51cff2aeb9c096dd7ff7/boommenu-2.1.0/AndroidManifest.xml:11:5-14:19
+MERGED from [com.nightonke:boommenu:2.1.0] /root/.gradle/caches/transforms-2/files-2.1/ec503ca71e8f51cff2aeb9c096dd7ff7/boommenu-2.1.0/AndroidManifest.xml:11:5-14:19
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] /root/.gradle/caches/transforms-2/files-2.1/f45367a8118636c0fae2600a7a54315a/ultra-ptr-1.0.11/AndroidManifest.xml:11:5-20
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] /root/.gradle/caches/transforms-2/files-2.1/f45367a8118636c0fae2600a7a54315a/ultra-ptr-1.0.11/AndroidManifest.xml:11:5-20
+MERGED from [com.victor:lib:1.0.4] /root/.gradle/caches/transforms-2/files-2.1/3292bea4ac8ec3b1488e82f996bf0bfc/lib-1.0.4/AndroidManifest.xml:11:5-14:19
+MERGED from [com.victor:lib:1.0.4] /root/.gradle/caches/transforms-2/files-2.1/3292bea4ac8ec3b1488e82f996bf0bfc/lib-1.0.4/AndroidManifest.xml:11:5-14:19
+MERGED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d2b62d79c7973269a5f3b6146f8a1d2e/play-services-tagmanager-v4-impl-11.8.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d2b62d79c7973269a5f3b6146f8a1d2e/play-services-tagmanager-v4-impl-11.8.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:34:5-57:19
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:34:5-57:19
+MERGED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/76ee489ff20fde3b011581b005dfdbe4/play-services-tasks-11.8.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/76ee489ff20fde3b011581b005dfdbe4/play-services-tasks-11.8.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/9d4d314693848a2fae5bc35f953ea43b/play-services-location-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/9d4d314693848a2fae5bc35f953ea43b/play-services-location-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8857d379dd5f8deba27d72d54e4027f3/play-services-maps-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8857d379dd5f8deba27d72d54e4027f3/play-services-maps-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/2588a551648ed836c9b62115d313617a/play-services-analytics-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/2588a551648ed836c9b62115d313617a/play-services-analytics-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.facebook.android:facebook-places:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/8bdebf909a2c66d9ab555c2963d849b6/facebook-places-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-places:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/8bdebf909a2c66d9ab555c2963d849b6/facebook-places-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/269a13efce9d57e5dc207478c8a059ed/facebook-applinks-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/269a13efce9d57e5dc207478c8a059ed/facebook-applinks-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/f7f4a886a722110dc0dce6cb259dc6b0/facebook-messenger-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/f7f4a886a722110dc0dce6cb259dc6b0/facebook-messenger-4.34.0/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:28:5-33:19
+MERGED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:28:5-33:19
+MERGED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:28:5-51:19
+MERGED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:28:5-51:19
+MERGED from [com.google.android.gms:play-services-wearable-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8d0e765aeaf6393b384da4b645f8a4f8/play-services-wearable-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-wearable-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8d0e765aeaf6393b384da4b645f8a4f8/play-services-wearable-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-messaging-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/693fcd072c4159b6e630ec9906721bf9/firebase-messaging-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-messaging-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/693fcd072c4159b6e630ec9906721bf9/firebase-messaging-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/c408a1fa3665bd319ee670bfaee3a591/play-services-base-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/c408a1fa3665bd319ee670bfaee3a591/play-services-base-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/82477c7f70e5fe9f52f597f7995888a7/play-services-basement-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/82477c7f70e5fe9f52f597f7995888a7/play-services-basement-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/5ff45edeb69e3f85e7990fecfeb00a3b/play-services-tasks-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/5ff45edeb69e3f85e7990fecfeb00a3b/play-services-tasks-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3f78233efd33e0bcd606ce404756161c/play-services-analytics-impl-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3f78233efd33e0bcd606ce404756161c/play-services-analytics-impl-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/f72e0552ef5c477913bec1a61b06b425/play-services-tagmanager-v4-impl-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/f72e0552ef5c477913bec1a61b06b425/play-services-tagmanager-v4-impl-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-iid-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0045c8c7f055c0b3cba5a9316ee6972e/firebase-iid-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-iid-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0045c8c7f055c0b3cba5a9316ee6972e/firebase-iid-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-common-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d15b76d6486fe6bf5ef5f2f4aa42d7e3/firebase-common-license-11.8.0/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-common-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d15b76d6486fe6bf5ef5f2f4aa42d7e3/firebase-common-license-11.8.0/AndroidManifest.xml:5:5-20
 	android:supportsRtl
-		ADDED from [com.nightonke:boommenu:2.1.0] C:\Users\Goloso\.android\build-cache\99a548e20b57f65aebe99aac4be40408d9a2159e\output\AndroidManifest.xml:13:9-35
+		ADDED from [com.sdsmdg.harjot:rotatingtext:1.0.2] /root/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:29:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:35:9-41
-	android:allowBackup
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:34:9-35
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:27:9-41
+	android:debuggable
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:26:9-34
 	android:icon
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:36:9-43
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:28:9-43
+	android:allowBackup
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:25:9-35
 	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:38:9-43
-activity#com.develop.android.wonap.ui.LoginActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:39:9-49:20
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:42:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:41:13-45
-	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:43:13-49
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:40:13-45
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:44:13-48:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:45:17-69
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:45:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:47:17-77
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:47:27-74
-service#com.develop.android.wonap.service.GCMMessageHandler
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:51:9-57:19
-	android:exported
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:53:13-37
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:52:13-54
-intent-filter#com.google.android.c2dm.intent.RECEIVE
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:54:13-56:29
-action#com.google.android.c2dm.intent.RECEIVE
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:55:17-81
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:55:25-78
-activity#com.develop.android.wonap.SocialNetwork.SignupActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:59:9-62:52
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:61:13-49
-	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:62:13-49
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:60:13-57
-activity#com.develop.android.wonap.test.AttractionListActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:63:9-66:52
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:66:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:65:13-45
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:64:13-56
-activity#com.develop.android.wonap.ui.DetailActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:67:9-71:57
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:70:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:69:13-45
-	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:71:13-54
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:68:13-46
-receiver#com.develop.android.wonap.service.UtilityReceiver
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:73:9-61
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:73:19-58
-service#com.develop.android.wonap.service.UtilityService
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:75:9-59
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:75:18-56
-meta-data#com.develop.android.wonap.config.GlideConfiguration
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:77:9-79:43
-	android:value
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:79:13-40
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:78:13-79
-activity#com.develop.android.wonap.ui.PrincipalActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:81:9-84:51
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:84:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:83:13-61
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:82:13-49
-activity#com.develop.android.wonap.provider.GalleryActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:85:9-88:51
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:88:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:87:13-59
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:86:13-53
-activity#com.develop.android.wonap.ui.ToolbarCaptureActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:89:9-96:62
-	android:clearTaskOnLaunch
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:91:13-45
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:93:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:92:13-67
-	android:stateNotNeeded
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:94:13-42
-	android:windowSoftInputMode
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:96:13-60
-	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:95:13-57
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:90:13-54
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:30:9-43
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:105:9-107:55
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:40:9-42:55
 	android:value
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:107:13-52
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:42:13-52
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:106:13-58
-activity#com.develop.android.wonap.ui.MapsOfertaActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:109:9-112:51
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:112:13-49
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:41:13-58
+activity#com.develop.android.wonap.wonapmaps2
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:44:9-46:74
 	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:111:13-63
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:46:13-62
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:110:13-50
-activity#com.develop.android.wonap.ui.ChatBubbleActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:114:9-120:20
-	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:117:13-49
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:45:13-39
+activity#com.develop.android.wonap.wonapmaps
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:47:9-49:64
 	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:116:13-63
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:49:13-61
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:48:13-38
+activity#com.develop.android.wonap.ui.LoginActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:50:9-60:20
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:53:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:52:13-45
 	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:118:13-67
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:54:13-49
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:115:13-50
-activity#com.develop.android.wonap.ui.ChatEmpresaActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:122:9-128:20
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:51:13-45
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:55:13-59:29
+action#android.intent.action.MAIN
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:56:17-69
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:56:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:58:17-77
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:58:27-74
+service#com.develop.android.wonap.service.MyFirebaseMessagingService
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:61:9-65:19
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:61:18-68
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:62:13-64:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:63:17-78
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:63:25-75
+service#com.develop.android.wonap.service.MyFirebaseInstanceIDService
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:66:9-70:19
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:66:18-69
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:67:13-69:29
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:68:17-80
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:68:25-77
+activity#com.develop.android.wonap.SocialNetwork.SignupActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:72:9-75:52
 	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:125:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:124:13-63
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:74:13-49
 	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:126:13-67
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:75:13-49
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:123:13-51
-activity#com.develop.android.wonap.ui.NoticiaDetailActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:130:9-134:57
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:73:13-57
+activity#com.develop.android.wonap.test.AttractionListActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:76:9-79:52
 	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:133:13-49
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:79:13-49
 	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:132:13-45
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:78:13-45
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:77:13-56
+activity#com.develop.android.wonap.ui.DetailActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:80:9-85:57
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:84:13-49
+	android:parentActivityName
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:83:13-63
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:82:13-45
 	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:134:13-54
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:85:13-54
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:131:13-53
-activity#com.develop.android.wonap.ui.CountryFilterActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:136:9-139:51
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:81:13-46
+receiver#com.develop.android.wonap.service.UtilityReceiver
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:87:9-61
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:87:19-58
+service#com.develop.android.wonap.service.UtilityService
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:89:9-59
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:89:18-56
+meta-data#com.develop.android.wonap.config.GlideConfiguration
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:91:9-93:43
+	android:value
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:93:13-40
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:92:13-79
+activity#com.develop.android.wonap.ui.PrincipalActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:95:9-98:52
 	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:139:13-49
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:98:13-49
 	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:138:13-59
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:97:13-61
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:137:13-53
-activity#com.develop.android.wonap.ui.EmpresasActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:141:9-146:15
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:96:13-49
+activity#com.develop.android.wonap.provider.GalleryActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:99:9-102:52
 	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:144:13-49
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:102:13-49
 	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:143:13-59
-	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:145:13-59
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:101:13-59
 	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:142:13-48
-activity#com.develop.android.wonap.ui.EmpresaProfileActivity
-ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:148:9-152:67
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:100:13-53
+activity#com.develop.android.wonap.ui.ToolbarCaptureActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:103:9-110:63
 	android:screenOrientation
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:150:13-49
-	android:label
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:151:13-67
-	android:theme
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:152:13-64
-	android:name
-		ADDED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:149:13-54
-uses-sdk
-INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.gms:play-services-location:11.0.2] C:\Users\Goloso\.android\build-cache\7b59a5cf989bfa1ea3d72764d9c87bec07ce011f\output\AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:23:5-43
-MERGED from [com.google.android.gms:play-services-analytics:11.0.2] C:\Users\Goloso\.android\build-cache\4104e9368fa12f4590ce4a6d484c11c369166ccc\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.0.2] C:\Users\Goloso\.android\build-cache\9826b635d19e794dd895860867b323171fd9ddeb\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-analytics-impl:11.0.2] C:\Users\Goloso\.android\build-cache\09f6805cef43b2c9f2d74ce36732bdddb8fb1185\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-gcm:11.0.2] C:\Users\Goloso\.android\build-cache\5992189e52347b361902f4b277621cd89117738c\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-iid:11.0.2] C:\Users\Goloso\.android\build-cache\f368fb4a5f10a71333a204e764496e908b53a533\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a89e989bffbd4a2d678aa8f24386c1c14d34ba3d\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Goloso\.android\build-cache\d98520b3b33383f4e50147fa6634ce5cacf74223\output\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-wearable:11.0.2] C:\Users\Goloso\.android\build-cache\ae0a73c6d7ce74b959172bdb1bd54eeb9eaa02e9\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-base:11.0.2] C:\Users\Goloso\.android\build-cache\a4646c1f53c23792ce8fbc80be235a9a8732a13f\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.0.2] C:\Users\Goloso\.android\build-cache\10bf82dc0062e07d7a00ddee759b5ba7f61cb5bd\output\AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Goloso\.android\build-cache\ba75f3d8e58358918b27f9abc718f2886fce0eee\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v13:25.3.1] C:\Users\Goloso\.android\build-cache\023ac202328a7c9fac5165723b5ee0269607307f\output\AndroidManifest.xml:21:5-23:55
-MERGED from [com.google.maps.android:android-maps-utils:0.3.4] C:\Users\Goloso\.android\build-cache\3599c3df960f6ba7887a024778d98f67227ce5a1\output\AndroidManifest.xml:5:5-43
-MERGED from [com.jakewharton:butterknife:8.4.0] C:\Users\Goloso\.android\build-cache\956ac196a07a9224e0b3500b9c4c2aef173dfe13\output\AndroidManifest.xml:5:5-43
-MERGED from [com.daimajia.slider:library:1.1.5] C:\Users\Goloso\.android\build-cache\5fc5449bf2744bf1641310d3e0d764a518985065\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.nightonke:boommenu:2.1.0] C:\Users\Goloso\.android\build-cache\99a548e20b57f65aebe99aac4be40408d9a2159e\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.ogaclejapan.smarttablayout:library:1.6.1] C:\Users\Goloso\.android\build-cache\5e91e425f36feb4bc43c75a33a470a1afe5ccb09\output\AndroidManifest.xml:8:5-10:41
-MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] C:\Users\Goloso\.android\build-cache\e64a5852869cc3cfa902248e944cf38854e7119e\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Goloso\.android\build-cache\376802157b10088f3ed4f9fa58b87f4c0fa9b914\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\be9242946c16a55974dea9c449295ef8eb480aeb\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\47eecdf2805d9dc63edabe0f495f0cd2174c682c\output\AndroidManifest.xml:20:5-43
-MERGED from [in.srain.cube:ultra-ptr:1.0.11] C:\Users\Goloso\.android\build-cache\a09b0d4e30072709837a11487ab14b58bc1762b2\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.scalified:fab:1.1.3] C:\Users\Goloso\.android\build-cache\87c06be86002384e477f1da3ffa7198c31f119ef\output\AndroidManifest.xml:23:5-25:41
-MERGED from [com.scalified:viewmover:1.1.1] C:\Users\Goloso\.android\build-cache\440f86b08faa26d263b777bfbf542c2c0846f0ef\output\AndroidManifest.xml:23:5-25:41
-MERGED from [com.scalified:uitools:1.1.2] C:\Users\Goloso\.android\build-cache\d5dce9f0703d0d08e4cc8858a2dc8f768e73cbec\output\AndroidManifest.xml:23:5-25:41
-MERGED from [com.victor:lib:1.0.4] C:\Users\Goloso\.android\build-cache\21c1c3ade4635b6d8b8c2173f76e62d0d6189be4\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.linger1216:labelview:v1.1.2] C:\Users\Goloso\.android\build-cache\4be1adc893cac7ee01bc09c7c5367025b26a760b\output\AndroidManifest.xml:8:5-10:41
-MERGED from [com.davemorrissey.labs:subsampling-scale-image-view:3.6.0] C:\Users\Goloso\.android\build-cache\0a4a9c079bfcda4205f96f75e1012fda2b3de719\output\AndroidManifest.xml:7:5-9:41
-MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] C:\Users\Goloso\.android\build-cache\fd4f8ca2a3d69c32f230a747f13b85966a2462a9\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a94729ed1713feadb074d97a7a0d44da9df8c34c\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Goloso\.android\build-cache\3420b603de2e907448629c80f60495beae4c1d62\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Goloso\.android\build-cache\0e9fe7f2132a797022bc3317cc81bda501cade41\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Goloso\.android\build-cache\6dd16e0fc7075afd1457d625d253ab5e8925014c\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Goloso\.android\build-cache\eb8796e60d423a8520438b259097fdf05cdd0570\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:21:5-23:58
-	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:23:9-59
-	android:targetSdkVersion
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-	android:minSdkVersion
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml
-uses-feature#android.hardware.camera
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:26:5-28:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:28:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:27:9-47
-uses-feature#android.hardware.camera.front
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:29:5-31:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:31:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:30:9-53
-uses-feature#android.hardware.camera.autofocus
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:34:5-36:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:36:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:35:9-57
-uses-feature#android.hardware.camera.flash
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:37:5-39:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:39:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:38:9-53
-uses-feature#android.hardware.screen.landscape
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:40:5-42:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:42:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:41:9-57
-uses-feature#android.hardware.wifi
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:43:5-45:36
-	android:required
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:45:9-33
-	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:44:9-45
-activity#com.journeyapps.barcodescanner.CaptureActivity
-ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:48:9-54:63
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:107:13-49
 	android:clearTaskOnLaunch
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:50:13-45
-	android:screenOrientation
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:51:13-49
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:105:13-45
 	android:stateNotNeeded
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:52:13-42
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:108:13-42
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:106:13-67
 	android:windowSoftInputMode
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:54:13-60
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:110:13-60
 	android:theme
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:53:13-54
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:109:13-57
 	android:name
-		ADDED from [com.journeyapps:zxing-android-embedded:3.0.3] C:\Users\Goloso\AndroidStudioProjects\XYZ\zxing-android-embedded\build\intermediates\bundles\default\AndroidManifest.xml:49:13-74
-uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:21:5-77
-	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:21:19-51
-	android:required
-		ADDED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Goloso\.android\build-cache\42453ca243a789263405a5f95a6b076d67fb61b0\output\AndroidManifest.xml:21:52-75
-uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.google.android.gms:play-services-gcm:11.0.2] C:\Users\Goloso\.android\build-cache\5992189e52347b361902f4b277621cd89117738c\output\AndroidManifest.xml:20:5-81
-MERGED from [com.google.android.gms:play-services-iid:11.0.2] C:\Users\Goloso\.android\build-cache\f368fb4a5f10a71333a204e764496e908b53a533\output\AndroidManifest.xml:20:5-81
-	android:name
-		ADDED from [com.google.android.gms:play-services-gcm:11.0.2] C:\Users\Goloso\.android\build-cache\5992189e52347b361902f4b277621cd89117738c\output\AndroidManifest.xml:20:22-79
-meta-data#android.support.VERSION
-ADDED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:cardview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a89e989bffbd4a2d678aa8f24386c1c14d34ba3d\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:design:25.3.1] C:\Users\Goloso\.android\build-cache\ce02e471747c4b118cff66ade988cfeb62e57d9d\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:transition:25.3.1] C:\Users\Goloso\.android\build-cache\d98520b3b33383f4e50147fa6634ce5cacf74223\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v13:25.3.1] C:\Users\Goloso\.android\build-cache\023ac202328a7c9fac5165723b5ee0269607307f\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Goloso\.android\build-cache\376802157b10088f3ed4f9fa58b87f4c0fa9b914\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\be9242946c16a55974dea9c449295ef8eb480aeb\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Goloso\.android\build-cache\47eecdf2805d9dc63edabe0f495f0cd2174c682c\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Goloso\.android\build-cache\a94729ed1713feadb074d97a7a0d44da9df8c34c\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Goloso\.android\build-cache\3420b603de2e907448629c80f60495beae4c1d62\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Goloso\.android\build-cache\0e9fe7f2132a797022bc3317cc81bda501cade41\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Goloso\.android\build-cache\6dd16e0fc7075afd1457d625d253ab5e8925014c\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Goloso\.android\build-cache\e1ae55292b13b01859f0526a7fddd13b479b1f5b\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Goloso\.android\build-cache\eb8796e60d423a8520438b259097fdf05cdd0570\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Goloso\.android\build-cache\192d9c84f92b1983577d6fd312fde7f04e7ccac6\output\AndroidManifest.xml:25:5-27:34
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:104:13-54
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:112:9-114:55
 	android:value
-		ADDED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:24:9-31
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:114:13-52
 	android:name
-		ADDED from [com.android.support:gridlayout-v7:25.3.1] C:\Users\Goloso\.android\build-cache\e363dd0060b8593454d4ab8cf53d328ee981eb84\output\AndroidManifest.xml:23:9-47
-activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:11.0.2] C:\Users\Goloso\.android\build-cache\a4646c1f53c23792ce8fbc80be235a9a8732a13f\output\AndroidManifest.xml:19:9-172
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:113:13-58
+activity#com.facebook.FacebookActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:116:9-119:48
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:29:9-32:66
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:119:13-45
+	android:configChanges
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:118:13-96
+	android:theme
+		ADDED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:32:13-63
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:117:13-57
+activity#com.facebook.CustomTabActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:120:9-131:20
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:34:9-67
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:34:9-67
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:11.0.2] C:\Users\Goloso\.android\build-cache\a4646c1f53c23792ce8fbc80be235a9a8732a13f\output\AndroidManifest.xml:19:146-170
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:122:13-36
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:121:13-58
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:@string/fb_login_protocol_scheme
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:123:13-130:29
+action#android.intent.action.VIEW
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:124:17-69
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:124:25-66
+category#android.intent.category.DEFAULT
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:126:17-76
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:126:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:127:17-78
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:127:27-75
+data
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:129:17-75
+	android:scheme
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:129:23-72
+activity#com.develop.android.wonap.ui.MapsOfertaActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:132:9-135:52
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:135:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:134:13-63
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:133:13-50
+activity#com.develop.android.wonap.ui.ChatBubbleActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:136:9-140:70
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:139:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:138:13-63
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:11.0.2] C:\Users\Goloso\.android\build-cache\a4646c1f53c23792ce8fbc80be235a9a8732a13f\output\AndroidManifest.xml:19:86-145
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:140:13-67
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:11.0.2] C:\Users\Goloso\.android\build-cache\a4646c1f53c23792ce8fbc80be235a9a8732a13f\output\AndroidManifest.xml:19:19-85
-meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Goloso\.android\build-cache\ba75f3d8e58358918b27f9abc718f2886fce0eee\output\AndroidManifest.xml:20:9-121
-	android:value
-		ADDED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Goloso\.android\build-cache\ba75f3d8e58358918b27f9abc718f2886fce0eee\output\AndroidManifest.xml:20:66-119
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:137:13-50
+activity#com.develop.android.wonap.ui.ChatEmpresaActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:141:9-145:70
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:144:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:143:13-63
+	android:theme
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:145:13-67
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Goloso\.android\build-cache\ba75f3d8e58358918b27f9abc718f2886fce0eee\output\AndroidManifest.xml:20:20-65
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:142:13-51
+activity#com.develop.android.wonap.ui.NoticiaDetailActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:146:9-150:57
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:149:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:148:13-45
+	android:theme
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:150:13-54
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:147:13-53
+activity#com.develop.android.wonap.ui.CountryFilterActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:151:9-154:52
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:154:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:153:13-59
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:152:13-53
+activity#com.develop.android.wonap.ui.NoticiasActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:155:9-159:62
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:158:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:157:13-37
+	android:theme
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:159:13-59
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:156:13-48
+activity#com.develop.android.wonap.ui.EmpresasActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:160:9-164:62
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:163:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:162:13-59
+	android:theme
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:164:13-59
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:161:13-48
+activity#com.develop.android.wonap.ui.EmpresaProfileActivity
+ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:165:9-169:67
+	android:screenOrientation
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:168:13-49
+	android:label
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:167:13-67
+	android:theme
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:169:13-64
+	android:name
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:166:13-54
+uses-sdk
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a5c5dd5e500b656905209fb6159456ec/play-services-location-11.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a5c5dd5e500b656905209fb6159456ec/play-services-location-11.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/9c797d3061139e2ec83fdf18ca23d3cf/design-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/9c797d3061139e2ec83fdf18ca23d3cf/design-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] /root/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.sdsmdg.harjot:rotatingtext:1.0.2] /root/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/2034033cad229928d43ad8dbcc57e400/facebook-android-sdk-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/2034033cad229928d43ad8dbcc57e400/facebook-android-sdk-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/90e10691f0f899bef53596406dc4f484/facebook-login-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/90e10691f0f899bef53596406dc4f484/facebook-login-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/5ba3788049e32a648570d3fafc3bd04b/facebook-share-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/5ba3788049e32a648570d3fafc3bd04b/facebook-share-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:appcompat-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/c217146f75bae827abd4932d2bd56acb/appcompat-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/c217146f75bae827abd4932d2bd56acb/appcompat-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] /root/.gradle/caches/transforms-2/files-2.1/063d95003b856909be4194ac138c7a07/stickyheaders-0.7.6/AndroidManifest.xml:7:5-9:41
+MERGED from [org.zakariya.stickyheaders:stickyheaders:0.7.6] /root/.gradle/caches/transforms-2/files-2.1/063d95003b856909be4194ac138c7a07/stickyheaders-0.7.6/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/94f9609b04e8f1d5b7881cbd270daa75/recyclerview-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/94f9609b04e8f1d5b7881cbd270daa75/recyclerview-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:gridlayout-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/650c22563be0114243ea00def01486de/gridlayout-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:gridlayout-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/650c22563be0114243ea00def01486de/gridlayout-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/88734d53490c7da36bbb1a9a8d0e8323/cardview-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/88734d53490c7da36bbb1a9a8d0e8323/cardview-v7-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wearable:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/30fbb9b5c423a571e1a8b7b9ecaf5031/play-services-wearable-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wearable:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/30fbb9b5c423a571e1a8b7b9ecaf5031/play-services-wearable-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/6663b0301764c546d06840e9999d0356/support-v13-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/6663b0301764c546d06840e9999d0356/support-v13-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.maps.android:android-maps-utils:0.3.4] /root/.gradle/caches/transforms-2/files-2.1/d3534f4b039e0db6f600232c91140b06/android-maps-utils-0.3.4/AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.3.4] /root/.gradle/caches/transforms-2/files-2.1/d3534f4b039e0db6f600232c91140b06/android-maps-utils-0.3.4/AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.4.0] /root/.gradle/caches/transforms-2/files-2.1/5e3bc8914902216237c872e7f274732d/butterknife-8.4.0/AndroidManifest.xml:5:5-43
+MERGED from [com.jakewharton:butterknife:8.4.0] /root/.gradle/caches/transforms-2/files-2.1/5e3bc8914902216237c872e7f274732d/butterknife-8.4.0/AndroidManifest.xml:5:5-43
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.daimajia.slider:library:1.1.5] /root/.gradle/caches/transforms-2/files-2.1/a5f134265e5c8f13a56b820cddc4c2a1/library-1.1.5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.nightonke:boommenu:2.1.0] /root/.gradle/caches/transforms-2/files-2.1/ec503ca71e8f51cff2aeb9c096dd7ff7/boommenu-2.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.nightonke:boommenu:2.1.0] /root/.gradle/caches/transforms-2/files-2.1/ec503ca71e8f51cff2aeb9c096dd7ff7/boommenu-2.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.ogaclejapan.smarttablayout:library:1.6.1] /root/.gradle/caches/transforms-2/files-2.1/eef2029c870209472e509e5752d0b7a2/library-1.6.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.ogaclejapan.smarttablayout:library:1.6.1] /root/.gradle/caches/transforms-2/files-2.1/eef2029c870209472e509e5752d0b7a2/library-1.6.1/AndroidManifest.xml:8:5-10:41
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] /root/.gradle/caches/transforms-2/files-2.1/f45367a8118636c0fae2600a7a54315a/ultra-ptr-1.0.11/AndroidManifest.xml:7:5-9:41
+MERGED from [in.srain.cube:ultra-ptr:1.0.11] /root/.gradle/caches/transforms-2/files-2.1/f45367a8118636c0fae2600a7a54315a/ultra-ptr-1.0.11/AndroidManifest.xml:7:5-9:41
+MERGED from [com.scalified:fab:1.1.3] /root/.gradle/caches/transforms-2/files-2.1/5e97d1fcd999393fe69e9c06a74227a4/fab-1.1.3/AndroidManifest.xml:23:5-25:41
+MERGED from [com.scalified:fab:1.1.3] /root/.gradle/caches/transforms-2/files-2.1/5e97d1fcd999393fe69e9c06a74227a4/fab-1.1.3/AndroidManifest.xml:23:5-25:41
+MERGED from [com.victor:lib:1.0.4] /root/.gradle/caches/transforms-2/files-2.1/3292bea4ac8ec3b1488e82f996bf0bfc/lib-1.0.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.victor:lib:1.0.4] /root/.gradle/caches/transforms-2/files-2.1/3292bea4ac8ec3b1488e82f996bf0bfc/lib-1.0.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.linger1216:labelview:v1.1.2] /root/.gradle/caches/transforms-2/files-2.1/964428e3f8ae12804248044f450c9931/labelview-v1.1.2/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.linger1216:labelview:v1.1.2] /root/.gradle/caches/transforms-2/files-2.1/964428e3f8ae12804248044f450c9931/labelview-v1.1.2/AndroidManifest.xml:8:5-10:41
+MERGED from [com.davemorrissey.labs:subsampling-scale-image-view:3.6.0] /root/.gradle/caches/transforms-2/files-2.1/22d81a28eb9f5d2880753a3067c853bb/subsampling-scale-image-view-3.6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.davemorrissey.labs:subsampling-scale-image-view:3.6.0] /root/.gradle/caches/transforms-2/files-2.1/22d81a28eb9f5d2880753a3067c853bb/subsampling-scale-image-view-3.6.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d2b62d79c7973269a5f3b6146f8a1d2e/play-services-tagmanager-v4-impl-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d2b62d79c7973269a5f3b6146f8a1d2e/play-services-tagmanager-v4-impl-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics-impl:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/6c7a6a1f633d22ad595967a0d0e843d4/play-services-analytics-impl-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/76ee489ff20fde3b011581b005dfdbe4/play-services-tasks-11.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/76ee489ff20fde3b011581b005dfdbe4/play-services-tasks-11.8.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/679cd62a9b9a9cdfb321eec131bde5fd/support-v4-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/679cd62a9b9a9cdfb321eec131bde5fd/support-v4-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/9d4d314693848a2fae5bc35f953ea43b/play-services-location-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/9d4d314693848a2fae5bc35f953ea43b/play-services-location-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8857d379dd5f8deba27d72d54e4027f3/play-services-maps-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-maps-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8857d379dd5f8deba27d72d54e4027f3/play-services-maps-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/2588a551648ed836c9b62115d313617a/play-services-analytics-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/2588a551648ed836c9b62115d313617a/play-services-analytics-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.android.support:support-fragment:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/2aca1d03d754e9779935698b508b6dc5/support-fragment-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/2aca1d03d754e9779935698b508b6dc5/support-fragment-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.android:facebook-places:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/8bdebf909a2c66d9ab555c2963d849b6/facebook-places-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-places:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/8bdebf909a2c66d9ab555c2963d849b6/facebook-places-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/269a13efce9d57e5dc207478c8a059ed/facebook-applinks-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/269a13efce9d57e5dc207478c8a059ed/facebook-applinks-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/f7f4a886a722110dc0dce6cb259dc6b0/facebook-messenger-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/f7f4a886a722110dc0dce6cb259dc6b0/facebook-messenger-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:support-core-utils:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/aed593509cfca8042a499f5a97249387/support-core-utils-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/aed593509cfca8042a499f5a97249387/support-core-utils-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/269dc6c06229b2a210beda3e1d4fad92/animated-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/269dc6c06229b2a210beda3e1d4fad92/animated-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/0e2b8c3dd3b6d609f4fe5165b8a3b8b1/support-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/0e2b8c3dd3b6d609f4fe5165b8a3b8b1/support-vector-drawable-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/204c3d4be617de1929eb004825910e78/support-core-ui-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/204c3d4be617de1929eb004825910e78/support-core-ui-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/7c7cc80f6801878637c75e42f75928e9/transition-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/7c7cc80f6801878637c75e42f75928e9/transition-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/95d913eda39f0105fb3fde5d5aa6a684/support-media-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/95d913eda39f0105fb3fde5d5aa6a684/support-media-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/b3f15d9078ecb031f2942ea4915e17fa/customtabs-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/b3f15d9078ecb031f2942ea4915e17fa/customtabs-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/f81f66d97b984518f3c52a9a040e8f05/support-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] /root/.gradle/caches/transforms-2/files-2.1/f81f66d97b984518f3c52a9a040e8f05/support-compat-27.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wearable-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8d0e765aeaf6393b384da4b645f8a4f8/play-services-wearable-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-wearable-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/8d0e765aeaf6393b384da4b645f8a4f8/play-services-wearable-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.scalified:viewmover:1.1.1] /root/.gradle/caches/transforms-2/files-2.1/629c7dc829726c233cb94ffe1b38a264/viewmover-1.1.1/AndroidManifest.xml:23:5-25:41
+MERGED from [com.scalified:viewmover:1.1.1] /root/.gradle/caches/transforms-2/files-2.1/629c7dc829726c233cb94ffe1b38a264/viewmover-1.1.1/AndroidManifest.xml:23:5-25:41
+MERGED from [com.scalified:uitools:1.1.2] /root/.gradle/caches/transforms-2/files-2.1/49e1f59f9da13c396de0b7125664e5e2/uitools-1.1.2/AndroidManifest.xml:23:5-25:41
+MERGED from [com.scalified:uitools:1.1.2] /root/.gradle/caches/transforms-2/files-2.1/49e1f59f9da13c396de0b7125664e5e2/uitools-1.1.2/AndroidManifest.xml:23:5-25:41
+MERGED from [com.google.firebase:firebase-messaging-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/693fcd072c4159b6e630ec9906721bf9/firebase-messaging-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-messaging-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/693fcd072c4159b6e630ec9906721bf9/firebase-messaging-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/c408a1fa3665bd319ee670bfaee3a591/play-services-base-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/c408a1fa3665bd319ee670bfaee3a591/play-services-base-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/82477c7f70e5fe9f52f597f7995888a7/play-services-basement-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/82477c7f70e5fe9f52f597f7995888a7/play-services-basement-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/5ff45edeb69e3f85e7990fecfeb00a3b/play-services-tasks-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/5ff45edeb69e3f85e7990fecfeb00a3b/play-services-tasks-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3f78233efd33e0bcd606ce404756161c/play-services-analytics-impl-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3f78233efd33e0bcd606ce404756161c/play-services-analytics-impl-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/f72e0552ef5c477913bec1a61b06b425/play-services-tagmanager-v4-impl-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/f72e0552ef5c477913bec1a61b06b425/play-services-tagmanager-v4-impl-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /root/.gradle/caches/transforms-2/files-2.1/74b0614b9e1c39de73200d75216e81d7/runtime-1.0.3/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] /root/.gradle/caches/transforms-2/files-2.1/74b0614b9e1c39de73200d75216e81d7/runtime-1.0.3/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-iid-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0045c8c7f055c0b3cba5a9316ee6972e/firebase-iid-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-iid-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0045c8c7f055c0b3cba5a9316ee6972e/firebase-iid-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d15b76d6486fe6bf5ef5f2f4aa42d7e3/firebase-common-license-11.8.0/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common-license:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/d15b76d6486fe6bf5ef5f2f4aa42d7e3/firebase-common-license-11.8.0/AndroidManifest.xml:4:5-43
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+		ADDED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+		INJECTED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml
+uses-feature#android.hardware.camera
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:5-29:36
+	android:required
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:9-33
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:9-47
+uses-feature#android.hardware.camera.front
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-32:36
+	android:required
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:9-33
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:9-53
+uses-feature#android.hardware.camera.autofocus
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:5-37:36
+	android:required
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:9-33
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:9-57
+uses-feature#android.hardware.camera.flash
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:5-40:36
+	android:required
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:9-33
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:9-53
+uses-feature#android.hardware.screen.landscape
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:5-43:36
+	android:required
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:9-33
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:9-57
+uses-feature#android.hardware.wifi
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:5-46:36
+	android:required
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:46:9-33
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:9-45
+activity#com.journeyapps.barcodescanner.CaptureActivity
+ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:9-55:63
+	android:screenOrientation
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:52:13-49
+	android:clearTaskOnLaunch
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:51:13-45
+	android:stateNotNeeded
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:53:13-42
+	android:windowSoftInputMode
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:55:13-60
+	android:theme
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:13-54
+	android:name
+		ADDED from [:zxing-android-embedded] /home/citurri/WONAP/XYZ/zxing-android-embedded/build/intermediates/library_manifest/debug/AndroidManifest.xml:50:13-74
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12 reason: com.google.zxing.client.android has a targetSdkVersion < 4
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Goloso\AndroidStudioProjects\XYZ\Application\src\main\AndroidManifest.xml:16:1-156:12 reason: com.daimajia.slider.library requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /home/citurri/WONAP/XYZ/Application/src/main/AndroidManifest.xml:2:1-172:12 reason: com.google.zxing.client.android requested WRITE_EXTERNAL_STORAGE
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/fc242bd286309030fc997548b0b9b8e9/play-services-maps-11.8.0/AndroidManifest.xml:28:9-32
+receiver#com.google.android.gms.analytics.AnalyticsReceiver
+ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:30:9-34:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:32:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:33:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:31:13-78
+service#com.google.android.gms.analytics.AnalyticsService
+ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:36:9-39:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:38:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:37:13-77
+service#com.google.android.gms.analytics.AnalyticsJobService
+ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:40:9-44:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:42:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:43:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:44:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/7a4a745ba823de4c4c487d967085180c/play-services-analytics-11.8.0/AndroidManifest.xml:41:13-80
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:33:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-common:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/3ecee7c2683531a4cd09344208061e00/facebook-common-4.34.0/AndroidManifest.xml:33:19-68
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:28:9-34:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/a71cbf6879fd6de27993321794575655/firebase-messaging-11.8.0/AndroidManifest.xml:29:13-82
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/3087b6c4cd545d9cb1565a2d2ba00bbc/play-services-base-11.8.0/AndroidManifest.xml:24:13-79
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:26:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:30:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:29:9-63
+permission#com.develop.android.wonap.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:30:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:29:9-63
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:32:22-76
+uses-permission#com.develop.android.wonap.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:32:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:35:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:38:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:36:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:${applicationId}
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:39:13-43:29
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:com.develop.android.wonap
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:39:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:40:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:40:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:42:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:42:27-58
+category#com.develop.android.wonap
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:42:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:42:27-58
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:50:9-56:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:52:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/0c90d05e023b92227d5b3f6b51d5b8d6/firebase-iid-11.8.0/AndroidManifest.xml:51:13-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:8:9-12:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:11:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:12:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/58e7ed262746a8f43c8b0e7d6a729816/firebase-common-11.8.0/AndroidManifest.xml:9:13-77
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /root/.gradle/caches/transforms-2/files-2.1/1e98ab1753cfd126465332d6d392226b/play-services-basement-11.8.0/AndroidManifest.xml:24:13-58
+provider#com.facebook.marketing.internal.MarketingInitProvider
+ADDED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:29:9-32:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:31:13-73
+	android:exported
+		ADDED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-marketing:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/47935464ae2c4af75017b45603c8f880/facebook-marketing-4.34.0/AndroidManifest.xml:30:13-81
+provider#com.facebook.internal.FacebookInitProvider
+ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:39:9-42:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:41:13-72
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:40:13-70
+receiver#com.facebook.CurrentAccessTokenExpirationBroadcastReceiver
+ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:44:9-50:20
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:46:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:45:13-86
+intent-filter#action:name:com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:47:13-49:29
+action#com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:48:17-95
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.34.0] /root/.gradle/caches/transforms-2/files-2.1/ed5c7735d0f014d75982aad5b697e154/facebook-core-4.34.0/AndroidManifest.xml:48:25-92

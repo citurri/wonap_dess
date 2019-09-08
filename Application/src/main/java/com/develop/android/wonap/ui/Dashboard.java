@@ -3,8 +3,10 @@ package com.develop.android.wonap.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -32,6 +36,15 @@ import com.develop.android.wonap.common.CircleTransform;
 import com.develop.android.wonap.common.Utils;
 import com.develop.android.wonap.database.NoticiasModel;
 import com.develop.android.wonap.database.w_banner;
+import com.develop.android.wonap.provider.RoundedCornersTransformation;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.internal.ImageRequest;
+import com.facebook.internal.ImageResponse;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.SphericalUtil;
 import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
@@ -49,6 +62,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.facebook.FacebookSdk.getApplicationContext;
+import static com.facebook.FacebookSdk.getApplicationId;
 
 /**
 
@@ -72,12 +88,29 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
     private static String id_ciudad = "";
     private static  Dashboard fragmento;
     List<w_banner> banner = new ArrayList<>();
+    private JSONObject userFacebook;
+    private static final String NAME = "name";
+    private static final String ID = "id";
+    private static final String PICTURE = "picture";
+    private static final String EMAIL = "email";
+    private static final String FIELDS = "fields";
+
+    private static final String REQUEST_FIELDS =
+            TextUtils.join(",", new String[]{ID, NAME, PICTURE, EMAIL});
+    private AccessTokenTracker accessTokenTracker;
+    private CallbackManager callbackManager;
+
+    private TextView connectedStateLabel;
+
+    ImageView imagen_usuario;
+    TextView text_user;
+    //TextView login_button_facebook;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-  /*  RotatingTextWrapper rotatingTextWrapper;
-    RotatingTextWrapper rotatingTextWrapper2;*/
+    /*  RotatingTextWrapper rotatingTextWrapper;
+      RotatingTextWrapper rotatingTextWrapper2;*/
     public Dashboard() {
         // Required empty public constructor
     }
@@ -116,26 +149,31 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
         mDemoSlider = (SliderLayout)view.findViewById(R.id.slider);
         WEBSERVER = getString(R.string.web_server);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        nombre_completo = preferences.getString("nombre_completo", "");
-        image_user = preferences.getString("image_user", "");
+        imagen_usuario = (ImageView) view.findViewById(R.id.image_user);
+        text_user = (TextView) view.findViewById(R.id.text_welcome);
+        //login_button_facebook = (TextView) view.findViewById(R.id.login_button_facebook);
+        //BOTON DE FACEBOOK SIN USO AUN SE OCULTA
+        //login_button_facebook.setVisibility(View.GONE);
 
-        LinearLayout layout = (LinearLayout)view.findViewById(R.id.layout_ofertas);
+        LinearLayout layout = (LinearLayout) view.findViewById(R.id.layout_ofertas);
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Click Ofertas",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Click Ofertas", Toast.LENGTH_SHORT).show();
             }
         });
 
-        LinearLayout layout_noticias = (LinearLayout)view.findViewById(R.id.layout_noticas);
+        LinearLayout layout_noticias = (LinearLayout) view.findViewById(R.id.layout_noticas);
         layout_noticias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Click Noticias",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Click Noticias", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), CountryFilterActivity.class);
+                intent.setAction("Noticias");
+                startActivity(intent);
             }
         });
-        LinearLayout layout_empresa = (LinearLayout)view.findViewById(R.id.layout_empresa);
+        LinearLayout layout_empresa = (LinearLayout) view.findViewById(R.id.layout_empresa);
         layout_empresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,51 +185,50 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Reckoner_Bold.ttf");
         Typeface typeface2 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/LoveYaLikeASister.ttf");
 
-        TextView text_ofertas = (TextView)view.findViewById(R.id.custom_switcher);
+        TextView text_ofertas = (TextView) view.findViewById(R.id.custom_switcher);
         text_ofertas.setTypeface(typeface);
         text_ofertas.setTextColor(Color.parseColor("#FFA036"));
         text_ofertas.setTextSize(22);
         text_ofertas.setText("Lista de\r\nOfertas");
-        TextView text_noticias = (TextView)view.findViewById(R.id.custom_switcher_noticias);
+        TextView text_noticias = (TextView) view.findViewById(R.id.custom_switcher_noticias);
         text_noticias.setTypeface(typeface);
         text_noticias.setTextColor(Color.parseColor("#FFA036"));
         text_noticias.setTextSize(22);
         text_noticias.setText("Lista de\r\nNoticias");
-
-        TextView text_user = (TextView)view.findViewById(R.id.text_welcome);
-        text_user.setTypeface(typeface2);
-        text_user.setTextColor(Color.WHITE);
-        text_user.setTextSize(20);
-
-        TextView text_empresa = (TextView)view.findViewById(R.id.text_empresa);
+        TextView text_empresa = (TextView) view.findViewById(R.id.text_empresa);
         text_empresa.setTypeface(typeface);
         text_empresa.setTextColor(Color.parseColor("#FFA036"));
         text_empresa.setTextSize(22);
         text_empresa.setText("Directorio\r\nde Empresas");
 
+        if (AccessToken.getCurrentAccessToken() != null) {
+            //login_button_facebook.setVisibility(View.VISIBLE);
+            fetchUserInfo();
 
+        }
+        else {
+            //login_button_facebook.setVisibility(View.GONE);
 
-        ImageView imagen_usuario = (ImageView)view.findViewById(R.id.image_user);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            nombre_completo = preferences.getString("nombre_completo", "");
+            image_user = preferences.getString("image_user", "");
 
-        Glide.with(getActivity())
-                .load(WEBSERVER+"upload/"+image_user)
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.empty_user)
-                .transform(new CircleTransform(getActivity()))
-                .override(80, 80)
-                .into(imagen_usuario);
+            text_user.setTypeface(typeface2);
+            text_user.setTextColor(Color.WHITE);
+            text_user.setTextSize(20);
 
-        String welcome = "Bienvenido(a) a WONAP,\r\n"+nombre_completo.replace(",","\r\n");
-        text_user.setText(welcome);
-       /* rotatingTextWrapper = (RotatingTextWrapper) view.findViewById(R.id.custom_switcher);
-        rotatingTextWrapper2 = (RotatingTextWrapper) view.findViewById(R.id.custom_switcher_noticias);
-*/
+            Glide.with(getActivity())
+                    .load(WEBSERVER + "upload/" + image_user)
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .placeholder(R.drawable.empty_user)
+                    .transform(new CircleTransform(getActivity()))
+                    .override(80, 80)
+                    .into(imagen_usuario);
 
+            String welcome = "Bienvenido(a) a WONAP,\r\n" + nombre_completo.replace(",", "\r\n");
+            text_user.setText(welcome);
 
-
-
-
-        // Inflate the layout for this fragment
+        }
         return view;
     }
 
@@ -332,7 +369,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
                             // if (distancia <= Integer.parseInt(getValueApp("GEOFENCES_DISTANCE")))
                             banner.add(new
                                     w_banner(obj.getString("id"), obj.getString("imagen_banner")));
-                         }
+                        }
 
 
                     }
@@ -360,7 +397,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
             for(w_banner imagen : result) {
                 url_maps.put(imagen.getId(), WEBSERVER + "img_main/"+ imagen.getImagen());
 
-           }
+            }
 
             //TEMPORAL
             url_maps.put("a", WEBSERVER + "img_main/2.jpg");
@@ -398,7 +435,7 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
             mDemoSlider.setDuration(4000);
 
 
-            }
+        }
 
     }
 
@@ -407,13 +444,14 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
 
         double minDistance = 0;
         String closestCity = null;
-        for (Map.Entry<String, LatLng> entry: CITY_LOCATIONS.entrySet()) {
-            double distance = SphericalUtil.computeDistanceBetween(mLatestLocation, entry.getValue());
-            if (minDistance == 0 || distance < minDistance) {
-                minDistance = distance;
-                closestCity = entry.getKey();
+        if(mLatestLocation != null)
+            for (Map.Entry<String, LatLng> entry: CITY_LOCATIONS.entrySet()) {
+                double distance = SphericalUtil.computeDistanceBetween(mLatestLocation, entry.getValue());
+                if (minDistance == 0 || distance < minDistance) {
+                    minDistance = distance;
+                    closestCity = entry.getKey();
+                }
             }
-        }
         return closestCity;
     }
     @Override
@@ -429,6 +467,22 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
             fragmento = this;
             new GetCiudadCercana(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
+
+        if(AccessToken.getCurrentAccessToken() != null) {
+            fetchUserInfo();
+            //updateUI();
+            AppEventsLogger.activateApp(getActivity());
+        }
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(AccessToken.getCurrentAccessToken() != null)
+        {
+            AppEventsLogger.deactivateApp(getActivity());
+        }
     }
 
     @Override
@@ -439,6 +493,121 @@ public class Dashboard extends Fragment implements BaseSliderView.OnSliderClickL
     @Override
     public void onSliderClick(BaseSliderView slider) {
         Toast.makeText(getActivity(),slider.getBundle().get("extra") + "",Toast.LENGTH_SHORT).show();
+    }
+
+    private void fetchUserInfo() {
+
+        final AccessToken accessToken = AccessToken.getCurrentAccessToken();
+
+        if (accessToken != null) {
+            if (Utils.isConn(getActivity())) {
+                GraphRequest request = GraphRequest.newMeRequest(
+                        accessToken, new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject me, GraphResponse response) {
+                                userFacebook = me;
+                                //Log.v("fetchUserInfo: ", me.toString());
+                                updateUI();
+                            }
+                        });
+                Bundle parameters = new Bundle();
+                parameters.putString(FIELDS, REQUEST_FIELDS);
+                request.setParameters(parameters);
+                GraphRequest.executeBatchAsync(request);
+            } else {
+                userFacebook = null;
+                //image_user.setVisibility(View.GONE);
+                //profilePictureView.setProfileId(null);
+                //connectedStateLabel.setText(getResources().getString(
+                //R.string.usersettings_fragment_logged_in));
+                Toast.makeText(getActivity(), "Compruebe su conexión a internet por favor.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("session_usuario", 0);
+            editor.apply();
+            userFacebook = null;
+            Intent i = new Intent(getActivity(), LoginActivity.class);
+            getActivity().finish();
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setAction("TO_MAIN_ACTIVITY");
+            startActivity(i);
+        }
+    }
+
+    private void updateUI() {
+
+        if (AccessToken.getCurrentAccessToken() != null) {
+
+/*            connectedStateLabel.setTextColor(getResources().getColor(
+                    R.color.usersettings_fragment_connected_text_color));
+            connectedStateLabel.setShadowLayer(1f, 0f, -1f,
+                    getResources().getColor(
+                            R.color.usersettings_fragment_connected_shadow_color));*/
+
+            if (userFacebook != null && Utils.isConn(getActivity())) {
+                //profilePictureView.setProfileId(userFacebook.optString("id"));
+                //connectedStateLabel.setText("" + userFacebook.optString("name"));
+                ImageRequest request = getImageRequest();
+                Uri requestUri = request.getImageUri();
+                Transformation transformation = new RoundedCornersTransformation(Glide.get(getApplicationContext()).getBitmapPool(), 100, 0);
+                Glide.with(getActivity())
+                        .load(requestUri)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .placeholder(R.drawable.empty_user)
+                        .override(50, 50)
+                        .bitmapTransform(transformation)
+                        .into(imagen_usuario);
+                Typeface typeface2 = Typeface.createFromAsset(getActivity().getAssets(), "fonts/LoveYaLikeASister.ttf");
+                text_user.setTypeface(typeface2);
+                text_user.setTextColor(Color.WHITE);
+                text_user.setTextSize(20);
+                String welcome = "Bienvenido(a) a WONAP,\r\n"+userFacebook.optString("name");
+                text_user.setText(welcome);
+            }
+        }
+    }
+
+    private ImageRequest getImageRequest() {
+        ImageRequest request;
+        ImageRequest.Builder requestBuilder = new ImageRequest.Builder(
+                getApplicationContext(),
+                ImageRequest.getProfilePictureUri(
+                        userFacebook.optString("id"),
+                        getResources().getDimensionPixelSize(
+                                R.dimen.usersettings_fragment_profile_picture_width),
+                        getResources().getDimensionPixelSize(
+                                R.dimen.usersettings_fragment_profile_picture_height)));
+
+        request = requestBuilder.setCallerTag(this)
+                .setCallback(
+                        new ImageRequest.Callback() {
+                            @Override
+                            public void onCompleted(ImageResponse response) {
+                                processImageResponse(response);
+                            }
+                        })
+                .build();
+        return request;
+    }
+
+    private void processImageResponse(ImageResponse response) {
+        if (response != null) {
+            Bitmap bitmap = response.getBitmap();
+            if (bitmap != null) {
+                BitmapDrawable drawable = new BitmapDrawable(
+                        getActivity().getResources(), bitmap);
+                drawable.setBounds(0, 0,
+                        getResources().getDimensionPixelSize(
+                                R.dimen.usersettings_fragment_profile_picture_width),
+                        getResources().getDimensionPixelSize(
+                                R.dimen.usersettings_fragment_profile_picture_height));
+                connectedStateLabel.setCompoundDrawables(null, drawable, null, null);
+                connectedStateLabel.setTag(response.getRequest().getImageUri());
+            }
+        }
     }
 
 }

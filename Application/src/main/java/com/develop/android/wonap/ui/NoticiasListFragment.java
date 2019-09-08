@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import com.develop.android.wonap.database.w_empresas;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -80,18 +81,34 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
     private static String WEBSERVER = "";
     private static  Map<String, LatLng> CITY_LOCATIONS = new HashMap<String, LatLng>();
     private static String id_ciudad = "";
+    private static String id_ciudad_dos = "";
     private static  NoticiasListFragment fragmento;
     int id_user = 0;
     List<NoticiasModel> noticias = new ArrayList<>();
     private NoticiasAdapter mAdapter;
     private int mImageSize;
+    private static Boolean proximidad;
     private  List<NoticiasModel> result_original = new ArrayList<>();
     private boolean mItemClicked;
+    private static final String ID_EMPRESA = "id_empresa";
+    String id_empresa = "0";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            id_empresa = getArguments().getString(ID_EMPRESA);
+        }
+    }
 
+
+    public static NoticiasListFragment newInstance(String id_empresa, Boolean proximidad_arg) {
+        NoticiasListFragment detailFragment = new NoticiasListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(ID_EMPRESA, id_empresa);
+        detailFragment.setArguments(bundle);
+        proximidad = proximidad_arg;
+        return detailFragment;
     }
 
     @Override
@@ -196,17 +213,31 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
             super.onPostExecute(result);
             Log.v("GetCiudadNoticia","onPostExecute");
             if (!fragmento.isDetached()) {
-                if (!result.isEmpty()) {
-                    id_ciudad = loadIdCiudadCercana();
-                    //Log.v("GetCiudadCercana",id_ciudad);
-                    if (!id_ciudad.equals("0")) {
-                        if (Utils.isConn(getActivity()))
-                            new GetClosestNoticias(mLatestLocation, id_ciudad).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                if (proximidad==null ){
+                    if (!result.isEmpty()) {
+                        id_ciudad_dos = loadIdCiudadCercana();
+                        if (!id_ciudad_dos.equals("0")) {
+                            if (Utils.isConn(getActivity()))
+                                new GetClosestNoticias(mLatestLocation, id_ciudad_dos).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                        }
+                    }
+                }else {
+                    if(proximidad==false) {
+                        id_ciudad_dos = id_empresa;
+                        if (!id_ciudad_dos.equals("0")) {
+                            if (Utils.isConn(getActivity()))
+                                new GetClosestNoticias(mLatestLocation, id_ciudad_dos).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                        }
+                    }else {
+                        id_ciudad_dos = loadIdCiudadCercana();
+                        if (!id_ciudad_dos.equals("0")) {
+                            if (Utils.isConn(getActivity()))
+                                new GetClosestNoticias(mLatestLocation, id_ciudad_dos).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                        }
                     }
                 }
             }
         }
-
     }
 
     private class GetClosestNoticias extends AsyncTask<Void, Void, List<NoticiasModel>> {
@@ -234,7 +265,10 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
 
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getNoticiasMasCercanas.php?id_ciudad="+id_ciudad+"&id_user="+id_user);
+                URL url;
+
+                url = new URL(WEBSERVER + "api/getNoticiasMasCercanas.php?id_ciudad=" + id_ciudad + "&id_user=" + id_user + "&id_empresa=0");
+
                 Log.v("getNoticiasMasCercanas",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -254,12 +288,20 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
                     if (arr.length() != 0) {
                         for (int i = 0; i < arr.length(); i++) {
                             JSONObject obj = (JSONObject) arr.get(i);
+                            /*noticias.add(new
+                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_noticia"), obj.getBoolean("es_favorito"), obj.getString("fecha_publicacion")));
+                            result_original.add(new
+                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_noticia"), obj.getBoolean("es_favorito"), obj.getString("fecha_publicacion")));
+                            */
 
                             noticias.add(new
-                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_noticia"),obj.getBoolean("es_favorito"),obj.getString("fecha_publicacion")));
+                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_noticia"), obj.getBoolean("es_favorito"), obj.getString("fecha_publicacion")));
                             result_original.add(new
-                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"),obj.getString("descripcion"),obj.getString("imagen_noticia"),obj.getBoolean("es_favorito"),obj.getString("fecha_publicacion")));
-
+                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_noticia"), obj.getBoolean("es_favorito"), obj.getString("fecha_publicacion")));
+                                /*noticias.add(new
+                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_noticia"), obj.getBoolean("es_favorito"), obj.getString("fecha_publicacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud")));
+                                result_original.add(new
+                                    NoticiasModel(obj.getString("id"), obj.getString("id_empresa"), obj.getString("nombre_empresa"), obj.getString("titulo"), obj.getString("descripcion"), obj.getString("imagen_noticia"), obj.getBoolean("es_favorito"), obj.getString("fecha_publicacion"), obj.getString("pos_latitud"), obj.getString("pos_longitud")));*/
                         }
 
 
@@ -280,28 +322,32 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
         @Override
         protected void onPostExecute(List<NoticiasModel> result) {
             super.onPostExecute(result);
+            //*if (proximidad)
             Log.v("getNoticiasMasCercanas","onPostExecute");
+            //*else
+                //*Log.v("getNoticias","onPostExecute");
+            if(!isDetached()) {
+                swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
 
-            swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
+                        fetchTimelineAsync(0);
+                    }
+                });
 
-                    fetchTimelineAsync(0);
+
+                MyRecyclerView.setHasFixedSize(true);
+                StaggeredGridLayoutManager gaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                MyRecyclerView.setLayoutManager(gaggeredGridLayoutManager);
+                if (result.size() > 0 & MyRecyclerView != null) {
+                    mAdapter = new NoticiasAdapter(getActivity(), result);
+                    MyRecyclerView.setAdapter(mAdapter);
+
                 }
-            });
-
-
-            MyRecyclerView.setHasFixedSize(true);
-            StaggeredGridLayoutManager gaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-            MyRecyclerView.setLayoutManager(gaggeredGridLayoutManager);
-            if (result.size() > 0 & MyRecyclerView != null) {
-                mAdapter = new NoticiasAdapter(getActivity(), result);
-                MyRecyclerView.setAdapter(mAdapter);
-
+                swipeContainer.setRefreshing(false);
+                rotateLoading.stop();
+                rotateLoading.setVisibility(View.GONE);
             }
-            swipeContainer.setRefreshing(false);
-            rotateLoading.stop();
-            rotateLoading.setVisibility(View.GONE);
         }
 
     }
@@ -442,7 +488,9 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
 
     public class NoticiasAdapter extends RecyclerView.Adapter<MyViewHolder> implements ItemClickListener {
 
+        //*public List<NoticiasModel> list;
         public List<NoticiasModel> list;
+        ArrayList<Section> sections = new ArrayList<>();
         private Context mContext;
 
         public NoticiasAdapter(Context context, List<NoticiasModel> Data) {
@@ -493,6 +541,7 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
 
                         holder.likeImageView.setTag(R.drawable.ic_liked);
                         holder.likeImageView.setImageResource(R.drawable.ic_liked);
+                        list.get(position).setEsFavorito(true);
                         favorito = true;
                         //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" añadido a favoritos", Toast.LENGTH_LONG).show();
 
@@ -500,6 +549,7 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
 
                         holder.likeImageView.setTag(R.drawable.ic_like);
                         holder.likeImageView.setImageResource(R.drawable.ic_like);
+                        list.get(position).setEsFavorito(false);
                         favorito= false;
                         //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" eliminado de sus favoritos", Toast.LENGTH_LONG).show();
                     }
@@ -519,7 +569,7 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
                                     break;
                                 default:
                                     Toast.makeText(getActivity(), list.get(position).getNombreEmpresa()+" eliminado de sus favoritos", Toast.LENGTH_LONG).show();
-                                   break;
+                                    break;
 
                             }
                         }
@@ -554,7 +604,49 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
             });
         }
 
-       @Override
+        private class Section {
+            String alpha;
+            ArrayList<NoticiasModel> noticias = new ArrayList<>();
+        }
+
+        public void setmNoticias(List<NoticiasModel> noticias) {
+            this.list = new ArrayList<>(noticias);
+            sections.clear();
+            // sort people into buckets by the first letter of last name
+            char alpha = 0;
+            Section currentSection = null;
+
+            if(!proximidad) {
+                for (NoticiasModel noticia : noticias) {
+                    if (noticia.getNombreEmpresa().charAt(0) != alpha) {
+                        if (currentSection != null) {
+                            sections.add(currentSection);
+                        }
+
+                        currentSection = new Section();
+                        alpha = noticia.getNombreEmpresa().charAt(0);
+                        currentSection.alpha = String.valueOf(alpha);
+                    }
+
+                    if (currentSection != null) {
+                        currentSection.noticias.add(noticia);
+                    }
+                }
+            }
+            else {
+                currentSection = new Section();
+                currentSection.alpha = "Noticias más cercanas";
+                for (NoticiasModel noticia : noticias) {
+                    if (currentSection != null) {
+                        currentSection.noticias.add(noticia);
+                    }
+                }
+            }
+            sections.add(currentSection);
+            //*notifyAllSectionsDataSetChanged();
+        }
+
+        @Override
         public int getItemCount() {
             return list.size();
         }
@@ -566,7 +658,7 @@ public class NoticiasListFragment extends Fragment implements SwipeRefreshLayout
                 mItemClicked = true;
                 View heroView = view.findViewById(R.id.coverImageView);
                 NoticiaDetailActivity.launch(
-                        getActivity(), mAdapter.list.get(position).getId(), heroView);
+                        getActivity(), mAdapter.list.get(position).getId(), heroView, id_empresa);
             }
 
         }

@@ -36,9 +36,15 @@ import com.develop.android.wonap.R;
 import com.develop.android.wonap.common.Utils;
 import com.develop.android.wonap.database.ParseJSON;
 import com.develop.android.wonap.database.WonapDatabaseLocal;
+import com.develop.android.wonap.service.SharedPrefManager;
 import com.develop.android.wonap.service.UtilityService;
+import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.kosalgeek.genasync12.AsyncResponse;
+import com.kosalgeek.genasync12.EachExceptionsHandler;
+import com.kosalgeek.genasync12.PostResponseAsyncTask;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -49,7 +55,12 @@ import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.scalified.fab.ActionButton;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 public class PrincipalActivity extends AppCompatActivity {
@@ -60,7 +71,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     ActionButton actionButton;
     private boolean doubleBackToExitPressedOnce = false;
-
+    Integer id_user = 0;
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -76,7 +87,8 @@ public class PrincipalActivity extends AppCompatActivity {
 
         BaseInit();
 
-       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);*/
         Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/LoveYaLikeASister.ttf");
 
@@ -153,9 +165,14 @@ public class PrincipalActivity extends AppCompatActivity {
                         builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int which) {
+
+                                if (AccessToken.getCurrentAccessToken() != null)
+                                    LoginManager.getInstance().logOut();
+
+
                                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(PrincipalActivity.this);
                                 SharedPreferences.Editor editor = preferences.edit();
-                                editor.putInt("session_usuario", 0);
+                                editor.clear();
                                 editor.apply();
                                 Intent i = new Intent(getApplication(), LoginActivity.class);
                                 finish();
@@ -260,6 +277,13 @@ public class PrincipalActivity extends AppCompatActivity {
         SmartTabLayout viewPagerTab = (SmartTabLayout) findViewById(R.id.tabs);
         viewPagerTab.setViewPager(mViewPager);
 
+
+        //INTENT PARA ABRIR LA OPCION DE AVISOS CERCANOS
+        if(getIntent().getAction().equals("ABRIR_CERCANOS")) {
+            Log.v("Intent Notificacion:","Abrir cercanos");
+            mViewPager.setCurrentItem(2);
+        }
+
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -295,7 +319,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
                 }
 
-           }
+            }
         });
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -322,6 +346,65 @@ public class PrincipalActivity extends AppCompatActivity {
 
             }
         });
+
+        //GRABAR EL TOKEN DE FMC
+        final String token = SharedPrefManager.getInstance(this).getDeviceToken();
+        Log.v("Token", token);
+
+        if(!token.equals("")) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            id_user = preferences.getInt("id_usuario", 0);
+            String WEBSERVER = this.getString(R.string.web_server);
+
+            HashMap<String, String> postdata = new HashMap<String, String>();
+            //postdata.put("image", encodeImage);
+            //postdata.put("id_conjuntoresidencial", id_conjuntoresidencial.toString());
+            postdata.put("id_user", id_user.toString());
+            postdata.put("token", token);
+
+
+            PostResponseAsyncTask task = new PostResponseAsyncTask(this, postdata, new AsyncResponse() {
+                @Override
+                public void processFinish(String s) {
+                    switch (s) {
+                        case "Token Guardado":
+                            Log.v("Token", s);
+                            break;
+                        case "Error":
+                            Log.v("Token", s);
+                            break;
+                        default:
+                            Log.v("Token", s);
+                            break;
+                    }
+                }
+            });
+
+
+            task.execute(WEBSERVER + "api/RegisterDevice.php");
+            task.setEachExceptionsHandler(new EachExceptionsHandler() {
+                @Override
+                public void handleIOException(IOException e) {
+                    Log.v("Token: ", "No se puede conectar al servidor.");
+                }
+
+                @Override
+                public void handleMalformedURLException(MalformedURLException e) {
+                    Log.v("Token: ", "Error de URL.");
+                }
+
+                @Override
+                public void handleProtocolException(ProtocolException e) {
+                    Log.v("Token: ", "Error de Protocolo.");
+                }
+
+                @Override
+                public void handleUnsupportedEncodingException(UnsupportedEncodingException e) {
+                    Log.v("Token: ", "Error de codificación.");
+                }
+            });
+
+        }
 
 
 
@@ -376,7 +459,7 @@ public class PrincipalActivity extends AppCompatActivity {
                     this.overridePendingTransition(0, 0);
                 } else {
                     Intent i = DetailActivity.getLaunchIntent(
-                            this, result.getContents().split(",")[1]);
+                            this, result.getContents().split(",")[1], "0");
                     startActivity(i);
                 }
 
@@ -441,7 +524,7 @@ public class PrincipalActivity extends AppCompatActivity {
         //int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-       // if (id == R.id.action_settings) {
+        // if (id == R.id.action_settings) {
         //    return true;
         //}
 

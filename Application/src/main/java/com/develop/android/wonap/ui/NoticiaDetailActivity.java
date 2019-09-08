@@ -36,18 +36,20 @@ import com.develop.android.wonap.R;
 public class NoticiaDetailActivity extends AppCompatActivity {
 
     private static final String EXTRA_ATTRACTION = "id_noticia";
+    private static final String ID_EMPRESA = "id_empresa";
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void launch(Activity activity, String id_noticia, View heroView) {
-        Intent intent = getLaunchIntent(activity, id_noticia);
+    public static void launch(Activity activity, String id_noticia, View heroView, String id_empresa) {
+        Intent intent = getLaunchIntent(activity, id_noticia, id_empresa);
 
-            activity.startActivity(intent);
+        activity.startActivity(intent);
 
     }
 
-    public static Intent getLaunchIntent(Context context, String id_noticia) {
+    public static Intent getLaunchIntent(Context context, String id_noticia, String id_empresa) {
         Intent intent = new Intent(context, NoticiaDetailActivity.class);
         intent.putExtra(EXTRA_ATTRACTION, id_noticia);
+        intent.putExtra(ID_EMPRESA, id_empresa);
         return intent;
     }
 
@@ -57,9 +59,11 @@ public class NoticiaDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_noticia);
 
         String noticia = getIntent().getStringExtra(EXTRA_ATTRACTION);
+        String id_empresa = getIntent().getStringExtra(ID_EMPRESA);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container_noticia, NoticiaDetailFragment.createInstance(noticia))
+                    .add(R.id.container_noticia, NoticiaDetailFragment.createInstance(noticia, id_empresa))
                     .commit();
         }
     }

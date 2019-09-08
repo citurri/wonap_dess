@@ -63,8 +63,10 @@ public class NoticiaDetailFragment extends Fragment implements
         ShareActionProvider.OnShareTargetSelectedListener  {
 
     private static final String EXTRA_ATTRACTION = "id_noticia";
+    private static final String ID_EMPRESA = "id_empresa";
     private NoticiasModel noticia_detalle;
     String id_noticia = "0";
+    String id_empresa = "0";
     TextView nameTextView;
     TextView descTextView;
     TextView fechaTextView;
@@ -74,10 +76,11 @@ public class NoticiaDetailFragment extends Fragment implements
     private ShareActionProvider share=null;
     private Intent shareIntent=new Intent(Intent.ACTION_SEND);
 
-    public static NoticiaDetailFragment createInstance(String id_noticia) {
+    public static NoticiaDetailFragment createInstance(String id_noticia, String id_empresa) {
         NoticiaDetailFragment detailFragment = new NoticiaDetailFragment();
         Bundle bundle = new Bundle();
         bundle.putString(EXTRA_ATTRACTION, id_noticia);
+        bundle.putString(ID_EMPRESA, id_empresa);
         detailFragment.setArguments(bundle);
         return detailFragment;
     }
@@ -91,11 +94,12 @@ public class NoticiaDetailFragment extends Fragment implements
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_detail_noticia, container, false);
         id_noticia = getArguments().getString(EXTRA_ATTRACTION);
+        id_empresa = getArguments().getString(ID_EMPRESA);
         nameTextView = (TextView) view.findViewById(R.id.nameTextView);
         descTextView = (TextView) view.findViewById(R.id.descriptionTextView);
         fechaTextView = (TextView) view.findViewById(R.id.fechaTextView);
         noticiaImageView = (LabelImageView) view.findViewById(R.id.noticiaImageView);
-         
+
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         id_user = preferences.getInt("id_usuario", 0);
@@ -105,7 +109,7 @@ public class NoticiaDetailFragment extends Fragment implements
         Log.v("Detalle Noticia:", "onCreateView");
 
         if (Utils.isConn(getActivity()))
-        new GetNoticia(id_noticia).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            new GetNoticia(id_noticia).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
 
 
@@ -119,21 +123,26 @@ public class NoticiaDetailFragment extends Fragment implements
         //chat_1.setPadding(10,0,10,0);
 
         MenuItem map = menu.findItem(R.id.map_noticia);
-        ImageButton mapa = ((ImageButton) map.getActionView());
-        mapa.setImageResource(R.drawable.ic_building);
-        //mapa.setPadding(1,0,1,0);
-        mapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //PERFIL DE EMPRESA
-                int[] startingLocation = new int[2];
-                v.getLocationOnScreen(startingLocation);
-                startingLocation[0] += v.getWidth() / 2;
-                EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(),  noticia_detalle.getIdEmpresa());
-                getActivity().overridePendingTransition(0, 0);
-            }
-        });
 
+        ImageButton mapa = ((ImageButton) map.getActionView());
+
+        if(Integer.parseInt(id_empresa) > 0)
+            mapa.setVisibility(View.GONE);
+        else {
+            mapa.setImageResource(R.drawable.ic_building);
+            //mapa.setPadding(1,0,1,0);
+            mapa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //PERFIL DE EMPRESA
+                    int[] startingLocation = new int[2];
+                    v.getLocationOnScreen(startingLocation);
+                    startingLocation[0] += v.getWidth() / 2;
+                    EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(), noticia_detalle.getIdEmpresa());
+                    getActivity().overridePendingTransition(0, 0);
+                }
+            });
+        }
         share=(ShareActionProvider)MenuItemCompat.getActionProvider(item);
         share.setOnShareTargetSelectedListener(this);
 
@@ -146,7 +155,10 @@ public class NoticiaDetailFragment extends Fragment implements
             case android.R.id.home:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     // On Lollipop+ we finish so to run the nice animation
-                    getActivity().finishAfterTransition();
+                    if(Integer.parseInt(id_empresa) > 0)
+                        getActivity().finish();
+                    else
+                        getActivity().finishAfterTransition();
                     return true;
                 }
                 else
@@ -230,60 +242,60 @@ public class NoticiaDetailFragment extends Fragment implements
         protected void onPostExecute(final NoticiasModel result) {
             super.onPostExecute(result);
             Log.v("GetNoticia_detalle", "onPostExecute");
+            if(!isDetached()) {
+                if (noticia_detalle == null) {
+                    getActivity().finish();
 
-            if (noticia_detalle == null) {
-                getActivity().finish();
-
-            }
-
-            Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/LoveYaLikeASister.ttf");
-
-            nameTextView.setTypeface(typeface);
-            nameTextView.setTextSize(22f);
-            nameTextView.setText(noticia_detalle.getTitulo());
-
-
-            ///validezTextView.setText("Válido del "+ noticia_detalle.getFechaInicio().substring(0,10) + " al " + noticia_detalle.getFechaFin().substring(0,10));
-            descTextView.setTypeface(typeface);
-            descTextView.setTextSize(18f);
-            descTextView.setText(noticia_detalle.getDescripcion());
-
-
-
-            fechaTextView.setTypeface(typeface);
-            fechaTextView.setTextSize(18f);
-            fechaTextView.setText(noticia_detalle.getFechaPublicacion());
-
-            int imageSize = getResources().getDimensionPixelSize(R.dimen.image_size)
-                    * Constants.IMAGE_ANIM_MULTIPLIER;
-            Glide.with(getActivity())
-                    .load(WEBSERVER+"upload/"+noticia_detalle.getImagenNoticia())
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .placeholder(R.color.lighter_gray)
-                    .override(imageSize, imageSize)
-                    .into(noticiaImageView);
-            noticiaImageView.setLabelTextSize(60);
-            noticiaImageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ArrayList<String> images = new ArrayList<String>();
-                    //Principal
-                    images.add(WEBSERVER+"upload/"+noticia_detalle.getImagenNoticia());
-                    Intent intent = new Intent(getActivity(), GalleryActivity.class);
-                    intent.putStringArrayListExtra(GalleryActivity.EXTRA_NAME, images);
-                    startActivity(intent);
                 }
-            });
 
-            String mensaje = "Empresa: " + noticia_detalle.getTitulo() + "\n\n" +
-                    "Noticia: " + noticia_detalle.getDescripcion() +
-                    "\n\nImagen: " + WEBSERVER +"upload/" +noticia_detalle.getImagenNoticia() +
-                    "\n\nDescargue WONAP!! ";
+                Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/LoveYaLikeASister.ttf");
+
+                nameTextView.setTypeface(typeface);
+                nameTextView.setTextSize(22f);
+                nameTextView.setText(noticia_detalle.getTitulo());
 
 
-            shareIntent.putExtra(Intent.EXTRA_TEXT, mensaje);
-            shareIntent.setType("text/plain");
-            share.setShareIntent(shareIntent);
+                ///validezTextView.setText("Válido del "+ noticia_detalle.getFechaInicio().substring(0,10) + " al " + noticia_detalle.getFechaFin().substring(0,10));
+                descTextView.setTypeface(typeface);
+                descTextView.setTextSize(18f);
+                descTextView.setText(noticia_detalle.getDescripcion());
+
+
+                fechaTextView.setTypeface(typeface);
+                fechaTextView.setTextSize(18f);
+                fechaTextView.setText(noticia_detalle.getFechaPublicacion());
+
+                int imageSize = getResources().getDimensionPixelSize(R.dimen.image_size)
+                        * Constants.IMAGE_ANIM_MULTIPLIER;
+                Glide.with(getActivity())
+                        .load(WEBSERVER + "upload/" + noticia_detalle.getImagenNoticia())
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .placeholder(R.color.lighter_gray)
+                        .override(imageSize, imageSize)
+                        .into(noticiaImageView);
+                noticiaImageView.setLabelTextSize(60);
+                noticiaImageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<String> images = new ArrayList<String>();
+                        //Principal
+                        images.add(WEBSERVER + "upload/" + noticia_detalle.getImagenNoticia());
+                        Intent intent = new Intent(getActivity(), GalleryActivity.class);
+                        intent.putStringArrayListExtra(GalleryActivity.EXTRA_NAME, images);
+                        startActivity(intent);
+                    }
+                });
+
+                String mensaje = "Empresa: " + noticia_detalle.getTitulo() + "\n\n" +
+                        "Noticia: " + noticia_detalle.getDescripcion() +
+                        "\n\nImagen: " + WEBSERVER + "upload/" + noticia_detalle.getImagenNoticia() +
+                        "\n\nDescargue WONAP!! ";
+
+
+                shareIntent.putExtra(Intent.EXTRA_TEXT, mensaje);
+                shareIntent.setType("text/plain");
+                share.setShareIntent(shareIntent);
+            }
 
         }
     }

@@ -45,10 +45,13 @@ public class CountryFilterActivity extends AppCompatActivity {
 
         mensaje2.setTypeface(typeface);
         ciudad.setTypeface(typeface);
-        if (action.equals("Empresas") || action.equals("Anuncios") )
+        if (action.equals("Empresas") || action.equals("Anuncios"))
             ciudad.setText("Listar por proximidad");
         else
-            ciudad.setText(prefs.getString("LOCALITY", ""));
+            if (action.equals("Noticias"))
+                ciudad.setText("Listar en tu ciudad");
+            else
+                ciudad.setText(prefs.getString("LOCALITY", ""));
         todos_text.setTypeface(typeface);
         if (!Utils.isConn(this) || prefs.getString("LOCALITY", "").equals("")) {
             frame.setVisibility(View.GONE);
@@ -57,16 +60,17 @@ public class CountryFilterActivity extends AppCompatActivity {
         todos_text.setTypeface(typeface);
         if (action.equals("Empresas")) todos_text.setText("Listar todas las empresas");
         else if (action.equals("Anuncios")) todos_text.setText("Listar todas los anuncios");
-             else todos_text.setText("Listar todas las noticias");
+        else todos_text.setText("Listar todas las noticias");
 
         frame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = null;
 
-                //if (action.equals("Empresas"))
+                if (action.equals("Empresas"))
                     intent = new Intent(CountryFilterActivity.this, EmpresasActivity.class);
                 //else intent = new Intent(CountryFilterActivity.this, AnunciosList.class);
+                else intent = new Intent(CountryFilterActivity.this, NoticiasActivity.class);
 
                 Bundle b = new Bundle();
                 b.putString("id_ciudad", prefs.getString("ID_CIUDAD", ""));
@@ -84,9 +88,9 @@ public class CountryFilterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = null;
 
-                //if (action.equals("Empresas"))
+                if (action.equals("Empresas"))
                     intent = new Intent(CountryFilterActivity.this, EmpresasActivity.class);
-               // else intent = new Intent(CountryFilterActivity.this, AnunciosList.class);
+                else intent = new Intent(CountryFilterActivity.this, NoticiasActivity.class);
 
                 Bundle b = new Bundle();
                 b.putString("id_ciudad", prefs.getString("ID_CIUDAD", ""));

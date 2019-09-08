@@ -3,9 +3,15 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.google.gms:google-services:4.2.0' //2408 3.1.0
     }
 }
 
@@ -13,6 +19,11 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+        google()
     }
 }
 
@@ -23,14 +34,15 @@ subprojects {
     repositories {
         mavenCentral()
         jcenter()
+        google()
     }
 
     version = '3.0.3'
     group = 'com.journeyapps'
     //apply plugin: 'android-sdk-manager'
 
-    ext.androidBuildTools = '25'
-    ext.androidTargetSdk = 26
+    ext.androidBuildTools = '27.0.2'
+    ext.androidTargetSdk = 27
     ext.zxingCore = 'com.google.zxing:core:3.2.0'
 
 

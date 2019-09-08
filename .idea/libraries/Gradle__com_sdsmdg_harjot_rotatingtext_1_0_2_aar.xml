@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.sdsmdg.harjot:rotatingtext:1.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/40c046b0f0ef24eca31e4746760525d5/rotatingtext-1.0.2/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sdsmdg.harjot/rotatingtext/1.0.2/30b7d9276b7e8cd0292fba56d15cac46d99e6946/rotatingtext-1.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.sdsmdg.harjot/rotatingtext/1.0.2/5ae10fc55cf2ef55430ef2c43131469fc4460c0d/rotatingtext-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

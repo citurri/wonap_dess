@@ -46,6 +46,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -74,6 +75,7 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
     SearchView searchView;
     private boolean mItemClicked;
     static EmpresasActivity empresasActivity;
+
 
     public static EmpresasListFragment newInstance(String id_ciudad_arg, String pais_arg, String ciudad_arg, Boolean todos_arg, Boolean proximidad_arg, EmpresasActivity empresasActivity_args) {
         id_ciudad = id_ciudad_arg;
@@ -149,6 +151,8 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
             BufferedReader bufferedReader = null;
             try {
                 URL url;
+                if (!filter.equals(""))
+                filter =  URLEncoder.encode(filter, "UTF-8");
                 if(proximidad)
                     url = new URL(WEBSERVER+"api/getEmpresasProximidad.php?id_ciudad="+id_ciudad+"&id_user="+id_user+"&filter="+filter);
                 else
@@ -202,17 +206,19 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
         protected void onPostExecute(List<w_empresas> result) {
             super.onPostExecute(result);
             Log.v("getEmpresas","onPostExecute");
-            mAdapter = new EmpresasAdapter();
+            if(!isDetached()) {
+                mAdapter = new EmpresasAdapter();
 
-            if(proximidad)
-                mAdapter.setmEmpresas(loadAttractionsFromLocation(location));
-            else
-                mAdapter.setmEmpresas(empresas);
-            // Set layout manager
-            recyclerView.setLayoutManager(new StickyHeaderLayoutManager());
-            recyclerView.setAdapter(mAdapter);
+                if (proximidad)
+                    mAdapter.setmEmpresas(loadAttractionsFromLocation(location));
+                else
+                    mAdapter.setmEmpresas(empresas);
+                // Set layout manager
+                recyclerView.setLayoutManager(new StickyHeaderLayoutManager());
+                recyclerView.setAdapter(mAdapter);
 
-            loading.dismiss();
+                loading.dismiss();
+            }
         }
 
     }
@@ -430,6 +436,8 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
 
             final w_empresas empresa = s.empresas.get(itemIndex);
 
+            //Toast.makeText(getActivity(), "Creando Item", Toast.LENGTH_SHORT).show();
+
             holder.textID.setText(empresa.getId());
             holder.empresaTextView.setText(empresa.getNombre());
             holder.empTextView.setText(empresa.getNombre());
@@ -456,6 +464,8 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
                 holder.favoritoView.setImageResource(R.drawable.ic_like);
             }
 
+
+
             holder.favoritoView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -467,16 +477,17 @@ public class EmpresasListFragment extends Fragment implements SearchView.OnQuery
                         holder.favoritoView.setTag(R.drawable.ic_liked);
                         holder.favoritoView.setImageResource(R.drawable.ic_liked);
                         favorito = true;
+                        empresa.setFavorito(true);
                         //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" añadido a favoritos", Toast.LENGTH_LONG).show();
 
                     }else{
 
                         holder.favoritoView.setTag(R.drawable.ic_like);
                         holder.favoritoView.setImageResource(R.drawable.ic_like);
+                        empresa.setFavorito(false);
                         favorito= false;
                         //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" eliminado de sus favoritos", Toast.LENGTH_LONG).show();
                     }
-
 
                     HashMap<String, String> postdata = new HashMap<String, String>();
                     postdata.put("id_user", String.valueOf(id_user));

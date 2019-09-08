@@ -93,4 +93,9 @@ appear further down your stream
         <item>http://www.sysmart-bo.com/wonap/img_main/4.jpg</item>
         <item>http://www.sysmart-bo.com/wonap/img_main/5.jpg</item>
     </string-array>
+    <string name="facebook_app_id">896664803815878</string>
+    <string name="fb_login_protocol_scheme">fb896664803815878</string>
+    <string name="title_activity_wonapmaps">Map</string>
+    <string name="title_activity_wonapmaps2">Map</string>
+
 </resources>

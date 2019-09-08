@@ -182,16 +182,18 @@ public class EmpresaSucursalesFragment extends Fragment {
         protected void onPostExecute(ArrayList<w_sucursales> result) {
             super.onPostExecute(result);
             Log.v("GetSucursales","onPostExecute");
-            sucursalAdapter = new SucursalAdapter(getActivity(), loadAttractionsFromLocation(mLatestLocation));
-            empresaSucursales.setHasFixedSize(true);
-            empresaSucursales.setLayoutManager(new GridLayoutManager(
-                    getActivity(), getResources().getInteger(R.integer.list_columns)));
-            empresaSucursales.setAdapter(sucursalAdapter);
+            if(!isDetached()) {
+                sucursalAdapter = new SucursalAdapter(getActivity(), loadAttractionsFromLocation(mLatestLocation));
+                empresaSucursales.setHasFixedSize(true);
+                empresaSucursales.setLayoutManager(new GridLayoutManager(
+                        getActivity(), getResources().getInteger(R.integer.list_columns)));
+                empresaSucursales.setAdapter(sucursalAdapter);
 
-            if(sucursales.size() > 0)
-                nullTextView.setVisibility(View.INVISIBLE);
-            else
-                nullTextView.setVisibility(View.VISIBLE);
+                if (sucursales.size() > 0)
+                    nullTextView.setVisibility(View.INVISIBLE);
+                else
+                    nullTextView.setVisibility(View.VISIBLE);
+            }
         }
 
     }

@@ -90,8 +90,10 @@ public class DetailFragment extends Fragment implements
         ShareActionProvider.OnShareTargetSelectedListener  {
 
     private static final String EXTRA_ATTRACTION = "id_oferta";
+    private static final String ID_EMPRESA = "id_empresa";
     private OfertaModel oferta_detalle;
     String id_oferta = "0";
+    String id_empresa = "0";
     TextView nameTextView;
     TextView descTextView;
     TextView distanceTextView;
@@ -107,10 +109,11 @@ public class DetailFragment extends Fragment implements
     private ShareActionProvider share=null;
     private Intent shareIntent=new Intent(Intent.ACTION_SEND);
 
-    public static DetailFragment createInstance(String id_oferta) {
+    public static DetailFragment createInstance(String id_oferta, String id_empresa) {
         DetailFragment detailFragment = new DetailFragment();
         Bundle bundle = new Bundle();
         bundle.putString(EXTRA_ATTRACTION, id_oferta);
+        bundle.putString(ID_EMPRESA, id_empresa);
         detailFragment.setArguments(bundle);
         return detailFragment;
     }
@@ -124,6 +127,7 @@ public class DetailFragment extends Fragment implements
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         id_oferta = getArguments().getString(EXTRA_ATTRACTION);
+        id_empresa = getArguments().getString(ID_EMPRESA);
         nameTextView = (TextView) view.findViewById(R.id.nameTextView);
         descTextView = (TextView) view.findViewById(R.id.descriptionTextView);
         distanceTextView = (TextView) view.findViewById(R.id.distanceTextView);
@@ -158,20 +162,25 @@ public class DetailFragment extends Fragment implements
 
         MenuItem map = menu.findItem(R.id.map);
         ImageButton mapa = ((ImageButton) map.getActionView());
-        mapa.setImageResource(R.drawable.ic_building);
-        //mapa.setPadding(1,0,1,0);
-        mapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //PERFIL DE EMPRESA
 
-                int[] startingLocation = new int[2];
-                v.getLocationOnScreen(startingLocation);
-                startingLocation[0] += v.getWidth() / 2;
-                EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(),  oferta_detalle.getIdEmpresa());
-                getActivity().overridePendingTransition(0, 0);
-            }
-        });
+        if(Integer.parseInt(id_empresa) > 0)
+            mapa.setVisibility(View.GONE);
+        else {
+            mapa.setImageResource(R.drawable.ic_building);
+            //mapa.setPadding(1,0,1,0);
+            mapa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //PERFIL DE EMPRESA
+
+                    int[] startingLocation = new int[2];
+                    v.getLocationOnScreen(startingLocation);
+                    startingLocation[0] += v.getWidth() / 2;
+                    EmpresaProfileActivity.startUserProfileFromLocation(startingLocation, getActivity(), oferta_detalle.getIdEmpresa());
+                    getActivity().overridePendingTransition(0, 0);
+                }
+            });
+        }
 
         MenuItem chat = menu.findItem(R.id.chat);
         ImageButton chat_1 = ((ImageButton) chat.getActionView());
@@ -213,7 +222,10 @@ public class DetailFragment extends Fragment implements
             case android.R.id.home:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     // On Lollipop+ we finish so to run the nice animation
-                    getActivity().finishAfterTransition();
+                    if(Integer.parseInt(id_empresa) > 0)
+                        getActivity().finish();
+                    else
+                        getActivity().finishAfterTransition();
                     return true;
                 }
                 else
@@ -225,6 +237,8 @@ public class DetailFragment extends Fragment implements
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
     /**
      * Really hacky loop for finding attraction in our static content provider.

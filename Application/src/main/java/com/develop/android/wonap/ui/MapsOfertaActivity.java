@@ -1,6 +1,8 @@
 package com.develop.android.wonap.ui;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +13,8 @@ import android.widget.Toast;
 
 import com.develop.android.wonap.R;
 import com.develop.android.wonap.database.markers;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -37,6 +41,8 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_oferta);
 
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -46,10 +52,17 @@ public class MapsOfertaActivity extends AppCompatActivity implements OnMapReadyC
 
         getSupportActionBar().setTitle(titulo_mapa);
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        if(status== ConnectionResult.SUCCESS) {
+
+            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+
+        } else {
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status,(Activity)getApplicationContext(),10);
+            dialog.show();
+        }
     }
 
 

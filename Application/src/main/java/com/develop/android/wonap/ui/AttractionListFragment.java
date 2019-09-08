@@ -26,6 +26,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -102,8 +103,27 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
     private RotateLoading rotateLoading;
     private static  AttractionListFragment fragmento;
     int id_user = 0;
+    private static final String ID_EMPRESA = "id_empresa";
+    String id_empresa = "0";
 
     public AttractionListFragment() {}
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            id_empresa = getArguments().getString(ID_EMPRESA);
+        }
+    }
+
+
+    public static AttractionListFragment newInstance(String id_empresa) {
+        AttractionListFragment detailFragment = new AttractionListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(ID_EMPRESA, id_empresa);
+        detailFragment.setArguments(bundle);
+        return detailFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -256,7 +276,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
             BufferedReader bufferedReader = null;
             try {
-                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user="+id_user);
+                URL url = new URL(WEBSERVER+"api/getAnunciosMasCercano.php?id_ciudad="+id_ciudad+"&id_user=0&id_empresa="+id_empresa+"&id_u_lista="+id_user);
                 Log.v("GetClosestOffers",url.toString());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 //con.setConnectTimeout(15000);
@@ -305,30 +325,30 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
         protected void onPostExecute(List<OfertaModel> result) {
             super.onPostExecute(result);
             Log.v("GetClosestOffers","onPostExecute");
+            if(!isDetached()) {
+                //new GetPOSCercanos(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        // Your code to refresh the list here.
+                        // Make sure you call swipeContainer.setRefreshing(false)
+                        // once the network request has completed successfully.
+                        fetchTimelineAsync(0);
+                    }
+                });
 
-            //new GetPOSCercanos(mLatestLocation).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-            swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                @Override
-                public void onRefresh() {
-                    // Your code to refresh the list here.
-                    // Make sure you call swipeContainer.setRefreshing(false)
-                    // once the network request has completed successfully.
-                    fetchTimelineAsync(0);
-                }
-            });
+                mAdapter = new AttractionAdapter(getActivity(), loadAttractionsFromLocation(mLatestLocation));
 
-            mAdapter = new AttractionAdapter(getActivity(), loadAttractionsFromLocation(mLatestLocation));
-
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new GridLayoutManager(
-                    getActivity(), getResources().getInteger(R.integer.list_columns)));
-            recyclerView.setAdapter(mAdapter);
-            LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
-                    mBroadcastReceiver, UtilityService.getLocationUpdatedIntentFilter());
-            swipeContainer.setRefreshing(false);
-            rotateLoading.stop();
-            rotateLoading.setVisibility(View.GONE);
-
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new GridLayoutManager(
+                        getActivity(), getResources().getInteger(R.integer.list_columns)));
+                recyclerView.setAdapter(mAdapter);
+                LocalBroadcastManager.getInstance(getActivity()).registerReceiver(
+                        mBroadcastReceiver, UtilityService.getLocationUpdatedIntentFilter());
+                swipeContainer.setRefreshing(false);
+                rotateLoading.stop();
+                rotateLoading.setVisibility(View.GONE);
+            }
             //añadimos geofences (max 90)
             //UtilityService.addGeofences(getActivity(), attractions);
         }
@@ -540,6 +560,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
                         holder.likeImageView.setTag(R.drawable.ic_liked);
                         holder.likeImageView.setImageResource(R.drawable.ic_liked);
+                        attraction.setEsFavorito(true);
                         favorito = true;
                         //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" añadido a favoritos", Toast.LENGTH_LONG).show();
 
@@ -547,6 +568,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
 
                         holder.likeImageView.setTag(R.drawable.ic_like);
                         holder.likeImageView.setImageResource(R.drawable.ic_like);
+                        attraction.setEsFavorito(false);
                         favorito= false;
                         //Toast.makeText(getActivity(),list.get(position).getNombreEmpresa()+" eliminado de sus favoritos", Toast.LENGTH_LONG).show();
                     }
@@ -617,7 +639,7 @@ public class AttractionListFragment extends Fragment implements SwipeRefreshLayo
                 mItemClicked = true;
                 View heroView = view.findViewById(R.id.labelImageView5);
                 DetailActivity.launch(
-                        getActivity(), mAdapter.mAttractionList.get(position).getId(), heroView);
+                        getActivity(), mAdapter.mAttractionList.get(position).getId(), heroView, id_empresa);
             }
         }
 

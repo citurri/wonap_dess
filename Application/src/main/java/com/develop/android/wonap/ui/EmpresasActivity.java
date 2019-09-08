@@ -45,6 +45,7 @@ public class EmpresasActivity extends BaseEmpresaActivity {
     private static String WEBSERVER = "";
     private List<w_categorias> categorias = new LinkedList<w_categorias>();
     EmpresasListFragment emp_list;
+    //*NoticiasListFragment noticia_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class EmpresasActivity extends BaseEmpresaActivity {
         new GetCategorias().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
         emp_list = EmpresasListFragment.newInstance(id_ciudad, pais, ciudad, todos, proximidad, this);
+        //*noticia_list = NoticiasListFragment.newInstance(id_ciudad);
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_empresas, emp_list)
@@ -158,7 +160,7 @@ public class EmpresasActivity extends BaseEmpresaActivity {
                         initializedView = true;
                     } else {
                         //RECIBIMOS EL CONTEXTO DEL FRAGMENTO DE POS PARA PODER FILTRARLO
-                        emp_list.toUpdate(parent.getItemAtPosition(position).toString());
+                        //*emp_list.toUpdate(parent.getItemAtPosition(position).toString());
                         //Toast.makeText(parent.getContext(), "Spinner item "+parent.getItemAtPosition(position).toString()+"!", Toast.LENGTH_SHORT).show();
 
                     }

@@ -56,9 +56,37 @@ public class NoticiasModel implements Serializable
 
     public void setEsFavorito(Boolean es_favorito) { this.es_favorito = es_favorito; }
 
+    private String latitud;
+
+    public String getLatitud() { return this.latitud; }
+
+    public void setLatitud(String latitud) { this.latitud = latitud; }
+
+
+    private String longitud;
+
+    public String getLongitud() { return this.longitud; }
+
+    public void setLongitud(String longitud) { this.longitud = longitud; }
 
     public NoticiasModel() {}
 
+    public NoticiasModel(String id, String id_empresa, String nombre_empresa, String titulo,
+                         String descripcion, String imagen_noticia, boolean es_favorito, String fecha_publicacion, String latitud, String longitud) {
+
+        this.id = id;
+        this.id_empresa = id_empresa;
+        this.nombre_empresa = nombre_empresa;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.imagen_noticia = imagen_noticia;
+        this.es_favorito = es_favorito;
+        this.fecha_publicacion = fecha_publicacion;
+
+        this.latitud = latitud;
+        this.longitud = longitud;
+
+    }
     public NoticiasModel(String id, String id_empresa, String nombre_empresa, String titulo,
                          String descripcion, String imagen_noticia, boolean es_favorito, String fecha_publicacion) {
 
@@ -72,5 +100,6 @@ public class NoticiasModel implements Serializable
         this.fecha_publicacion = fecha_publicacion;
 
     }
+
 
 }

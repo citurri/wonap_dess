@@ -202,6 +202,7 @@ public class CountryListFragment extends Fragment {
 
             if(action.equals("Empresas")) intent = new Intent(getActivity(), EmpresasActivity.class);
             //else intent = new Intent(getActivity(), AnunciosList.class);
+            else intent = new Intent(getActivity(), NoticiasActivity.class);
 
             Bundle b = new Bundle();
             b.putString("id_ciudad", ciudad.getId());

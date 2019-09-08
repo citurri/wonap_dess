@@ -167,20 +167,22 @@ public class EmpresaImagenesFragment extends Fragment {
         protected void onPostExecute(ArrayList<String> result) {
             super.onPostExecute(result);
             Log.v("GetImagenes","onPostExecute");
-            final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
-            empresaImagenes.setLayoutManager(layoutManager);
-            userPhotosAdapter = new UserProfileAdapter(getActivity(), images);
-            empresaImagenes.setAdapter(userPhotosAdapter);
-            empresaImagenes.setOnScrollListener(new RecyclerView.OnScrollListener() {
-                @Override
-                public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                    userPhotosAdapter.setLockedAnimations(true);
-                }
-            });
-            if(images.size() > 0)
-                nullTextView.setVisibility(View.INVISIBLE);
-            else
-                nullTextView.setVisibility(View.VISIBLE);
+            if(!isDetached()) {
+                final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+                empresaImagenes.setLayoutManager(layoutManager);
+                userPhotosAdapter = new UserProfileAdapter(getActivity(), images);
+                empresaImagenes.setAdapter(userPhotosAdapter);
+                empresaImagenes.setOnScrollListener(new RecyclerView.OnScrollListener() {
+                    @Override
+                    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                        userPhotosAdapter.setLockedAnimations(true);
+                    }
+                });
+                if (images.size() > 0)
+                    nullTextView.setVisibility(View.INVISIBLE);
+                else
+                    nullTextView.setVisibility(View.VISIBLE);
+            }
         }
 
     }

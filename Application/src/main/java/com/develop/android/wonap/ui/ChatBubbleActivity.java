@@ -315,6 +315,7 @@ public class ChatBubbleActivity extends AppCompatActivity implements SendComment
             for (w_moferta_comentarios comentario : comentarios) {
                 chatArrayAdapter.add(comentario);
             }
+            chatArrayAdapter.notifyDataSetChanged();
             //loading.dismiss();
 
 

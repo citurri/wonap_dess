@@ -36,22 +36,29 @@ import com.develop.android.wonap.R;
 public class DetailActivity extends AppCompatActivity {
 
     private static final String EXTRA_ATTRACTION = "id_oferta";
+    private static final String ID_EMPRESA = "id_empresa";
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void launch(Activity activity, String id_oferta, View heroView) {
-        Intent intent = getLaunchIntent(activity, id_oferta);
+    public static void launch(Activity activity, String id_oferta, View heroView, String id_empresa) {
+        Intent intent = getLaunchIntent(activity, id_oferta, id_empresa);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                    activity, heroView, heroView.getTransitionName());
-            ActivityCompat.startActivity(activity, intent, options.toBundle());
+
+            if(id_empresa.equals("0")) {
+               ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        activity, heroView, heroView.getTransitionName());
+                ActivityCompat.startActivity(activity, intent, options.toBundle());
+            }
+            else
+                activity.startActivity(intent);
         } else {
             activity.startActivity(intent);
         }
     }
 
-    public static Intent getLaunchIntent(Context context, String id_oferta) {
+    public static Intent getLaunchIntent(Context context, String id_oferta, String id_empresa) {
         Intent intent = new Intent(context, DetailActivity.class);
         intent.putExtra(EXTRA_ATTRACTION, id_oferta);
+        intent.putExtra(ID_EMPRESA, id_empresa);
         return intent;
     }
 
@@ -61,9 +68,11 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String attraction = getIntent().getStringExtra(EXTRA_ATTRACTION);
+        String id_empresa = getIntent().getStringExtra(ID_EMPRESA);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, DetailFragment.createInstance(attraction))
+                    .add(R.id.container, DetailFragment.createInstance(attraction, id_empresa))
                     .commit();
         }
     }

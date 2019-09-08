@@ -577,13 +577,13 @@ public class EmpresaProfileActivity extends AppCompatActivity implements RevealB
                     f= EmpresaImagenesFragment.newInstance(empresa.getId());
                     break;
                 case 4:
-                    f= new EmpresaGeneralesFragment();
+                    f= NoticiasListFragment.newInstance(empresa.getId(), empresa.getNotNoticias() );
                     break;
                 case 5:
-                    f= new EmpresaGeneralesFragment();
+                    f= AttractionListFragment.newInstance(empresa.getId());
                     break;
                 case 6:
-                    f= new EmpresaGeneralesFragment();
+                    f= EmpresaProductosFragment.newInstance(empresa.getId());
                     break;
             }
 

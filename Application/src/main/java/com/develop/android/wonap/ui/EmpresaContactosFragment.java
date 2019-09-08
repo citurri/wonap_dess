@@ -149,16 +149,18 @@ public class EmpresaContactosFragment extends Fragment {
         protected void onPostExecute(ArrayList<w_contactos> result) {
             super.onPostExecute(result);
             Log.v("GetContactos","onPostExecute");
-            contactosAdapter = new ContactosAdapter(getActivity(), contactos);
-            empresaContacto.setHasFixedSize(true);
-            empresaContacto.setLayoutManager(new GridLayoutManager(
-                    getActivity(), getResources().getInteger(R.integer.list_columns)));
-            empresaContacto.setAdapter(contactosAdapter);
+            if(!isDetached()) {
+                contactosAdapter = new ContactosAdapter(getActivity(), contactos);
+                empresaContacto.setHasFixedSize(true);
+                empresaContacto.setLayoutManager(new GridLayoutManager(
+                        getActivity(), getResources().getInteger(R.integer.list_columns)));
+                empresaContacto.setAdapter(contactosAdapter);
 
-            if(contactos.size() > 0)
-                nullTextView.setVisibility(View.INVISIBLE);
-            else
-                nullTextView.setVisibility(View.VISIBLE);
+                if (contactos.size() > 0)
+                    nullTextView.setVisibility(View.INVISIBLE);
+                else
+                    nullTextView.setVisibility(View.VISIBLE);
+            }
         }
 
     }

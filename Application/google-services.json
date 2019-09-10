@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "969269247006",
+    "firebase_url": "https://t-list-102018.firebaseio.com",
+    "project_id": "t-list-102018",
+    "storage_bucket": "t-list-102018.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969269247006:android:2865f207bdff377e",
+        "android_client_info": {
+          "package_name": "com.develop.android.wonap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969269247006-9hhjd1aht64t07nsclqm4211d9622k1j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.develop.android.wonap",
+            "certificate_hash": "3c64b5bcc3ccad7be8a3a4a69a66641f68c6b30f"
+          }
+        },
+        {
+          "client_id": "969269247006-ohkrpqmfci1tiop5bb1250aueekp8tqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDugv9iWk_f7Jy8FwwrGAJJMoZ2WSTsaSI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969269247006-ohkrpqmfci1tiop5bb1250aueekp8tqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
